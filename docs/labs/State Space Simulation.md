@@ -1,7 +1,8 @@
 ---
 layout: home
 mathjax: true
-parent: Tutorials
+parent: Tutorials and Labs
+nav_order: 2
 ---
 
 ## Simulink State Space Simulation

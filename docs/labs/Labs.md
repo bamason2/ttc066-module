@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Computer Labs
-nav_order: 6
+title: Tutorials and Labs
+nav_order: 5
 has_children: true
 ---
 
-## Computer Laboratories
+## Tutorials and Labs

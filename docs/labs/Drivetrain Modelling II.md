@@ -1,7 +1,7 @@
 ---
 layout: page
 mathjax: true
-parent: Computer Labs
+parent: Tutorials and Labs
 ---
 
 # Drivetrain Modelling Lab II

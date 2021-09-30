@@ -1,7 +1,8 @@
 ---
 layout: page
 mathjax: true
-parent: Tutorials
+parent: Tutorials and Labs
+nav_order: 1
 
 ---
 
@@ -73,5 +74,6 @@ for i=2:n
    x = x + k2;
    xm(i,:) = x;
 
-end;
+end
+
 ```
