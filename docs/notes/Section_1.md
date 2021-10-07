@@ -15,9 +15,9 @@ Engineering systems are usually modelled as part of a wider process of decision 
 
 Some things need to be considered;
 
-- “All models are wrong - but some are useful” (George Box) - that is, all models have their limitations - so never accept results without question 
+- “All models are wrong but some are useful” (George Box)
 - Modelling almost always helps to develop understanding of a system
-- The engineer/ modeller decides the valid domain of a model - by careful consideration or by default
+- The engineer/ modeller decides the valid domain of a model, by careful consideration or by default
 - Numerical procedures have their limitations
 
 ![image](figures/table_1.png)

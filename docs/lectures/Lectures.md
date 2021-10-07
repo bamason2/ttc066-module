@@ -31,7 +31,7 @@ In dealing with dynamic systems there are several ways in which we can represent
 
 Download slides [here]({{ site.url }}/ttc066-module/lectures/Linearity and State Space.pdf)
 
----
+<!-- ---
 
 ## Ride Dynamics
 
@@ -77,4 +77,4 @@ Download slides [here]({{ site.url }}/ttc066-module/files/Powertrain_Modelling.p
 
 Download slides [here]({{ site.url }}/ttc066-module/files/Powertrain_Modelling.pdf)
 
----
+--- -->
