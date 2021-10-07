@@ -24,56 +24,18 @@ Assuming $u(t)=1$ at all time (i.e. $u$ is constant), produce plots of $x(t)$ ag
 
 2. **Numerically**: Now, using MATLAB, write a short script with a for loop over each time step to use the Euler method for integration with a fixed time step h;
 
-$$ x(t+h)=x(t)+h\dot{x}(t) \nonumber$$
+    $$ x(t+h)=x(t)+h\dot{x}(t) \nonumber$$
 
-Clearly you will also need the equation for $\dot{x}(t)$ at the top of this sheet. You do not need to make use of the analytical solution while doing this, to help you with the MATLAB syntax, look at MATLAB section below.
+    Clearly you will also need the equation for $\dot{x}(t)$ at the top of this sheet. You do not need to make use of the analytical solution while doing this.
+
+3. Numerically using Simulink: If you have some experience of using Simulink, you can also write a simple block diagram, and let Simulink do the integration for you (you’ll need an integrator block, a constant block and a sum block).
 
 ### Questions
 
 * Given that you know the analytical solution is 100% accurate, compare this with the other method(s). What value of the fixed time step, $h$ is needed for method 2) to give an accurate solution?
 * Is there any error in the Simulink solution? What if you zoom in to the graph?
-* Modify your MATLAB script for solving 2), so that it provides *RK4* (fixed step) integration. Is the solution better?
+* Modify your MATLAB script for solving 2), so that it provides *mid-point* and *RK4* (fixed step) integration. Is the solution better?
 
-## MATLAB Reference Implementation
+Your plots should look something like this;
 
-In this tutorial exercise we are going to write a MATLAB livescript which gives us a good way of writing some code, annotating and executing it.  
-
-You should do the following;
-
-* Open up MATLAB and create a new livescript using the File -> New menu.  
-* Copy the code below into the livescript and calculate the integral using the two methods.
-* Change the value of h and see what happens to the solution.
-* Have a think (and make an attempt at) implementing RK4.
-
-```matlab
-% define the variables
-K = 17647;
-M = 400;
-B = 1500;
-h = 0.05;
-
-% implement the solver
-tm = [0:h:3]';
-n = length(tm);
-xm = zeros(n,2);
-x = [0.1, 0];
-xm(1,:) = x;
-
-for i=2:n
-   
-   % first derivative based on x at start of step :
-   xdot(1) = 0 - x(2);
-   xdot(2) = K/M*x(1) + B/M*(0 - x(2));
-   k1 = h*xdot;
-   
-   % then recalculate based on x at midpoint :
-   xmid = x + k1/2;
-   xdot(1) = 0 - xmid(2);
-   xdot(2) = K/M*xmid(1) + B/M*(0 - xmid(2));
-   k2 = h*xdot;
-   x = x + k2;
-   xm(i,:) = x;
-
-end
-
-```
+![image](figs/numerical_integration_sol.png)
