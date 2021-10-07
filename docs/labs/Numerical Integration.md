@@ -28,7 +28,7 @@ Assuming $u(t)=1$ at all time (i.e. $u$ is constant), produce plots of $x(t)$ ag
 
     Clearly you will also need the equation for $\dot{x}(t)$ at the top of this sheet. You do not need to make use of the analytical solution while doing this.
 
-3. Numerically using Simulink: If you have some experience of using Simulink, you can also write a simple block diagram, and let Simulink do the integration for you (you’ll need an integrator block, a constant block and a sum block).
+3. **Numerically using Simulink**: If you have some experience of using Simulink, you can also write a simple block diagram, and let Simulink do the integration for you (you’ll need an integrator block, a constant block and a sum block).
 
 ### Questions
 
@@ -38,4 +38,4 @@ Assuming $u(t)=1$ at all time (i.e. $u$ is constant), produce plots of $x(t)$ ag
 
 Your plots should look something like this;
 
-![image](figs/numerical_integration_sol.png)
+<img src="figs/numerical_integration_sol.png" width=400>
