@@ -6,7 +6,7 @@ nav_order: 1
 
 ---
 
-## Numerical Integration using MATLAB
+# Numerical Integration using MATLAB
 
 In this tutorial we will compare different methods for integrating a simple differential equation (or model):
 

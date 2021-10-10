@@ -78,7 +78,7 @@ $$\dot{\mathbf{x}}=\left(\begin{array}{cc}
 
 (it’s a bit like reverse-population of a matrix multiplication problem, working from the answer, backwards). There are two states, so $A$ (which is always square) has size $2\times2$ and only one input.
 
-The alternative (longer) form for the same model was described in Equation \ref{example_1:eq2a} in the example above. In ‘longhand’ this becomes;
+The alternative (longer) form for the same model was described in Equation \ref{example_1:eq2a} in the example above. In longhand this becomes;
 
 $$\begin{aligned}
 &\dot{x}_{1}=0 x_{1}+1 x_{2}+0 x_{3}+0 u_{1} \\
@@ -102,7 +102,7 @@ Note that you can have two different sets of matrices which both describe the sa
 
 In many situations (eg for automatic control) we consider the system as a transfer function between input(s) and output(s);
 
-![image](figures/plant_model.png)
+<img src="figures/plant_model.png" width=500>
 
 As the states may vary depending on how you set the model up, the second equation in Equation \ref{eq12} is used to ‘translate’ the states into one or more recognisable outputs. Matrices $C$ and $D$ are not essential to the valid analysis or simulation of a system but they do let you define a system from input to output. For example, for the outputs to be $y_1$ = suspension deflection and $y_2$ = absolute body velocity, the following 'translation' is required;
 
@@ -149,11 +149,11 @@ B_{s} / M
 
 (You can see that I’ve just ‘imported’ the second row of [A : B] into the third row of [C : D].) Note that the matrix sizes are such that you can always put A, B, C and D together, to ‘build’ a rectangular matrix;
 
-![image](figures/matrix_mult.png)
+<img src="figures/matrix_mult.png" width=200>
 
-and you can think of the inputs going in, outputs coming out, and states churning around as drawn above (do I need medication ?). This has no practical use, but helps you remember how big the $D$ matrix needs to be (this is often just full of zeros).
+and you can think of the inputs going in, outputs coming out, and states churning around as drawn above. This has no practical use, but helps you remember how big the $D$ matrix needs to be (this is often just full of zeros).
 
-Aside : You should be able to output anything you want from a properly defined state space model (as a linear combination of the states and inputs). But, try outputting zb from the two state version. You can’t, because $z_b$ alone does not have an independent influence on the system’s dynamic response, and the number of states has been minimised to take advantage of this fact (using the combination $z_b$ – $z_r$). This is not a problem, because you wouldn’t normally be interested in variables which have no direct dynamic influence – and if you did, you could code extra states, like
+Aside: You should be able to output anything you want from a properly defined state space model (as a linear combination of the states and inputs). But, try outputting zb from the two state version. You can’t, because $z_b$ alone does not have an independent influence on the system’s dynamic response, and the number of states has been minimised to take advantage of this fact (using the combination $z_b$ – $z_r$). This is not a problem, because you wouldn’t normally be interested in variables which have no direct dynamic influence – and if you did, you could code extra states, like
 in the three state version.
 
 <p style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;"> <b>NOTE: </b> You should be able to output anything you want from a properly defined state space model (as a linear combination of the states and inputs). But, try outputting $z_b$ from the two state version. You can’t, because $z_b$ alone does not have an independent influence on the system’s dynamic response, and the number of states has been minimised to take advantage of this fact (using the combination $z_b – z_r$). This is not a problem, because you wouldn’t normally be interested in variables which have no direct dynamic influence – and if you did, you could code extra states, like in the three state version.</p>

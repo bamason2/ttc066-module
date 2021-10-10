@@ -5,7 +5,7 @@ parent: Tutorials and Labs
 nav_order: 2
 ---
 
-## Simulink State Space Simulation
+# State Space Simulation
 
 In this tutorial exercise you will be creating a state space model of the body bounce suspension system previously examined in the lecture. This will be implemented in Simulink and simulated to provide some experience of setting up and making use of this type of model.
 
@@ -15,7 +15,7 @@ In this tutorial exercise you will be creating a state space model of the body b
 
 <hr>
 
-### Tasks
+## Tasks
 
 1. Create a state space representation of the system using the above equations.
 2. Create a model_setup.m script file. Define model parameters, A, B, C and D matrices and initial conditions $z_b=0.1$, $\dot{z}_b=0$. Refer to your notes if necessary.
@@ -33,13 +33,13 @@ In this tutorial exercise you will be creating a state space model of the body b
 
 Having completed the above, you should have a plot similar to this;
 
-![image](figs/results_fig_1.png)
+<img src="figs/results_fig_1.png" width=500>
 
-There is a state space block in the ‘continuous’ block library of Simulink. Create a new model which uses this block to run a simulation of the suspension model (parameters as in ‘Handy Matlab' previously shown) from an initial condition of $z_b = 0.1, = 0$. First set up the $A, B, C, D$ matrices and a vector for the initial conditions in a separate Matlab script file. Then you can put $A, B, C$ etc. in the appropriate fields in the Simulink ‘state space’ block, and provided you’ve run the script file in Matlab, Simulink can ‘see’ the values you’ve defined.
+There is a state space block in the *continuous* block library of Simulink. Create a new model which uses this block to run a simulation of the suspension model (parameters as in ‘Handy Matlab' previously shown) from an initial condition of $z_b = 0.1, = 0$. First set up the $A, B, C, D$ matrices and a vector for the initial conditions in a separate Matlab script file. Then you can put $A, B, C$ etc. in the appropriate fields in the Simulink ‘state space’ block, and provided you’ve run the script file in Matlab, Simulink has access to the values you have defined.
 
-Why so ‘jerky’ ? That’s because the integrator didn’t need to take many steps to get good accuracy. It doesn’t look smooth because the plot command just assumes a straight line between each point it plots. You can get a smoother looking result by specifying a ‘refine factor’, under ‘Simulation Parameters’. Setting this to 10 will give 10 output points for each step the integrator has to take to achieve the required accuracy. Another way, which will have benefits if you want to do any frequency domain analysis of outputs from simulation models, is to set a fixed time-step at which you want the outputs calculated. This is done by specifying a value (to replace -1) in the ‘Sample time’ field for each ‘To Workspace’ block (you need to do each separately).
+Why so jerky? That’s because the integrator didn’t need to take many steps to get good accuracy. It doesn’t look smooth because the plot command just assumes a straight line between each point it plots. You can get a smoother looking result by specifying a *refine* factor, under *Simulation Parameters*. Setting this to 10 will give 10 output points for each step the integrator has to take to achieve the required accuracy. Another way, which will have benefits if you want to do any frequency domain analysis of outputs from simulation models, is to set a fixed time-step at which you want the outputs calculated. This is done by specifying a value (to replace -1) in the *Sample time* field for each *To Workspace* block (you need to do each separately).
 
-### Self Study
+## Self Study
 
 Implement the model with alternative state definition as derived within the lecture.  What are the differences.  Which of the two models in your opinion are the best ones, why?
 

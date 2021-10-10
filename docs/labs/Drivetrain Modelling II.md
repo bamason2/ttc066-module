@@ -4,7 +4,7 @@ mathjax: true
 parent: Tutorials and Labs
 ---
 
-# Drivetrain Modelling Lab II
+# Drivetrain Modelling II
 
 In this laboratory you will be creating a drivetrain model that will be used for straight line performance evaluation during MIRA week.  The drivetrain model is generic in that it can be parameterised for a number of different vehicles, the parameters that you are provided with in this case are for a Ford Focus 2.0 l Ecoboost.
 

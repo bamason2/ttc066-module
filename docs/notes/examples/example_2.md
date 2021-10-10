@@ -2,7 +2,8 @@
 
 A simple bouncing ball model based on the schematic below can be created as follows.
 
-![image](figures/suspension_bouncing_ball.png)\
+<img src="figures/suspension_bouncing_ball.png" width=500>
+
 *Figure 2: Ball bounce model*
 
 When the ball is in contact with the ground this is very similar to the suspension, except that the road won’t move up and down and the reference is the ground, so the sign of positive $z_b$ is different.

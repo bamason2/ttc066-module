@@ -20,7 +20,7 @@ The simplest method for integrating a set of differential equations;
 
 $$\dot{\mathbf{x}}(t)=f(\mathbf{x}(t),\mathbf{u}(t))$$
 
-is the Euler method, which is illustrated in Figure 3 below;
+is the Euler method, which is illustrated in Figure 1 below;
 
 $$\mathbf{x}(t+h)=\mathbf{x}(t)+h\dot{\mathbf{x}}(t)$$
 
@@ -30,14 +30,14 @@ This method is quite crude because the time derivatives $\dot{\mathbf{x}}(t)$ co
 
 Euler is too simple because;
 
-- Accuracy can only be ensured by choosing a ‘small enough’ step size and thus imposing a large number of function evaluations on the simulation.
+- Accuracy can only be ensured by choosing a small enough step size and thus imposing a large number of function evaluations on the simulation.
 - If $h$ is too large, the solution can become unstable as well as inaccurate, with progressively larger values of $\mathbf{x}$ being predicted.
-- The absolute level of accuracy is determined by the model (how rapidly $\dot{\mathbf{x}}(t)$ varies and whether it includes *sharp* nonlinearities* like in the bouncing ball) so it is hard to guarantee a given level of precision.
+- The absolute level of accuracy is determined by the model (how rapidly $\dot{\mathbf{x}}(t)$ varies and whether it includes *sharp* non-linearities like in the bouncing ball) so it is hard to guarantee a given level of precision.
 
 ![image](figures/integration_methods.png)
-*Figure 3: Different methods used for numerical integration*
+*Figure 1: Different methods used for numerical integration*
 
-Figure 3 above (b) shows a better method, the midpoint method or Runge Kutta second order. Intuitively, if you find the gradient half way along a step and use this instead of the gradient at the start you will get a better estimate of the average behaviour over the time interval;
+Figure 1 above (b) shows a better method, the midpoint method or Runge-Kutta second order. Intuitively, if you find the gradient half way along a step and use this instead of the gradient at the start you will get a better estimate of the average behaviour over the time interval;
 
 $$\begin{aligned}
 \mathbf{k_1}&=hf(\mathbf{x}(t), \mathbf{u}(t))\\
@@ -47,7 +47,7 @@ $$\begin{aligned}
 
 The $\mathcal{O}(h^3)$ means errors of order $h^3$. Essentially the Euler method uses one function $f(\mathbf{x}(t),\mathbf{u}(t)))$ evaluation and is accurate to order $h^2$, the midpoint method uses two (hence second order), and is accurate to $\mathcal{O}(h^3)$, etc.
 
-By far the most often used is the fourth order Runge-Kutta formula (RK4), which is illustrated in Figure 3c and is calculated as;
+By far the most often used is the fourth order Runge-Kutta formula (RK4), which is illustrated in Figure 1c and is calculated as;
 
 $$\begin{aligned}
 \mathbf{k}_1&=hf(\mathbf{x}(t), \mathbf{u}(t))\\
@@ -59,21 +59,23 @@ $$\begin{aligned}
 
 This method involves four function evaluations; one at the start, two in the centre and one at the end of the step, and it uses a weighted aggregate to provide the best estimate of the states at $t+h$.
 
-The Runge Kutta methods are better than Euler, because they include *autocorrection* within a single time step, hence one RK4 step of length $h$ will be more accurate that four Euler steps of length $h/4$.
+The Runge-Kutta methods are better than Euler, because they include *autocorrection* within a single time step, hence one RK4 step of length $h$ will be more accurate that four Euler steps of length $h/4$.
 
 The graph on the right illustrates this. It shows a section of simulations of the suspension model, settling from an initial deflection of the body.
 
 The *true states* were calculated using RK4 with a step length of $0.001$. RK4, midpoint and euler methods were then tested with equal numbers of function evaluations (RK4 $h=0.1$, Midpoint $h=0.05$ and Euler $h=0.025$)
 
-![image](figures/integration_methods_plot.png)
-*Figure 4: A fair comparison between integration methods*
+<img src="figures/integration_methods_plot.png" width=500>
+
+*Figure 2: A fair comparison between integration methods*
 
 How do we know what step length we need to achieve a particular level of accuracy though? In general, it isn’t appropriate to fix $h$, and the plot below shows why. The bouncing ball model has a ‘sharp’ nonlinearity – the model changes suddenly when the ball contacts the floor. In the figure, Simulink has been used to give an ‘accurate’ simulation of the motion of the ball after it is released from rest at a height of one metre. The top plot shows vertical height ($m$) against time, the bottom shows speed ($m/s$). One dot is given per timestep taken – note that the step length is significantly shortened during the time when the model is switching between contact and non-contact conditions. The other traces are given by fixed step-length RK4 simulations.
 
-For RK4, $h=0.1$, the time step between function evaluations is too long – the integrator models the ball as in freefall ‘just before’ it hits the ground, then at the next function evaluation the ball has ‘fallen through the floor’, so immediately has a very high spring force applied – this explains the subsequent motion, where the ball flies off into the air at great speed (this is slightly unrealistic behaviour). In the second case, $h=0.03$ because for most of the simulation this is the step length the Simulink integrator uses. Similar problems occur again; although it’s not as severe, clearly this model is incorrect, as again the simulation shows the ball gaining energy.
+For RK4, $h=0.1$, the time step between function evaluations is too long – the integrator models the ball as in freefall just before it hits the ground, then at the next function evaluation the ball has ‘fallen through the floor’, so immediately has a very high spring force applied – this explains the subsequent motion, where the ball flies off into the air at great speed (this is slightly unrealistic behaviour). In the second case, $h=0.03$ because for most of the simulation this is the step length the Simulink integrator uses. Similar problems occur again; although it’s not as severe, clearly this model is incorrect, as again the simulation shows the ball gaining energy.
 
-![image](figures/ball_bounce_model.png)
-*Figure 5: Ball bounce solver comparisons*
+<img src="figures/ball_bounce_model.png" width=500>
+
+*Figure 3: Ball bounce solver comparisons*
 
 It is clear from this example that, however the model is structured, it is essential we have control over the accuracy we are getting. This means integrators have to include an algorithm which automatically adapts the step lengths taken.
 

@@ -15,7 +15,7 @@ Download slides [here]({{ site.url }}/ttc066-module/lectures/Introduction.pdf)
 
 ---
 
-## Differential Equations
+## Differential Equations and Numerical Integration
 
 Why numerical integration? It can help us find a solution where it is too difficult or not possible to find an analytical one. What is a solution? Well we normally describe a dynamic system in terms of a differential equation but are often, as we do the engineering, interested for example in actual position, velocity and acceleration, not just how these are related (through some difficult-to-think-about equation). Working out what they are for some initial conditions and parameter values e.g. spring stiffness, mass, etc help us to evaluate the consequences of the engineering decisions we make i.e. to achieve my engineering specification should I use spring with stiffness x or y?
 
@@ -31,17 +31,17 @@ In dealing with dynamic systems there are several ways in which we can represent
 
 Download slides [here]({{ site.url }}/ttc066-module/lectures/Linearity and State Space.pdf)
 
-<!-- ---
+---
 
 ## Ride Dynamics
 
 When driving (or riding) in a car you will experience a wide frequency of vibration, this will manifest itself in vibration to your body and the sound that you hear as the vehicle operates.  Naturally, some of these vibrations and sounds are more or less pleasant to us as humans, most will have had the experience of a particularly annoying vibration or sound when in a car.  As engineers we want to make sure that the vehicles we produce don't annoy the people that use them (not a great well to sell cars) additionally vibration can be a safety issue that needs to be considered in the engineering process.
 
-In this lecture we will look at how these vibration are generated, how they are classified and what they are called.  Also we will think about some of the things that we can do to engineer-out the annoying and unsafe vibrations.
+In this lecture we will look at how these vibration are generated, how they are classified and what they are called.  Also we will think about some of the things that we can do to engineer-out the annoying any unsafe vibrations.
 
-Download slides [here]({{ site.url }}/ttc066-module/files/Ride Dynamics.pdf)
+Download slides [here]({{ site.url }}/ttc066-module/lectures/Ride Dynamics.pdf)
 
----
+<!-- ---
 
 ## Drivetrain Dynamics
 

@@ -3,7 +3,8 @@
 
 A simple body bounce model based on the schematic below can be created as follows.
 
-![image](figures/suspension_body_bounce.png)\\
+<img src="figures/suspension_body_bounce.png" width=400>
+
 *Figure 1: Suspension (body bounce) model*
 
 Combining both of the springs to a single equivalent stiffness;

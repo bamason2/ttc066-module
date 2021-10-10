@@ -19,11 +19,11 @@ The lower spring ($K_2$) represents the compliance of the rubber tyre, and the u
 *Table 1: Suspension system parameter values*
 
 |---|---|
-|sprung mass|$M_1$|320kg|
-|unsprung mass|$M_2$|40kg|
-|suspension stiffness|$K_1$|18000 N/m|
-|suspension damping | B | 1000 $\text{N/ms}^{-1}$|
-|tyre stiffness | $\text{K}_2$ | $2\times10^5 \text{ N/m}$ |
+| sprung mass | $M_1$ | 320 | kg |
+| unsprung mass | $M_2$ | 40 | kg |
+| suspension stiffness | $K_1$ | 18000 | N/m |
+| suspension damping | B | 1000 | $\text{N/ms}^{-1}$ |
+| tyre stiffness | $\text{K}_2$ | $2\times10^5$ | N/m |
 
 ## Step 1: Write fundamental equations for deriving a quarter-car model
 
@@ -106,7 +106,7 @@ Zoom-in on the plot so you can pick out accurate timings for the peaks in the wh
 
 ## Step 5: Construct the equivalent State-space model
 
-Finally, go back to your original equations of motion in Step 1, and rearrange them to eliminate the (intermediate) tyre and suspension forces. You should be able to write an equation for $\ddot{z}_b$ and another equation for $\ddot{z}_w$ which only use velocity and displacement variables. Now make a sensible choice of states (displacements and velocities of the two masses gives four states, which is a valid minimal set) and set the input as the road deflection, $u=zr_$.
+Finally, go back to your original equations of motion in Step 1, and rearrange them to eliminate the (intermediate) tyre and suspension forces. You should be able to write an equation for $\ddot{z}_b$ and another equation for $\ddot{z}_w$ which only use velocity and displacement variables. Now make a sensible choice of states (displacements and velocities of the two masses gives four states, which is a valid minimal set) and set the input as the road deflection, $u=z_r$.
 
 $$ \dot{\mathbf{x}}=A\mathbf{x}+B\mathbf{u} \nonumber $$
 
@@ -114,7 +114,7 @@ Now you can check your working by writing out the A and B matrices, and remember
 
 $$ \mathbf{y}=C\mathbf{x}+D\mathbf{u} \nonumber $$
 
-also write out the $C$ and $D$ matrices to give outputs of body and wheel deflection. Write a short Matlab script to assign these four matrices (for any given parameter set $K_1$, $K_2$, $M_1$ etc). Start the Matlab script by assigning all the parameters and then use these variable names to form the $A, B, C, D $matrices. Also (if you haven’t done it this way already) use variable names rather than the numbers themselves in all the appropriate places within your qvm model. Ideally models should be set up in a flexible way, so you can easily change parameters in a script to run simulation studies.
+also write out the $C$ and $D$ matrices to give outputs of body and wheel deflection. Write a short Matlab script to assign these four matrices (for any given parameter set $K_1$, $K_2$, $M_1$, etc). Start the Matlab script by assigning all the parameters and then use these variable names to form the $A, B, C, D $matrices. Also (if you haven’t done it this way already) use variable names rather than the numbers themselves in all the appropriate places within your qvm model. Ideally models should be set up in a flexible way, so you can easily change parameters in a script to run simulation studies.
 
 Now add a State-Space block (Simulink Continuous library) to your finished qvm model. This state space model can be ‘wired’ to your road deflection input, and another *To Workspace* block to record the output.
 

@@ -10,10 +10,10 @@ nav_order: 2
 | 1 | Introduction | Numerical Integration using MATLAB |
 |   | Differential Equations and Numerical Integration | MATLAB and Simulink Onramp |
 | 2 | Linearity and State Space | State Space Simulation |
-|   | Ride Dynamics | |
-| 3 | Ride Dynamics | Suspension System Modelling |
-|   | Eigenvalues and Eigenvectors | |
-| 4 | Drivetrain Dynamics | Suspension System Modelling |
+|   | Ride Dynamics | Drivetrain Modelling I |
+| 3 | Ride Dynamics [...continued] | Suspension System Simulation |
+|   | Using Eigenvalues and Eigenvectors | |
+| 4 | Drivetrain Dynamics | Drivetrain Modelling II |
 | 5 | Drivetrain Dynamics | Assessed Computer Lab (40% module mark) |
 | 6 | Assessment Feedback | Simulink Engine Modelling |
 |   | Engine Modelling | |

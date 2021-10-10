@@ -22,7 +22,8 @@ Right now it might seem rather a lot of work to produce models in state space fo
 
 In your control module, you dealt with single input single output (SISO) systems with transfer functions based on laplace transforms;
 
-![image](figures/plant_model.png)
+<img src="figures/plant_model.png" width=500>
+
 *Figure 1: Plant model*
 
 where;
@@ -88,7 +89,8 @@ What is interesting here is the fact that only matrix $A$ governs the fundamenta
 
 It is probably easiest to show how to interpret eigenvalues (and eigenvectors, which are also useful) using an example. We need something slighly more complicated than the suspension, so we’ll try two unequal masses and springs (a physical example of this will be waved about in front of you, by your friendly neighbourhood lecturer).
 
-![image](figures/dual_mass_damper.png)\
+<img src="figures/dual_mass_damper.png" width=400>
+
 *Figure 2: Double spring, mass, damper dynamic system schematic*
 
 Start with second-order differential equations;
@@ -157,7 +159,8 @@ $$
 
 $a$ should be negative if your model is correct and it relates to a physical system, because this determines the *envelope* of the response as a decaying exponential. $b$ then gives the frequency of the sinusoid component (dotted lines) and the solid line shows the combination of the two.
 
-![image](figures/modal_freq.png)
+<img src="figures/modal_freq.png" width=600>
+
 *Figure 3: Modal motion plot*
 
 This is then multiplied by the complex constants, $\mathbf{u}_i$, which affect the magnitude of the response (in this case the magnitude of $z_1$ compared with $z_2$) and the relative phase (eg 90° phase difference might have the $z_1$ at $0$ at the same time as $z_2$ is at its peak).
@@ -207,7 +210,8 @@ $$ \lambda_{1 \& 2}=\sigma \pm j \omega_d \nonumber $$
 
 where $\sigma$ is the modal damping factor and $\omega_d$ is the damped natural frequency of the mode (in radians per second). There are a number of useful metrics that can be taken from the eigenvalue and some of these are illustrated in the figure below. The most commonly referred to, are the natural frequencies and damping ratio. Another useful metric is settling time – the time taken for the vibration to die away (to 2% of its original magnitude).
 
-![image](figures/damping_frequency_plot.png)
+<img src="figures/damping_frequency_plot.png" width=400>
+
 *Figure 4:*
 
 Damped natural frequency, $\omega_d$ in radians per second.\
@@ -274,7 +278,8 @@ $$
 
 The $A$ matrix transfers state information to state (derivative) information therefore the units of the input and output is the same. Graphically, you can think of this as;
 
-![image](figures/graphic_A_matrix.png)
+<img src="figures/graphic_A_matrix.png" width=200>
+
 *Figure 5:*
 
 which makes sense when you think of the matrix multiplication operation, whereby the inputs are laid across the top of the matrix, and the outputs come out the side.
@@ -282,7 +287,8 @@ which makes sense when you think of the matrix multiplication operation, whereby
 Writing Equation \ref{eq19} as $A=VDV^{-1}$, we can see that the $V$ matrix acts as a
 transformation, translating between states and modes (because the $D$ matrix isolates the modes diagonally, its input and output be a *mode*). Pictorially;
 
-![image](figures/large_matrix_trans.png)
+<img src="figures/large_matrix_trans.png" width=500>
+
 *Figure 6:*
 
 Thus when you look at the $V$matrix, the columns refers to the modes, in order, and the rows refer to the states, in order.
@@ -305,7 +311,8 @@ $$
 
 Now if I draw the (now normalised) eigenvector components on real and imaginary axes,
 
-![image](figures/normalised_eig.png)
+<img src="figures/normalised_eig.png" width=400>
+
 *Figure 8:*
 
 What I’ve generated is a ‘picture’ of the relative magnitude and phase of the displacement states for this two mass system, when it is oscillating in the first mode. You can visualise the motion by imagining both vectors rotating, from this position, at constant angular velocity – the translation you would see in the masses is given by the projection of each vector onto either the real or imaginary axis (it doesn’t matter which, but as the motion is vertical it is probably easiest to visualise this case in the imaginary axis). For this first mode, the upper mass oscillates, and the lower mass moves only about 1/20th of the distance covered by the
@@ -315,7 +322,8 @@ This mode is easily demonstrated on the classroom ‘toy’; from the eigenvalue
 
 The other mode (from the third and fourth eigenvectors) looks like this;
 
-![image](figures/normalised_eig2.png)
+<img src="figures/normalised_eig2.png" width=400>
+
 *Figure 9:*
 
 In this case the masses move in phase with each other, with the lower mass covering about twice the deflection of the upper mass. This is the ‘slower’ mode, with the eigenvalues showing a frequency of about 0.9Hz, and a very long settling time of about 400 seconds (7 minutes !).

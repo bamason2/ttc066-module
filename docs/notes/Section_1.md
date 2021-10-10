@@ -9,7 +9,7 @@ parent: Notes
 
 ## The Role of Systems Modelling
 
-![image](figures/system_modelling.png)
+<img src="figures/system_modelling.png">
 
 Engineering systems are usually modelled as part of a wider process of decision making.  Naturally, there are advantages in using models to simulate physical behaviour.  For example parametric studies can be undertaken quickly and efficiently (in many cases) for trade-off analysis and optimisation.
 
