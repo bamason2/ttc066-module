@@ -18,37 +18,36 @@ parent: Notes
 
 ## Linearity
 
-You may have come across this in control and other modules. It is a very important concept which needs to be kept in mind whenever you analyse a system and its responses. The good news is that if a system is linear, there are a number of very useful tools you can use to interpret its behaviour, and you can simulate (and control !) it very easily. But, most systems aren’t actually linear in practice. This isn’t the disaster it sounds though, because many systems can usefully be approximated as linear (particularly within one or more limited ranges of operation).
+You may have come across this in control and other modules. It is a very important concept which needs to be kept in mind whenever you analyse a system and its responses. The good news is that if a system is linear, there are a number of very useful tools you can use to interpret its behaviour, and you can simulate it very easily. But, most systems aren’t actually linear in practice. This isn’t the disaster it sounds though, because many systems can usefully be approximated as linear.
 
-A system is linear if its outputs scale (linearly) with its inputs – ie for a linear system, if input $u_1(t)$ causes output $y_1(t)$, and $u_2$ causes $y_2$, i.e. if the system is linear and;
+A system is linear if it satisfies the [superposition principle](https://en.wikipedia.org/wiki/Superposition_principle) which is the same as saying that it obeys the rules of homogeneity and additivity.  
 
-$$ \begin{split} &u_1(t)\rightarrow y_1(t)\\
-&u_2(t)\rightarrow y_2(t) \end{split} \nonumber $$
+The rule of homogeneity says that an increase (scaling) of an input, $x$ applied to a system, $f$ (actually system defined by a function) should result in an equivalent scaling of the output, $f(x)$. Another way of saying this is that if you double the input to a system you should see a doubling of the output.
 
-then;
+$$ f(ax)=af(x) \nonumber$$
 
-$$ \begin{split} &u_1(t)+u_2(t) \rightarrow y_1(t)+y_2(t)\\
-&cu_1(t)\rightarrow y_1(t) \end{split} \nonumber $$
+The additivity rule is is a bit more involved but essentially says that if you apply two different inputs, $x_1$ and $x_2$ to the system separately then the sum of outputs produced, $f(x_1)$ and $f(x_2)$ is the same as the output you would see if you were to apply the same inputs together, $f(x_1, x_2)$.
 
-will be true (for any constant $c$).
+$$ f(x_1+x_2)=f(x_1)+f(x_2) \nonumber$$
 
-The (state) differential equations (ODEs) for such a system can always be written as linear combinations of the states and inputs, i.e.;
+Why does the above matter?  It makes things more simple.  Four our ODEs it means that the state differential equations for a linear system can always be written as linear combinations of the states and inputs, i.e.;
 
 $$ \begin{split} &\dot{x}_1=a_{11}x_1+a_{12}x_2+a_{13}x_3+...+b_{11}u_1+b_{12}u_2+...\\
 &\dot{x}_2=a_{21}x_1+a_{22}x_2+a_{23}x_3+...+b_{21}u_1+b_{22}u_2+... \end{split} \nonumber $$
 
-where all the $a_{ij}$ and $b_{ij}$ are constants. There are no terms in $x_2$, no $sin(x_i)$ or any other function, no saturations, and no lookup tables for $\dot{x}$ as a function of $x$.
+where all the $a_{ij}$ and $b_{ij}$ are constants. There are no terms in $x^2$, no $sin(x_i)$ or any other function, no saturations and no lookup tables for $\dot{x}$ as a function of $x$.
 
-The suspension model in Section 2a is linear, but the bouncing ball model is not although it is linear within each of the two conditions it switches between, you can’t use either of these linear models for a whole simulation, so there is little benefit in analysing its response under either linear model separately. Useful linear analysis can only be conducted on so called ‘linear time-invariant’ (LTI) systems.
+The suspension model in [Section 2]({{ site.url}}/ttc066-module/notes/Section_2.html) is linear, but the bouncing ball model is not (although it is linear within each of the two conditions it switches between), you can’t use either of these linear models for a whole simulation, so there is little benefit in analysing its response under either linear model separately. Useful linear analysis can only be conducted on so called *linear time-invariant* (LTI) systems.
 
 ## State Space
 
-Unlike outer space, state space is not a mystical, far away phenomenon. In the main it refers to LTI models, written in a matrix form;
+The state space representation of a system is written in a matrix form;
 
-$$ \begin{split} &\dot{\mathbf{x}}=A\mathbf{x}+B\mathbf{u} \\
-&\mathbf{y}=C\mathbf{x}+D\mathbf{u} \end{split} \label{eq12} $$
+$$ \dot{\mathbf{x}}=A\mathbf{x}+B\mathbf{u} \label{eq12a}$$
 
-Ignoring the second equation for now, the first is just an efficient way of storing a whole (LTI) model in two matrices. Revisiting the suspension model example already discussed in [Section 2]({{ site.url}}/ttc066-module/notes/Section_2.html) and included below for reference;
+$$ \mathbf{y}=C\mathbf{x}+D\mathbf{u} \label{eq12b} $$
+
+Ignoring the Equation \ref{eq12b} for now, the first is just an efficient way of storing a whole model in two matrices. Revisiting the suspension model example already discussed in [Section 2]({{ site.url}}/ttc066-module/notes/Section_2.html) and included below for reference;
 
 <details close markdown="block">
   <summary>
@@ -76,9 +75,7 @@ $$\dot{\mathbf{x}}=\left(\begin{array}{cc}
 \frac{B_{5}}{M}
 \end{array}\right)u \nonumber $$
 
-(it’s a bit like reverse-population of a matrix multiplication problem, working from the answer, backwards). There are two states, so $A$ (which is always square) has size $2\times2$ and only one input.
-
-The alternative (longer) form for the same model was described in Equation \ref{example_1:eq2a} in the example above. In longhand this becomes;
+There are two states, so $A$ (which is always square) has size $2\times2$ and only one input.  The alternative (longer) form for the same model was described in Equation \ref{example_1:eq2a} in the example above. In longhand this becomes;
 
 $$\begin{aligned}
 &\dot{x}_{1}=0 x_{1}+1 x_{2}+0 x_{3}+0 u_{1} \\
@@ -100,16 +97,16 @@ $$\dot{\mathbf{x}}=\left(\begin{array}{ccc}
 
 Note that you can have two different sets of matrices which both describe the same model, the definition of the state vector is different in each case, so the model will be different in structure, but it will have the same output. The states can be seen as *intermediate variables*, they are a set of variables which provide a full description of the modelled dynamics but aren’t necessarily unique.
 
-In many situations (eg for automatic control) we consider the system as a transfer function between input(s) and output(s);
+In many situations we consider the system as a transfer function between input(s) and output(s);
 
 <img src="figures/plant_model.png" width=500>
 
-As the states may vary depending on how you set the model up, the second equation in Equation \ref{eq12} is used to ‘translate’ the states into one or more recognisable outputs. Matrices $C$ and $D$ are not essential to the valid analysis or simulation of a system but they do let you define a system from input to output. For example, for the outputs to be $y_1$ = suspension deflection and $y_2$ = absolute body velocity, the following 'translation' is required;
+As the states may vary depending on how you set the model up, Equation \ref{eq12b} is used to convert the states into one or more recognisable outputs. Matrices $C$ and $D$ are not essential to the valid analysis or simulation of a system but they do let you define a system from input to output. For example, for the outputs to be $y_1$ *= suspension deflection* and $y_2$ *= absolute body velocity*, the following conversion is required;
 
 $$ \begin{split} &y_1=x_1 \\
 &y_2=x_2 \end{split} \nonumber $$
 
-so, by 'reverse population’ of the matrices, it follows that;
+so it follows that;
 
 $$
 C=\left(\begin{array}{ll}
@@ -123,7 +120,7 @@ D=\left(\begin{array}{l}
 0
 \end{array}\right) \nonumber $$
 
-To output the same values from the three state version of the model you need (from the state definitions of that version);
+To output the same values from the three state version of the model you need;
 
 $$
 C=\left(\begin{array}{ccc}
@@ -134,7 +131,7 @@ C=\left(\begin{array}{ccc}
 0
 \end{array}\right) \nonumber $$
 
-You can also get acceleration from this model; $\ddot{z}_b$ is also known as $\dot{x}_2$, and the equation for this is the second equation of the model. If I want to add this as a third output (to the three state model) I get;
+You can also get acceleration from this model, the equation for this is the second equation of the model. Adding this as a third output (to the three state model);
 
 $$
 C=\left(\begin{array}{ccc}
@@ -147,14 +144,13 @@ C=\left(\begin{array}{ccc}
 B_{s} / M
 \end{array}\right) \nonumber $$
 
-(You can see that I’ve just ‘imported’ the second row of [A : B] into the third row of [C : D].) Note that the matrix sizes are such that you can always put A, B, C and D together, to ‘build’ a rectangular matrix;
+(You can see that the second row of [A : B] is simply placed in the third row of [C : D].) Note that the matrix sizes are such that you can always put A, B, C and D together, to build a rectangular matrix;
 
 <img src="figures/matrix_mult.png" width=200>
 
 and you can think of the inputs going in, outputs coming out, and states churning around as drawn above. This has no practical use, but helps you remember how big the $D$ matrix needs to be (this is often just full of zeros).
 
-Aside: You should be able to output anything you want from a properly defined state space model (as a linear combination of the states and inputs). But, try outputting zb from the two state version. You can’t, because $z_b$ alone does not have an independent influence on the system’s dynamic response, and the number of states has been minimised to take advantage of this fact (using the combination $z_b$ – $z_r$). This is not a problem, because you wouldn’t normally be interested in variables which have no direct dynamic influence – and if you did, you could code extra states, like
-in the three state version.
+Aside: You should be able to output anything you want from a properly defined state space model (as a linear combination of the states and inputs). But, try outputting $z_b$ from the two state version. You can’t, because $z_b$ alone does not have an independent influence on the system’s dynamic response, and the number of states has been minimised to take advantage of this fact (using the combination $z_b$ – $z_r$). This is not a problem, because you wouldn’t normally be interested in variables which have no direct dynamic influence and if you did, you could code extra states, like in the three state version.
 
 <p style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;"> <b>NOTE: </b> You should be able to output anything you want from a properly defined state space model (as a linear combination of the states and inputs). But, try outputting $z_b$ from the two state version. You can’t, because $z_b$ alone does not have an independent influence on the system’s dynamic response, and the number of states has been minimised to take advantage of this fact (using the combination $z_b – z_r$). This is not a problem, because you wouldn’t normally be interested in variables which have no direct dynamic influence – and if you did, you could code extra states, like in the three state version.</p>
 
