@@ -47,7 +47,7 @@ $$G_{Z}(v)=\frac{G_{O}\left[1+\left(v_{O} / v\right)^{2}\right]}{2\pi v^{2}} \la
 
 The simple model of Equation \ref{eq1} can be used along with a random number sequence to generate test roads which are random in themselves, but yet have approximately representative frequency content. Multiplication of the original *wavenumber* (cycles per foot) by a known constant vehicle speed (feet per second) gives a more recognisable PSD;
 
-![image](figures/ele_vel_acc.png)
+![image](figures/ele_vel_acc_1.png)
 
 *Figure 3: Elevation, velocity and acceleration PSD's of road roughness input to a vehicle travelling at 50mph on a real and average road*
 
@@ -159,7 +159,7 @@ $$ \omega_{n}=\sqrt{\frac{180000}{30}}=6000rad/s \nonumber$$
 
 Figure 9 illustrates, from left to right, input, model and output. The input and output here are the PSDs of road acceleration and vehicle acceleration respectively. (Note that it is possible to look at responses between different input/output combinations, provided the model is suitably written – eg in state space.) The model shows the gain function (frequency response, or *bode plot* gain) between the two. Note how the road acceleration essentially looks similar to that given in Figure 3, with high magnitudes at high frequencies. These high frequencies are not transmitted through the suspension, whose principal job is to isolate the vehicle body from harsh inputs. In the model plot you can see the obvious body bounce resonance, around 1Hz and the kink around 10Hz showing the wheel hop resonance (we will see later, when looking at eigenstructure, that both modes of vibration affect both masses, at least to some extent). The output PSD shows how well the system has attenuated the high frequencies, whilst magnifying the response around 1Hz. You can look at the plots as input x model = output, although you should bear in mind that, because we are viewing PSDs of input and output, which give their signal squared, the true ‘maths’ is input PSD x \|model\|^2 = output PSD.
 
-![image](figures/isolation_of_road_accel.png)
+![image](figures/isolation_of_road_accel_1.png)
 *Figure 9: Isolation of road acceleration by a quarter car vehicle model*
 
 ### Suspension Stiffness and Damping
