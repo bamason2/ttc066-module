@@ -73,7 +73,7 @@ $$\dot{\mathbf{x}}=\left(\begin{array}{cc}
 \end{array}\right) \mathbf{x}+\left(\begin{array}{c}
 1 \\
 \frac{B_{5}}{M}
-\end{array}\right)u \nonumber $$
+\end{array}\right)u \label{eq13} $$
 
 There are two states, so $A$ (which is always square) has size $2\times2$ and only one input.  The alternative (longer) form for the same model was described in Equation \ref{example_1:eq2a} in the example above. In longhand this becomes;
 
@@ -93,20 +93,20 @@ $$\dot{\mathbf{x}}=\left(\begin{array}{ccc}
 0 \\
 \frac{B_{5}}{M} \\
 1
-\end{array}\right)u \nonumber $$
+\end{array}\right)u \label{eq14} $$
 
-Note that you can have two different sets of matrices which both describe the same model, the definition of the state vector is different in each case, so the model will be different in structure, but it will have the same output. The states can be seen as *intermediate variables*, they are a set of variables which provide a full description of the modelled dynamics but aren’t necessarily unique.
+Note that you can have two different sets of matrices which both describe the same model, the definition of the state vector is different in each case, so the model will be different in structure, but it will have the same output. The states can be seen as *intermediate variables*, they are a set of variables which provide a full description of the modelled dynamics but aren’t unique.
 
 In many situations we consider the system as a transfer function between input(s) and output(s);
 
 <img src="figures/plant_model.png" width=500>
 
-As the states may vary depending on how you set the model up, Equation \ref{eq12b} is used to convert the states into one or more recognisable outputs. Matrices $C$ and $D$ are not essential to the valid analysis or simulation of a system but they do let you define a system from input to output. For example, for the outputs to be $y_1$ *= suspension deflection* and $y_2$ *= absolute body velocity*, the following conversion is required;
+As the states may vary depending on how you set the model up, Equation \ref{eq12b} is used to *map* the states into one or more recognisable outputs. Matrices $C$ and $D$ are not essential but they do let you define a system from input to output. For example, for the outputs to be $y_1 = z_r-z_b$ = *suspension deflection* and $y_2 = \dot{z}_b$ = *absolute body velocity*, the following *mapping* is required;
 
 $$ \begin{split} &y_1=x_1 \\
 &y_2=x_2 \end{split} \nonumber $$
 
-so it follows that;
+so for the two state model above (Equation \ref{eq13}) it follows that;
 
 $$
 C=\left(\begin{array}{ll}
@@ -120,7 +120,9 @@ D=\left(\begin{array}{l}
 0
 \end{array}\right) \nonumber $$
 
-To output the same values from the three state version of the model you need;
+If you are struggling to follow the above look back at Equation \ref{eq12b} and see how the matrix $C$ multiples the state vector, $\mathbf{x}$, remembering that this is a vector of states, $x_1, x_2, ...,$ etc. The values in $C$, in this simple case could be seen as switching *on* or *off* each of the states, $\mathbf{x}$ as they map to the output vector, $\mathbf{y}$. Be careful though with this simple thinking since it does get a bit more involved, as shown below.
+
+To output the same values from the three state version of the model (Equation \ref{eq14}), you need;
 
 $$
 C=\left(\begin{array}{ccc}
@@ -131,7 +133,7 @@ C=\left(\begin{array}{ccc}
 0
 \end{array}\right) \nonumber $$
 
-You can also get acceleration from this model, the equation for this is the second equation of the model. Adding this as a third output (to the three state model);
+You can also get body acceleration, $\mathbf{\ddot{z}_b}=\dot{x}_2$, from this model, the equation for this is the second equation of the model. Adding this as a third output (to the three state model);
 
 $$
 C=\left(\begin{array}{ccc}
@@ -144,14 +146,12 @@ C=\left(\begin{array}{ccc}
 B_{s} / M
 \end{array}\right) \nonumber $$
 
-(You can see that the second row of [A : B] is simply placed in the third row of [C : D].) Note that the matrix sizes are such that you can always put A, B, C and D together, to build a rectangular matrix;
+You can see that the second row of [A : B] is simply placed in the third row of [C : D]. Note that the matrix sizes are such that you can always put A, B, C and D together, to build a rectangular matrix;
 
 <img src="figures/matrix_mult.png" width=200>
 
 and you can think of the inputs going in, outputs coming out, and states churning around as drawn above. This has no practical use, but helps you remember how big the $D$ matrix needs to be (this is often just full of zeros).
 
-Aside: You should be able to output anything you want from a properly defined state space model (as a linear combination of the states and inputs). But, try outputting $z_b$ from the two state version. You can’t, because $z_b$ alone does not have an independent influence on the system’s dynamic response, and the number of states has been minimised to take advantage of this fact (using the combination $z_b$ – $z_r$). This is not a problem, because you wouldn’t normally be interested in variables which have no direct dynamic influence and if you did, you could code extra states, like in the three state version.
-
-<p style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;"> <b>NOTE: </b> You should be able to output anything you want from a properly defined state space model (as a linear combination of the states and inputs). But, try outputting $z_b$ from the two state version. You can’t, because $z_b$ alone does not have an independent influence on the system’s dynamic response, and the number of states has been minimised to take advantage of this fact (using the combination $z_b – z_r$). This is not a problem, because you wouldn’t normally be interested in variables which have no direct dynamic influence – and if you did, you could code extra states, like in the three state version.</p>
+It is possible to output anything you want from a properly defined state space model (as a linear combination of the states and inputs). But, try outputting $z_b$ from the two state version. You can’t, because $z_b$ alone does not have an independent influence on the system’s dynamic response, and the number of states has been minimised to take advantage of this fact (using the combination $z_b$ – $z_r$). This is not a problem, because you wouldn’t normally be interested in variables which have no direct dynamic influence and if you did, you could code extra states, like in the three state version.
 
 <p style="border:3px; border-style:solid; border-color:#A9A9A9; padding: 1em;"> <b>References</b><br> [1] Thomas D. Gillespie, ‘Fundamentals of Vehicle Dynamics’, SAE, 1992.<br> [2] W.H.Press, S.A.Teukolsky, W.T. Vetterling and B.P. Flannery, ‘Numerical Recipes, The Art of Scientific Computing’, Cambridge University Press, 1992.
