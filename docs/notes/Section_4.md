@@ -26,7 +26,7 @@ The rule of homogeneity says that an increase (scaling) of an input, $x$ applied
 
 $$ f(ax)=af(x) \nonumber$$
 
-The additivity rule is is a bit more involved but essentially says that if you apply two different inputs, $x_1$ and $x_2$ to the system separately then the sum of outputs produced, $f(x_1)$ and $f(x_2)$ is the same as the output you would see if you were to apply the same inputs together, $f(x_1, x_2)$.
+The additivity rule is is a bit more involved but essentially says that if you apply two different inputs, $x_1$ and $x_2$ to the system separately then the sum of outputs produced, $f(x_1)$ and $f(x_2)$ is the same as the output you would see if you were to apply the same inputs together, $f(x_1 + x_2)$.
 
 $$ f(x_1+x_2)=f(x_1)+f(x_2) \nonumber$$
 
