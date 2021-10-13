@@ -30,7 +30,7 @@ These might be illustrated in the time domain, but are more often shown in the f
 
 ## Excitation: Road Roughness
 
-The principal excitation source is the road. Figure 2 shows a PSD of three measured roads along with average frequency models for them. 
+The principal excitation source is the road. Figure 2 shows a PSD of three measured roads along with average frequency models for them.
 
 <img src="figures/spectral_densities.png" width=300>
 

@@ -21,7 +21,7 @@ $$ -F_{s}=M \ddot{z}_{b} \nonumber $$
 
 $$ M \ddot{z}_{b} = K\left(z_{r}-z_{b}\right)+B_{s}\left(\dot{z}_{r}-\dot{z}_{b}\right)\\[12pt] \label{example_1:eq1} $$
 
-<p style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;"><b>NOTE: </b>Provided the equations are written to be consistent with the choice of direction the direction chosen as positive (or negative) for deflections and forces doesn't actually matter.</p>
+<p style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;"><b>NOTE: </b>Provided the equations are written to be consistent with the choice of direction,the direction chosen as positive (or negative) for deflections and forces doesn't actually matter.</p>
 
 Now we reduce this single second order differential equation to a set of first order equations by defining system *states*, $x_1, x_2, x_3$, etc and inputs $u_1, u_2,..., u_n$ etc. We seek a form;
 

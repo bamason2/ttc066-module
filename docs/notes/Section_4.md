@@ -75,7 +75,7 @@ $$\dot{\mathbf{x}}=\left(\begin{array}{cc}
 \frac{B_{5}}{M}
 \end{array}\right)u \label{eq13} $$
 
-There are two states, so $A$ (which is always square) has size $2\times2$ and only one input.  The alternative (longer) form for the same model was described in Equation \ref{example_1:eq2a} in the example above. In longhand this becomes;
+There are two states, so $A$ (which is always square) has size $2\times2$ and only one input. The alternative (longer) form for the same model was described in Equation \ref{example_1:eq2a} in the example above. In longhand this becomes;
 
 $$\begin{aligned}
 &\dot{x}_{1}=0 x_{1}+1 x_{2}+0 x_{3}+0 u_{1} \\
