@@ -157,25 +157,24 @@ $$ \omega_{n}=\sqrt{\frac{180000}{30}}=6000rad/s \nonumber$$
 
 ### Ride Response
 
-Figure 9 illustrates, from left to right, input, model and output. The input and output here are the PSDs of road acceleration and vehicle acceleration respectively. (Note that it is possible to look at responses between different input/output combinations, provided the model is suitably written – eg in state space.) The model shows the gain function (frequency response, or *bode plot* gain) between the two. Note how the road acceleration essentially looks similar to that given in Figure 3, with high magnitudes at high frequencies. These high frequencies are not transmitted through the suspension, whose principal job is to isolate the vehicle body from harsh inputs. In the model plot you can see the obvious body bounce resonance, around 1Hz and the kink around 10Hz showing the wheel hop resonance (we will see later, when looking at eigenstructure, that both modes of vibration affect both masses, at least to some extent). The output PSD shows how well the system has attenuated the high frequencies, whilst magnifying the response around 1Hz. You can look at the plots as input x model = output, although you should bear in mind that, because we are viewing PSDs of input and output, which give their signal squared, the true ‘maths’ is input PSD x \|model\|^2 = output PSD.
+Figure 9 illustrates, from left to right, input, model and output. The input and output here are the PSDs of road acceleration and vehicle acceleration respectively. The model shows the gain function (frequency response, or *bode plot* gain) between the two. Note how the road acceleration looks similar to that given in Figure 3 with high magnitudes at high frequencies. These high frequencies are not transmitted through the suspension, whose principal job is to isolate the vehicle body from undesirable inputs. In the model plot you can see the obvious body bounce resonance, around 1Hz and the kink around 10Hz showing the wheel hop resonance (we will see later, when looking at eigenstructure, that both modes of vibration affect both masses, at least to some extent). The output PSD shows how well the system has attenuated the high frequencies, whilst magnifying the response around 1Hz. You can look at the plots as input x model = output.
 
 ![image](figures/isolation_of_road_accel_1.png)
 *Figure 9: Isolation of road acceleration by a quarter car vehicle model*
 
 ### Suspension Stiffness and Damping
 
-The magnitude of the body bounce peak is affected by what Gillespie refers to as the ‘ride rate’,
-$K_{bb}$ above. Because $K_s$ and $K_t$ act in series, and $K_t$ is so much stiffer than $K_s$, $K_{bb}$ is dominated by $K_s$. In Figure 10 below, $K_s$ has been tuned to give a body bounce resonance frequency varying from 1Hz to 2Hz (without varying damping factor). This shows that as you increase the resonance frequency for body bounce, so the transmission of acceleration from the road to the vehicle will increase in magnitude by a large factor. The y-axis here is on a linear scale, so you can look at the area under the peak as a measure of the mean-square acceleration transmitted from road to vehicle. Obviously, the aim is to achieve good isolation, and reduce transmission, so lower $K_s$, and hence lower resonance frequencies are aimed for.
+The magnitude of the body bounce peak is affected by what Gillespie refers to as the *ride rate*, $K_{bb}$ above. Because $K_s$ and $K_t$ act in series and $K_t$ is so much stiffer than $K_s$, $K_{bb}$ is dominated by $K_s$. In Figure 10 below, $K_s$ has been tuned to give a body bounce resonance frequency varying from 1Hz to 2Hz (without varying damping factor). This shows that as you increase the resonance frequency for body bounce, so the transmission of acceleration from the road to the vehicle will increase in magnitude by a large factor. The y-axis here is on a linear scale, so you can look at the area under the peak as a measure of the mean-square acceleration transmitted from road to vehicle. Obviously, the aim is to achieve good isolation, and reduce transmission, so lower $K_s$, and hence lower resonance frequencies are aimed for.
 
 <img src="figures/accel_spectra.png" width=500>
 
 *Figure 10: On road acceleration spectra with different sprung mass natural frequencies*
 
-The factors which prevent excessively low $K_s$ and hence lower ride rates are:
+The factors which prevent excessively low $K_s$ and hence lower ride rates are;
 
 * Suspension travel – low spring rates necessitate greater suspension travel.
 * Handling performance is affected by fluctuating vertical load on the tyre.
-* Very low frequencies (well below 1Hz) would induce nausea (1 and 2 above restrict the frequency more than this factor).
+* Very low frequencies (well below 1Hz) would induce nausea (the points above restrict the frequency more than this).
 
 Figure 10 isn’t totally honest however, as the damping in the suspension can always be increased, along with the suspension spring rate, to counter the high body bounce peak. The introduction of damping isn’t a simple solution though, because it reduces isolation at higher frequencies. Increases in damping essentially spread the range of frequencies through which vibrations are transmitted, whilst reducing the peak at a given (in this case body bounce)
 resonance;
@@ -184,7 +183,7 @@ resonance;
 
 *Figure 11: Effect of damping on suspension isolation behaviour*
 
-Figure 11 shows the effect of increasing $C_s$ to give damping ratio, $\zeta$ in the range 0.1 to 2. Note how at the extreme (200% damping) level, the *stiff* damper has effectively tied the body and wheel together, combining body bounce and wheel hop into one resonance at about 3.5Hz. This would be highly undesirable, due to its affect on our own body system. 1Hz and 10Hz feels a lot better than 4Hz vertically.
+Figure 11 shows the effect of increasing $C_s$ to give damping ratio, $\zeta$ in the range 0.1 to 2. Note how at the extreme (200% damping) level, the *stiff* damper has effectively tied the body and wheel together, combining body bounce and wheel hop into one resonance at about 3.5Hz. This would be highly undesirable, due to its affect on the human body. Frequencies of 1Hz and 10Hz feel much better than 4Hz vertically.
 
 ### Active Suspension
 
@@ -200,31 +199,28 @@ Although it is expensive to fit and run (in terms of fuel) controllable force ge
 
 ### Bounce and pitch in combination
 
-The quarter car model is good for investigating bounce only motion of the vehicle but more complex models are needed to give a more complete insight into why suspensions are designed the way they are. The natural progression is to include pitch motion, using the *half-car* model. Note that, although the analysis and discussion of this system gets more complicated, with front and rear suspensions being tuned to complement each other to give both desirable pitch and bounce – the model is not much more complicated. Figure 14 shows that we need only a rigid beam suspended on two springs to get a useful simulation model. The equations for this type of system have, once again, been derived in Part B dynamics.
+The quarter car model is good for investigating bounce only motion of the vehicle but more complex models are needed to give a more complete insight into why suspensions are designed the way they are. The natural progression is to include pitch motion, using the *half-car* model. Note that, although the analysis and discussion of this system gets more complicated, with front and rear suspensions being tuned to complement each other to give both desirable pitch and bounce, the model is not much more complicated. Figure 14 shows that we need only a rigid beam suspended on two springs to get a useful simulation model.
 
 ![image](figures/pitch_plane_model.png)
 *Figure 14: Pitch plane model*
 
-We won’t get into the details of how the pitch and bounce modes behave, and how the ride rates of front and rear can be tuned here. Gillespie does an admirable job within a few pages in his book. It is worth noting a few basic issues though;
+We won’t get into the details of how the pitch and bounce modes behave, and how the ride rates of front and rear can be tuned here. It is worth noting a few basic issues though;
 
-1. ***Wheelbase filtering;***
-    ![image](figures/wheelbased_filtering.png)
-    *Figure 15: The wheelbase filtering mechanism*\\
-\\
-Figure 15 shows how the spacing of the front and rear suspensions can couple with the wavelength in the road to give just bounce and just pitch. The effect is not really significant in practical terms, (very few roads look like single sinusoids) but it is an effect worth understanding when it comes to interpreting PSDs or frequency responses from more complex systems.
-2. ***Position and direction of measurement;*** What you feel depends on where you are and in what direction you are interested and the type of motion. When we looked at the quarter car, we consider only vertical motion, but think about the simple beam of Figure 14 in pitch motion about its centre of gravity; if you sit at the centre the rotation causes no motion. If you are above the centre of gravity the acceleration is fore-aft (not vertical), and only at the ends does pitch look mostly  vertical. It is interesting to note that the principal problem associated with pitch is the fore-aft motion it produces for the passengers (not the vertical) in spite of the much smaller moment arm.
+1. ***Wheelbase filtering;*** Figure 15 shows how the spacing of the front and rear suspensions can couple with the wavelength in the road to give just bounce and just pitch. The effect is not really significant in practical terms (very few roads look like single sinusoids) but it is an effect worth understanding when it comes to interpreting PSDs or frequency responses from more complex systems.\\
+    <img src="figures/wheelbased_filtering.png" width=500>\\
+    *Figure 15: The wheelbase filtering mechanism*
+2. ***Position and direction of measurement;*** What you feel depends on where you are and in what direction you are interested and the type of motion. When we looked at the quarter car, we consider only vertical motion, but think about the simple beam of Figure 14 in pitch motion about its centre of gravity. If you sit at the centre the rotation causes no motion. If you are above the centre of gravity the acceleration is fore-aft (not vertical) and only at the ends does pitch look mostly  vertical. It is interesting to note that the principal problem associated with pitch is the fore-aft motion it produces for the passengers in spite of the much smaller moment arm.
 3. ***Lower ride rate at the front than the rear;*** A neat way of reducing the discomfort of pitching (pitch being worse than bounce, generally) is to make the front ride rate lower than the rear:
     ![image](figures/vehicle_oscillations.png)\\
     *Figure 16: Oscillations of a vehicle passing over a road bump*\\
-With this design, as you meet a disturbance, you induce pitching instantaneously but with the rear suspension motion faster than the front, the motion resolves itself into bounce. Effectively, the rear oscillations ‘catch up with’ those at the front, eliminating the phase lag that the constant delay in the wheelbase has caused.
-1. ***Design ‘rules of thumb’ vs Modelling, simulation and analysis;*** Gillespie quotes one of the founders of modern vehicle dynamics, Maurice Olley, who came up with a number of design guidelines for good ride from vehicle suspensions.  There is nothing wrong with using these guidelines, but you should also remember that, from Figure 6 (quarter car) and Figure 14 (half car) it is also very easy to build useful simulation models and hence run your own simulations. From these it is possible to perform a wide range of analysis, as we will see later in this module, and hence to widen your understanding of the behaviour. You can test the guidelines and assumptions that others recommend, you can examine the influence of parameter changes and you can carry out what if experiments. It is for this reason that this module concentrates on building your simulation skills rather than (only) getting you to remember useful facts and figures!
+With this design, as you meet a disturbance, you induce pitching instantaneously but with the rear suspension motion faster than the front, the motion resolves itself into bounce. Effectively, the rear oscillations catch up with those at the front, eliminating the phase lag that the constant delay in the wheelbase has caused.
 
 ### Human Perception
 
 We have looked at the PSD of ride (vertical) accelerations and the models of suspensions which give rise to these, across frequency. In order to complete the picture about how vehicles should be designed however, we also need to consider the dynamics of the human body. Vibrations start at the road, or in the vehicle and travel through the system of the vehicle (eg tyres, suspension) to the passenger compartment. From this point, the vibrations travel through
 the seat and passengers body before they are actually registered by the brain as uncomfortable. Thus we should consider the system of the body too.
 
-One way of doing this is to subject people to vibration in an experiment and then get them to rate how uncomfortable each vibration is. In practice, this is done by testing one frequency at a time and building up a map of discomfort. The three plots below show lines of equal tolerance to various frequencies (x axis) applied at different amplitudes (y axis). The first two relate to vertical (ride) motion and the last one relates to fore-aft motion (pitch, and also shuffle – see longitudinal (driveline) dynamics later in this course).
+One way of doing this is to subject people to vibration in an experiment and then get them to rate how uncomfortable each vibration is. In practice, this is done by testing one frequency at a time and building up a map of discomfort. The three plots below show lines of equal tolerance to various frequencies (x axis) applied at different amplitudes (y axis). The first two relate to vertical (ride) motion and the last one relates to fore-aft motion (pitch, and also shuffle).
 
 <img src="figures/human_tolerance.png" width=500>
 
@@ -240,5 +236,5 @@ One way of doing this is to subject people to vibration in an experiment and the
 
 A couple of summary conclusions:
 
-1. The NASA results correlate with vertical resonance frequencies of the organs of the human body in the abdominal cavity (ie your guts !) which lie in the range 4 – 8 Hz. This helps to explain why we have vehicle ride dynamics with resonance at 1Hz and 10Hz, (avoiding this range) and why the 200% damping solution in Figure 11 would be a disaster!
+1. The NASA results correlate with vertical resonance frequencies of the organs of the human body in the abdominal cavity which lie in the range 4 – 8 Hz. This helps to explain why we have vehicle ride dynamics with resonance at 1Hz and 10Hz, (avoiding this range) and why the 200% damping solution in Figure 11 would be a disaster!
 2. Fore – aft tolerance is not the same as vertical tolerance. Fore-aft vibrations cause most concern at lower frequencies (1 – 2 Hz) and less concern as the frequency rises.
