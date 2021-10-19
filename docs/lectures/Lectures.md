@@ -45,9 +45,9 @@ Download slides [here]({{ site.url }}/ttc066-module/lectures/Ride Dynamics.pdf)
 
 ## Using Eigenvalues and Eigenvectors
 
-Formulating the state space representation of a system gives us the opportunity to understand some of its behaviour without running a simulation through eigen-analysis.  This involves determining the eigenvalues and eigenvectors of the system which are derived from the $A$ matric in the state space formulation.  
+Formulating the state space representation of a system gives us the opportunity to understand some of its behaviour without running a simulation through eigen-analysis.  This involves determining the eigenvalues and eigenvectors of the system which are derived from the $A$ matrix in the state space formulation.  
 
-In this week we will look at what the eigenvalues and eigenvectors of a system can tell us about the characteristics of a dynamic system.
+In this lecture we will look at what the eigenvalues and eigenvectors of a system can tell us about the characteristics of a dynamic system.
 
 Download slides [here]({{ site.url }}/ttc066-module/lectures/Using Eigenvalues and Eigenvectors.pdf)
 
