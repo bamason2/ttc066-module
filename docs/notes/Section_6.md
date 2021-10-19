@@ -146,7 +146,7 @@ By setting the displacement states as $x_1$ and $x_2$, and velocities as $x_3$ a
 
 After an initial disturbance, linear (LTI) systems will always settle, in a combination of first and second order modes and information on these modes is very useful in helping to understand the way the system behaves.
 
-We can write $\mathbf{z}(t)$, the vector of deflections only, $\mathbf{z}(t) = [x_1, x_2]^T$ as;
+We can write the vector of deflections only, $\mathbf{z}(t) = [x_1, x_2]^T$ as;
 
 $$ \textbf{z}(t)=\operatorname{Re}\left\{\mathbf{u}_{1} e^{\lambda_{1} t}+\mathbf{u}_{2} e^{\lambda_{2} t}+\ldots+\mathbf{u}_{n} e^{\lambda_{n} t}\right\} \label{eq16}$$
 
