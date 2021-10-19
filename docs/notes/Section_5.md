@@ -187,7 +187,7 @@ Figure 11 shows the effect of increasing $C_s$ to give damping ratio, $\zeta$ in
 
 ### Active Suspension
 
-Although it is expensive to fit and run (in terms of fuel) controllable force generators (such as hydraulics, hydro-pneumatics). They can, at least in theory, provide exceptional reductions in body bounce vibration transmission. Note that, interestingly, it is less easy to control the wheel hop peak.
+Although it is expensive to fit and run (in terms of fuel) controllable force generators (such as hydraulics, hydro-pneumatics), active suspension can, at least in theory, provide exceptional reductions in body bounce vibration transmission. Note that, interestingly, it is less easy to control the wheel hop peak.
 
 <img src="figures/quarter_car_active_passive.png" width=600>
 
