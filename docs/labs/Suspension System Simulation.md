@@ -42,7 +42,7 @@ Note that for these dynamic equations, we ignore the weight of the masses and as
 
 ## Step 2: Create and test a sub-system for body motion
 
-Start Matlab and Simulink, then open a new model and build the system shown below. The Sine Wave generator is obtained from the Simulink Block Library under “Sources”, and here we use it to represent an external vertical force applied to an isolated body mass. Set a peak force of 1000 (Newtons) and a frequency of 1 Hz, i.e. $2\pi$ radians per second. Bias, Phase and Sample Time can be left at zero.
+Start MATLAB and Simulink, then open a new model and build the system shown below. The Sine Wave generator is obtained from the Simulink Block Library under *Sources*, and here we use it to represent an external vertical force applied to an isolated body mass. Set a peak force of 1000 (Newtons) and a frequency of 1 Hz, i.e. $2\pi$ radians per second. Bias, Phase and Sample Time can be left at zero.
 
 The Gain and Integrator blocks are found in the Commonly Used Blocks library. The gain parameter should be set to $\frac{1}{320}$, representing the reciprocal of the body mass. The *To Workspace* block is found in the *Sinks* library; this writes a variable (array) into the Matlab workspace so that it can be used (eg saved, plotted) later. IMPORTANT: Before using it, double click the *To Workspace* block and select Save Format as Array rather than Timeseries. This makes it easier to work with in Matlab.
 
@@ -51,14 +51,14 @@ The Gain and Integrator blocks are found in the Commonly Used Blocks library. Th
 
 In the above figure, the name of the gain block has been changed to something more descriptive (do this yourself on your model).
 
-Set the simulation to run for just 5 seconds and run it. Then use Matlab to plot the velocity time history (Note that time is automatically output by Simulink, in an array called tout.)
+Set the simulation to run for just 5 seconds and run it. Then use MATLAB to plot the velocity time history (Note that time is automatically output by Simulink, in an array called tout.)
 
 <img src="figs/suspension_fig3.png" width="400"/>\\
 *Figure: Simulation results*
 
-The result is quite coarse. This is because, with such a simple model, Simulink doesn’t need to take very small steps in time (in the integration process) to get accurate results. There are (at least) two ways to correct this, both obtained from menu tabs Simulation → Configuration Parameters from the top of the model window. Changing the Relative tolerance, on the Solver tab, from default $10^{-3}$ to a smaller value, say $10^{-6}$, will force the simulation to achieve greater accuracy, and hence more time steps and a smoother result. This works better with more challenging integration problems, so leave this option for later consideration.
+The result is quite coarse. This is because, with such a simple model, Simulink doesn’t need to take very small steps in time (in the integration process) to get accurate results. There are (at least) two ways to correct this, both obtained from menu tabs Simulation → Configuration Parameters from the top of the model window. Changing the Relative tolerance, on the Solver tab, from default $10^{-3}$ to a smaller value, say $10^{-6}$, will force more time steps and a smoother result. This works better with more challenging integration problems, so leave this option for later consideration.
 
-If you don’t need to force greater accuracy, but just Refine the look of the output, you can set a refine factor greater than 1 (use 10, say), within the Data Import / Export tab (under Additional parameters). Do this now.
+If you don’t need to force greater accuracy, but just refine the look of the output, you can set a refine factor greater than 1 (use 10, say), within the Data Import / Export tab (under Additional parameters). Do this now.
 
 Modify your Simulink model so it outputs displacement too, then produce a plot with velocity and displacement time histories on the same axes. Why do the velocity and displacement time histories look the way they do? Why aren’t they both simply sinusoidal? (Think about the first cycle of Force (and hence acceleration), and what this physically does to the lump of mass.)
 
@@ -85,12 +85,12 @@ Complete this sub-system, using the linear gains for suspension spring and dampe
 
 You can now complete the construction of the quarter-car model quite easily. Open up a new Simulink window, as well as the two earlier windows. Blocks already constructed can be dragged into the new window, without affecting the previous models. The following figure indicates how to lay out the full model, and some, but not all of the top level connections are complete. There’s still some thinking to do though; you need to check the logic of what’s going on before diving into the details.
 
-<img src="figs/suspension_fig7.png" width="400"/>\\
+<img src="figs/suspension_fig7.png" width="600"/>\\
 *Figure: Quarter car suspension model*
 
 Look back at the equations you derived in Step 1, to help you complete the connections. Also note that the wheel dynamics sub-system has the same structure as the body dynamics sub-system and the tyre block is very similar to the suspension block, though we are not including any damping in the tyre. The input (road height) needs to be set from a source block; use a step input here, with a step height of 0.05 (metres).
 
-When you are ready, run the simulation with a 5 second duration, plot bd and bv against tout, to check you get the correct body response (see figure below). If you don’t get the right response, check that you’ve:
+When you are ready, run the simulation with a 5 second duration, plot $b_d$ and $b_v$ against tout, to check you get the correct body response (see figure below). If you don’t get the right response, check that you’ve:
 
 * set all the parameters (in all the subsystems) correctly
 * used a sensible refine factor, with no limit to number of points, and with a low relative tolerance in configuration parameters (as discussed earlier in this lab).
@@ -100,7 +100,7 @@ When you’ve finished the model, save it as qvm.slx.
 <img src="figs/suspension_fig8.png" width="400"/>\\
 *Figure: Body deflection and velocity response to a 0.05m step*
 
-Now put two more *To Workspace* blocks on the model, to output the wheel motion, and hence produce a single plot which compares body deflection with wheel deflection (don’t plot the velocities) for the same step input. You can overlay these on the same axes, or use the subplot command to subdivide the plot window.
+Now put two more *To Workspace* blocks in the model, to output the wheel motion, and hence produce a single plot which compares body deflection with wheel deflection (don’t plot the velocities) for the same step input. You can overlay these on the same axes, or use the subplot command to subdivide the plot window.
 
 Zoom-in on the plot so you can pick out accurate timings for the peaks in the wheel and body motion oscillations. You should be able to estimate the wheel hop and body bounce (damped) natural frequencies, by looking at the the time for one cycle. Is this in the expected range?
 
@@ -114,13 +114,13 @@ Now you can check your working by writing out the A and B matrices, and remember
 
 $$ \mathbf{y}=C\mathbf{x}+D\mathbf{u} \nonumber $$
 
-also write out the $C$ and $D$ matrices to give outputs of body and wheel deflection. Write a short Matlab script to assign these four matrices (for any given parameter set $K_1$, $K_2$, $M_1$, etc). Start the Matlab script by assigning all the parameters and then use these variable names to form the $A, B, C, D $matrices. Also (if you haven’t done it this way already) use variable names rather than the numbers themselves in all the appropriate places within your qvm model. Ideally models should be set up in a flexible way, so you can easily change parameters in a script to run simulation studies.
+also write out the $C$ and $D$ matrices to give outputs of body and wheel deflection. Write a short Matlab script to assign these four matrices (for any given parameter set $K_1$, $K_2$, $M_1$, etc). Start the Matlab script by assigning all the parameters and then use these variable names to form the $A, B, C, D$ matrices. Also (if you haven’t done it this way already) use variable names rather than the numbers themselves in all the appropriate places within your qvm model. Ideally models should be set up in a flexible way, so you can easily change parameters in a script to run simulation studies.
 
-Now add a State-Space block (Simulink Continuous library) to your finished qvm model. This state space model can be ‘wired’ to your road deflection input, and another *To Workspace* block to record the output.
+Now add a State-Space block (Simulink Continuous library) to your finished qvm model. This state space model can be connected to your road deflection input, and another *To Workspace* block to record the output.
 
 Your final model should now be two copies of the same quarter-car model, which should both produce exactly the same result; mathematically they are the same, it’s just that one is written with lots of Simulink blocks, and the other compressed into the very efficient linear state-space form. They are both using the same Simulink numerical integration method (set in the Configuration parameters we looked at earlier).
 
-So by running the model (with any input – try out some alternative inputs) you can validate your state-space calculations, as the outputs should match. You can also see how the outputs change when the parameter settings are varied.
+So by running the model (try out some alternative inputs) you can validate your state-space calculations, as the outputs should match. You can also see how the outputs change when the parameter settings are varied.
 
 ## Final Note
 
