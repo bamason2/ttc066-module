@@ -50,6 +50,7 @@ Following from a quick look at linearity we will review the State Space Represen
 
 | **Tutorial and Computer Labs** |
 | [State Space Simulation]({{ site.url}}/ttc066-module/labs/State%20Space%20Simulation.html) |
+| [Drivetrain Modelling I]({{ site.url}}/ttc066-module/labs/Drivetrain%20Modelling%20I.html) |
 
 ## Week 3
 
@@ -68,25 +69,26 @@ In the second topic covered this week, Using Eigenvalues and Eigenvectors, we wi
 | [Section 6: Using Eigenvalues and Eigenvectors]({{ site.url}}/ttc066-module/notes/Section_6.html) |
 
 | **Tutorial and Computer Labs** |
-| [Simulink Drivetrain Modelling]({{ site.url}}/ttc066-module/labs/Simulink%20Drivetrain%20Modelling.html) |
 | [Suspension System Simulation]({{ site.url}}/ttc066-module/labs/Suspension%20System%20Simulation.html) |
 
-<!-- ## Week 4
+## Week 4
+
+This week we will investigate aspects of Drivetrain Dynamics.  In this topic we will be attempting to understand the drivetrain as a vibrational system comprised of a number of components that each contribute to the response of the system (and vehicle) to excitation input.
+
+Drivetrain dynamics are important since the drivetrain contributes significantly to the overall vehicle performance.  The drivetrain is key to ensuring a response that meets engineering targets, as torque is applied from an electric machine or internal combustion engine. Managing the torque pulsations from an engine or large changes in torque input from an electric machine present a significant challenge that require some interesting analysis methods!
 
 ### Week 4 Resources
 
 | **Lecture Slides**  |
-|[Ride Dynamics]({{ site.url }}/ttc066-module/lectures/Linearity and State Space.pdf) |
+| [Drivetrain Dynamics]({{ site.url }}/ttc066-module/lectures/Drivetrain Dynamics.pdf) |
 
 | **Lecture Notes** |
-| [Section 4: Linearity and State Space]({{ site.url}}/ttc066-module/notes/Section_3.html) |
+| [Section 7: Drivetrain Dynamics]({{ site.url}}/ttc066-module/notes/Section_7.html) |
 
-| **Tutorial** |
-| [Numerical Integration]({{ site.url}}/ttc066-module/labs/Integration%20Lab.html) |
+| **Tutorial and Computer Labs** |
+| [Drivetrain Modelling ]({{ site.url}}/ttc066-module/labs/Drivetrain%20Modelling%20II.html) |
 
-| **Computer Lab** |
-| [Simulink Onramp](https://uk.mathworks.com/learn/tutorials/simulink-onramp.html) |
-
+<!--
 ## Week 5
 
 ### Week 5 Resources
