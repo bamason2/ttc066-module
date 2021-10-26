@@ -40,7 +40,7 @@ Mathematical models are usually based on a simplified representation. For the dr
 
 <img src="figures/drivetrain_as_a_vibrating_system.png" width=600>
 
-*Figure 3: Drivetrain visualised as a number of lumped masses connected by springs (compliant)*
+*Figure 3: Drivetrain visualised as a number of lumped masses connected by springs*
 
 Control can be achieved by isolating or reducing the vibration. This can be tackled by:
 
@@ -53,7 +53,7 @@ The simplest useful model of the drivetrain has three degrees of freedom;
 
 <img src="figures/3dof_model.png" width=400>
 
-*Figure 4: Simple 3 degree of freedom model of the drivetrain*
+*Figure 4: Simple three degree of freedom model of the drivetrain*
 
 There is also a third mode; rigid-body rotation of the entire drivetrain. Each mode has its own natural frequency: typically 4 – 12 Hz for *shuffle* and 40 – 80 Hz for *rattle*.
 
@@ -75,8 +75,7 @@ There is also a third mode; rigid-body rotation of the entire drivetrain. Each m
 
 ### Representing a FWD Vehicle with a Four Mass Structure
 
-<img src="figures/4mass_driveline.png" width=600>
-
+<img src="figures/4mass_driveline.png" width=600>\\
 *Figure 6: A more complex four degree of freedom representation of the drivetrain as springs, masses and dampers*
 
 ### Rotation or Translation?
@@ -131,9 +130,9 @@ Consider how each order of this combustion signal will change with engine speed,
 
 *Figure 15:* Campbell/interference diagram showing interaction of system response and excitation source
 
-The first order response here just acts as a one to one mapping from engine speed units (RPM) to frequency (Hz). Eg 1000 revs per minute = 1000/60 = 16.67 revs (cycles) per second (Hz).  The diagram shows how the vibrational modes e.g. surge and rattle relate to the excitation generated over the engine speed range.  Where these intersect there will be resonance which may cause issues.
+The first order response here just acts as a one to one mapping from engine speed units (rpm) to frequency (Hz), e.g. 1000 rpm = 1000/60 = 16.67 revs (cycles) per second (Hz).  The diagram shows how the vibrational modes e.g. surge and rattle relate to the excitation generated over the engine speed range.  Where these intersect there will be resonance which may cause issues.
 
-The vibration gets transmitted through the driveline when each order passes through the relevant (rattle) resonance frequency. Note that damping within the system spreads the effect across frequencies, with peak vibration transmission at the crossover point.
+The vibration gets transmitted through the driveline when each order passes through the relevant resonance frequency, note that damping within the system spreads the effect across frequencies with peak vibration transmission at the crossover point.
 
 ## A Closer look at Driveline Model Components
 
@@ -289,7 +288,7 @@ Lash, or free play in the driveline, allows upstream components to accelerate wi
 
 *Figure 24: Magnified view of the driveline response showing lash*
 
-It is possible to include lash in driveline models built in Simulink by using a las block.
+It is possible to include lash in driveline models built in Simulink by using a lash block.
 
 ### An Appropriate Model for the Tyre
 
@@ -307,37 +306,36 @@ where $r$ is the radius of the tyre, $\omega$ the wheel angular velocity and $v$
 
 ## Free and forced vibration analysis
 
-#### Linear System Analysis
+### Linear System Analysis
 
-Some of the advantages and disadvantages of linear system analysis;
+Some of the advantages and disadvantages of linear system analysis.
 
-* Pros
-  * Lots of analysis options
-  * Eigenvectors/values
-  * Frequency response
-  * Simulation studies
-  * East to apply control theory
-* Cons
-  * Less realistic
+|---|---|
+| Advantages | Disadvantages |
+|---|---|
+| Lots of analysis options | Less realistic |
+| Eigenvectors/values | |
+| Frequency response | |
+| Simulation studies | |
+| Easy to apply control theory | |
 
-#### Nonlinear System Analysis
+### Nonlinear System Analysis
 
-Some of the advantages and disadvantages of nonlinear system analysis;
+The above advantages and disadvantages can be compared with nonlinear system analysis;
 
-* Pros
-  * More realistic
-* Cons
-  * Can only do simulation studies
+|---|---|
+| Advantages | Disadvantages |
+|---|---|
+| More realistic | Can only do simulation studies |
 
-### Eigenvector / value (mode) analysis of Linear Systems
+### Eigenvector / Eigenvalue (mode) analysis of Linear Systems
 
-The following is largely a repeat of some material we saw earlier, in Section 4. It is included here as a reminder, and we quickly get on, from general cases to analysing the driveline case.
+The following is largely a repeat of some material we saw earlier, in [Section 6]({{ site.url }}/ttc066-module/notes/Section_6.html).
 
 #### Derivation of a state-space form
 
-![image](figures/deriv_state_space.png)
-
-*Figure 27:*
+<img src="figures/deriv_state_space.png" width=400>\\
+*Figure 27: A spring, mass, damper system*
 
 Start with second-order differential equations;
 
@@ -347,7 +345,7 @@ $$l(\theta_2-\theta_1)-l\theta_1-l\dot{\theta}_1=l\ddot{\theta}_1 \nonumber $$
 
 Define a set of state variables, to reduce this second order system to a vector / matrix form using only first order equations;
 
-$$\dot{\mathbf{x}}=A\mathbf{x}+B\mathbf{u}$$
+$$\dot{\mathbf{x}}=A\mathbf{x}+B\mathbf{u} \nonumber $$
 
 $$\mathbf{y}=C\mathbf{x}+D\mathbf{u} \nonumber $$
 
@@ -360,6 +358,8 @@ $$ \begin{aligned}
 &x_{4}=\dot{\theta}_{2}
 \end{aligned} \nonumber $$
 
+So that;
+
 $$ \begin{aligned}
 &\dot{x}_{1}=x_{3} \\
 &\dot{x}_{2}=x_{4} \\
@@ -367,7 +367,7 @@ $$ \begin{aligned}
 &\dot{x}_{4}=F-x_{2}+x_{1}
 \end{aligned} \nonumber $$
 
-Filling in the matrices, $A$ and $C$;
+Filling in the matrices, $A$ and $B$;
 
 $$ \left[\begin{array}{l}
 \dot{x}_{1} \\
@@ -389,19 +389,19 @@ x_{4}
 0 \\
 0 \\
 1
-\end{array}\right] \mathbf{F} \nonumber $$
+\end{array}\right] \mathbf{F} \label{eq1} $$
 
-Matrix $A$ has very useful properties;
+As we saw previously matrix $A$ has some very useful properties.
 
-The free vibration of the masses (F=0) can be described by a summation of modal components having a predictable form;
+#### Modal Vibrations
 
-#### Model Vibrations
+The free vibration of the masses $(F=0)$ can be described by a summation of modal components having a predictable form;
 
-The free vibration of the masses (F=0) can be described by a summation of modal components having a predictable form;
+$$ \mathbf{\theta}(t)=\operatorname{Re}\left\{\mathbf{u}_{1} e^{\lambda_{1} t}+\mathbf{u}_{2} e^{\lambda_{2} t}+\ldots+\mathbf{u}_{n} e^{\lambda_{n} t}\right\}  \label{eq1b} $$
 
-$$ \mathbf{\theta}(t)=\operatorname{Re}\left\{\underline{u}_{1} e^{\lambda_{1} t}+\underline{u}_{2} e^{\lambda_{2} t}+\ldots+\underline{u}_{n} e^{\lambda_{n} t}\right\}  \nonumber $$
+Where $\mathbf{\theta}(t)$ is the $2\times1$ displacement vector, $\mathbf{u}_i$ and $\lambda_i$ is a complex constant.  
 
-Where $\mathbf{\theta}(t)$ is the $2\times1$ displacement vector, and $\lambda_k$ is a complex constant is a complex scalar.  Within each ‘modal component’;
+Within a single *modal component*;
 
 $$ \mathbf{\theta}(t)=\mathbf{u}_{1} e^{\lambda_{1}t}  \nonumber $$
 
@@ -411,25 +411,24 @@ $$ \mathbf{\dot{\theta}}(t)=\lambda_{1} \mathbf{u}_{1} e^{\lambda_{1} t}  \nonum
 
 therefore;
 
-$$ \underline{x}(t)=\underline{v}_{1} e^{\lambda_{1} t} \nonumber $$
+$$ \mathbf{x}(t)=\mathbf{v}_{1} e^{\lambda_{1} t} \nonumber $$
 
 where;
 
-$$ \underline{v}_{1}=\left[\begin{array}{c}
-\underline{u}_{1} \\
-\lambda_{1} \underline{u}_{1}
+$$ \mathbf{v}_{1}=\left[\begin{array}{c}
+\mathbf{u}_{1} \\
+\lambda_{1} \mathbf{u}_{1}
 \end{array}\right] \nonumber $$
 
-Now, if F=0, from Eqn 1;
+Now, if $F=0$ from Equation \ref{eq1};
 
-$$ \lambda_{1} \underline{v}_{1} e^{\lambda_{1} t}=A \underline{v}_{1} e^{\lambda_{1} t} \nonumber $$
+$$ \lambda_{1} \mathbf{v}_{1} e^{\lambda_{1} t}=A \mathbf{v}_{1} e^{\lambda_{1} t} \nonumber $$
 
 therefore;
 
-$$ \lambda_{1} \underline{v}_{1}=A \underline{v}_{1} \nonumber $$
+$$ \lambda_{1} \mathbf{v}_{1}=A \mathbf{v}_{1} \nonumber $$
 
-so $\lambda_1$ is an eigenvalue of $A$ and $\nu_1$ is the corresponding *eigenvector*.
-For the spring / mass example above, the four eigenvalues are;
+so $\lambda_1$ is an eigenvalue of $A$ and $\nu_1$ is the corresponding *eigenvector*. For the spring / mass example above the four eigenvalues are;
 
 $$ \begin{aligned}
 &\lambda_{1}=-0.35+1.5 \mathrm{j} \\
@@ -440,67 +439,67 @@ $$ \begin{aligned}
 
 Note that the eigenvalues come in pairs, with each pair describing a mode of vibration. The eigenvalues equate to the system poles, and pole pairs can be written generally as;
 
-$$ \lambda_{1 \& 2}=\sigma \pm j \omega $$
+$$ \lambda_{1 \& 2}=\sigma \pm j \omega  \nonumber $$
 
-where $\sigma$ is the modal damping factor, and $\omega$ is the damped natural frequency of the mode. To see what each single term in $\underline{\theta}(t)=\operatorname{Re}\left\{\underline{u}_{1} e^{\lambda_{1} t}+\underline{u}_{2} e^{\lambda_{2} t}+\ldots+\underline{u}_{n} e^{\lambda_{n} t}\right\} $ looks like, re-substitute $\lambda$ and use Euler’s formula for the complex exponent;
+where $\sigma$ is the modal damping factor, and $\omega$ is the damped natural frequency of the mode. To see what each single term in Equation \ref{eq1b} looks like, re-substitute for $\lambda_i$ and use Euler’s formula, $e^{jwt}=cos(\omega t + j sin(\omega t))$, for the complex exponent;
 
-$$ \underline{u}_{1} e^{\lambda_{1} t}=\underline{u}_{1} e^{(\sigma+\omega i) t}=\underline{u}_{1} e^{\sigma t} e^{i \omega t}=\underline{u}_{1} e^{\sigma t}(\cos (\omega t)+i \sin (\omega t)) $$
+$$ \mathbf{u}_{1} e^{\lambda_{1} t}=\mathbf{u}_{1} e^{(\sigma+j\omega) t}=\mathbf{u}_{1} e^{\sigma t} e^{j\omega t}=\mathbf{u}_{1} e^{\sigma t}(\cos (\omega t)+i \sin (\omega t))  \nonumber $$
 
-$\sigma$ should be negative if your model is correct, and it relates to a physical system, because this determines the envelope of the response, as a decaying exponential (shown below in dashed lines). ω then gives the frequency of the sinusoid component (dotted lines), (cos ωt + isin ωt) and the solid line shows the combination of the two.
+As we have seen before $\sigma$ should be negative if your model is correct (shown below in dashed lines), $\omega$ gives the frequency of the sinusoid component (dotted lines), $(cos(\omega t) + i sin(\omega t))$ and the solid line shows the combination of the two.
 
-![image](figures/response_plot.png)
-*Figure 28:*
+<img src="figures/response_plot.png" width=600>\\
+*Figure 28: Modal motion plot*
 
-This is then multiplied by the complex constants, $u_i$, which affect the magnitude of the response (in this case the magnitude of $\theta_1$ compared with $\theta_2$) and the relative phase (eg 90° phase difference would have the $\theta_1$ at 0 at the same time as $\theta_2$ is at its peak).
+This is then multiplied by the complex constants, $\mathbf{u}_i$, which affect the magnitude of the response (in this case the magnitude of $\theta_1$ compared with $\theta_2$) and the relative phase.
 
-#### Eigenstructure of the four mass Driveline model:
+#### Eigenstructure of the four mass Driveline model
 
-The order of the states is important when it comes to interpreting eigenvectors. Here we choose the (rotational) deflections first, followed by the velocities;
+The order of the states is important when it comes to interpreting eigenvectors. Here we choose the deflections first, followed by the velocities;
 
-![image](figures/def_vel_system.png)
-*Figure 29:*
+![image](figures/def_vel_system.png)\\
+*Figure 29: Four mass driveline model with deflection and velocity coordinates defined*
 
-NB : To achieve this ordering of states for your Simulink model, assign outports (at the top level of the model) to each of the required states, in the order shown above. Because the outputs correlate with the states, when you carry out further analysis (eg via linmod) on the model, Simulink will choose the states in the same order as the outputs. (Without outputs, the states are chosen in an arbitrary order, depending on when the integrators were ‘dropped’ into the Simulink model.) You can check that you’ve got an exact match of states = outputs by checking the C matrix you get from linmod (which should be the identity matrix).
+To achieve this ordering of states for your Simulink model, assign outports (at the top level of the model) to each of the required states, in the order shown above. Because the outputs correlate with the states, when you carry out further analysis on the model, Simulink will choose the states in the same order as the outputs. Without outputs, the states are chosen in an arbitrary order, depending on when the integrators were dropped into the Simulink model). You can check that you’ve got an exact match of states = outputs by checking the $C$ matrix you get from `linmod()` (which should be the identity matrix).
 
-When the model is set up correctly, it is very easy to extract the Eigenstructure in Matlab;
+When the model is set up correctly, it is very easy to extract the Eigenstructure using the `linmod()` function in MATLAB, more information about this function can be found [here](https://uk.mathworks.com/help/simulink/slref/linmod.html).  Example code to do this is shown below;
 
 ```matlab
 [A,B,C,D] = linmod(‘drive4’);
 [V,D] = eig(A);
 ```
 
-#### Eigenvalues (shaded), and their associated Eigenvectors (tabled).
+#### Eigenvalues (columns) and their associated Eigenvectors (rows)
 
-Note how each row of the Eigenvector matrix relates to a state, and each column relates to an Eigenvalue.
+Note how each row of the Eigenvector matrix relates to a state and each column relates to an Eigenvalue.
 
 ![image](figures/eigenvector_and_value_table.png)
-*Figure 30:*
+*Figure 30: Eigenvectors and eigenvalues of four mass model*
 
 Dividing by the largest element within an appropriate set of four eigenvectors, we can derive the relative motion between masses, in the rattle mode;
 
 ![image](figures/rattle_mode.png)
-*Figure 31:*
+*Figure 31: Relative motion in rattle mode*
 
 and the shuffle mode;
 
 ![image](figures/shuffle_mode.png)
-*Figure 32:*
+*Figure 32: Relative motion in shuffle model*
 
-It is easier to visualise this if you plot the eigenvector components as real vs imag ‘phasors’ arranged like the masses in the model;
+It is easier to visualise this if you plot the eigenvector components as real vs imaginary phasors arranged like the masses in the model;
 
 #### Mode 1 - shuffle
 
 ![image](figures/mode_1_shuffle.png)
-*Figure 33:*
+*Figure 33: Eigenvector components plotted for shuffle mode*
 
 #### Mode 2 - rattle
 
-![image](figures/mode_1_shuffle.png)
-*Figure 34:*
+![image](figures/mode_2_rattle.png)
+*Figure 34: Eigenvector components plotted for rattle mode*
 
 ### Frequency Response
 
-For the Eigenstructure analysis we assigned outports to each of the states. Now look at the frequency response (Bode plot) between the engine torque input, and the vehicle acceleration, and transmission (gearbox) acceleration outputs. (Assign inports and outports at the top level of the model, appropriately.). Then;
+For the Eigenstructure analysis we assigned outports to each of the states. Now look at the frequency response (Bode plot) between the engine torque input and the vehicle acceleration and transmission (gearbox) acceleration outputs. (Assign inports and outports at the top level of the model, appropriately). Then;
 
 ```matlab
 [A,B,C,D] = linmod(‘drive4’);
@@ -512,5 +511,7 @@ loglog(f,mag);
 grid on;
 ```
 
-![image](figures/freq_response.png)
-*Figure 35:*
+<img src="figures/freq_response.png" width=600>\\
+*Figure 35: Bode plot*
+
+Have a think about which one is which?
