@@ -51,6 +51,14 @@ In this lecture we will look at what the eigenvalues and eigenvectors of a syste
 
 Download slides [here]({{ site.url }}/ttc066-module/lectures/Using Eigenvalues and Eigenvectors.pdf)
 
+---
+
+### Drivetrain Dynamics
+
+Download slides [here]({{ site.url }}/ttc066-module/lectures/Drivetrain Dynamics.pdf)
+
+---
+
 <!-- ---
 
 ## Engine Modelling
