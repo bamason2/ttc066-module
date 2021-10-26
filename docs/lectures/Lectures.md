@@ -53,7 +53,11 @@ Download slides [here]({{ site.url }}/ttc066-module/lectures/Using Eigenvalues a
 
 ---
 
-### Drivetrain Dynamics
+## Drivetrain Dynamics
+
+The drivetrain is an important consideration in understanding vehicle driveability, noise vibration and harshness.  In engineering a drivetrain that produces a *good* response (however this is defined) the first stage is always creating a model.  This model is used for defining a required response, analysis and investigation.
+
+In this lecture we will be looking at the drivetrain as a system to understand the role of each component.  Following this we will discuss how various of models of the system can be created, what they tell us and finally finish by looking at how these can be used for evaluating and engineering the performance of the drivetrain system.
 
 Download slides [here]({{ site.url }}/ttc066-module/lectures/Drivetrain Dynamics.pdf)
 
