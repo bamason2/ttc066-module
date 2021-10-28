@@ -27,9 +27,9 @@ The lower spring ($K_2$) represents the compliance of the rubber tyre, and the u
 
 ## Step 1: Write fundamental equations for deriving a quarter-car model
 
-First consider the suspension force, $F_s$ that will be generated between $M_1$ and $M_2$ if the deflections $z_w$ and $z_b$ are not equal (if they were somehow kept equal, the masses would be moving up and down together, and no force will be generated). Here we define that this force will pull down on $M_1$ and pull up on $M_2$. 
+First consider the suspension force, $F_s$ that will be generated between $M_1$ and $M_2$ if the deflections $z_w$ and $z_b$ are not equal (if they were somehow kept equal, the masses would be moving up and down together, and no force will be generated). Here we define that this force will pull down on $M_1$ and pull up on $M_2$.
 
-1. Draw the force directions on the diagram above, so the sign convention is clear. Your equations, and the success of your model depends greatly on this!
+1. Draw the force directions on the diagram above, so the sign convention is clear. Your equations, and the success of your model depends on this!
 2. Write the equation for $F_s$ in terms of wheel and body deflections and velocities, use a single dot above the variable name to denote velocity.
 3. Now following the same principles, write the equation for the tyre force, $F_t$, generated between $M_2$ and the road (assuming the tyre never leaves contact with the road).
 4. Now consider the equation $ΣF = Ma$, applied in the vertical direction to each of the masses. The only forces acting are $F_s$ and $F_t$ (see below) and the body equation is simply.
@@ -40,7 +40,49 @@ First consider the suspension force, $F_s$ that will be generated between $M_1$ 
 
 Note that for these dynamic equations, we ignore the weight of the masses and assume all the deflections are zero at the resting position of the masses (as indicated on the model illustration).
 
-## Step 2: Create and test a sub-system for body motion
+One approach to the above is shown below.  Please do try this for yourselves *before* looking at this. It is important you know how to do it for yourself and once you have seen the answer the opportunity for learning how to do it is *lost*.
+
+<details close markdown="block">
+  <summary style="color:green;">
+    VIEW SOLUTION
+  </summary>
+<hr>
+
+First thinking about $M_1$ (the body).
+
+<img src="figs/mass_1.png" width=300>
+
+The sum of forces is just the sum of $F_1$ and $F_2$ from the spring and damper, writing the equation for each of these;
+
+$$ \begin{align}
+F_1 &= B(\dot{z}_w-\dot{z}_b) \nonumber \\
+F_2 &= K(z_w-z_b) \nonumber \end{align}  $$
+
+Using Newton's equation to determine the acceleration of $M_1$;
+
+$$ M_1 \ddot{z}_b = \sum F = F_1 + F_2 = B(\dot{z}_w-\dot{z}_b) + K_1(z_w-z_b) \label{eq1} $$
+
+Now thinking about $M_2$ (the wheel);
+
+<img src="figs/mass_2.png" width=300>
+
+The sum of forces is just the sum of $-F_1$, $-F_2$ and $F_3$ from the spring and damper, writing the equation for each of these;
+
+$$ \begin{align}
+-F_1 &= -B(\dot{z}_w-\dot{z}_b) \nonumber \\
+-F_2 &= -K_1(z_w-z_b) \nonumber\\
+F_3 &= K_2(z_r-z_w) \nonumber \end{align} $$
+
+Using Newton's equation to determine the acceleration of $M_2$;
+
+$$ M_2 \ddot{z}_w = \sum F = -F_1 - F_2 + F_3 = B(\dot{z}_b-\dot{z}_w) + K_1(z_b - z_w) + K_2(z_r - z_w) \label{eq2} $$
+
+So that with Equations \ref{eq1} and \ref{eq2} you have the set of equations that fully describe the system.
+
+<hr>
+</details>
+
+## Step 2: Create and test a subsystem for body motion
 
 Start MATLAB and Simulink, then open a new model and build the system shown below. The Sine Wave generator is obtained from the Simulink Block Library under *Sources*, and here we use it to represent an external vertical force applied to an isolated body mass. Set a peak force of 1000 (Newtons) and a frequency of 1 Hz, i.e. $2\pi$ radians per second. Bias, Phase and Sample Time can be left at zero.
 
@@ -70,7 +112,7 @@ and highlight all of these blocks, then select create a subsystem. Double click 
 <img src="figs/suspension_fig5.png" width="400"/>\\
 *Figure: Create a subsystem*
 
-## Step 3: Create and test a linear sub-system for suspension force
+## Step 3: Create and test a linear subsystem for suspension force
 
 Open a new model (blank page) to create this sub-system, which should have four inputs, defining the kinematics (displacement and velocity) of the body and the wheel. The output is to be the dynamic force caused by the spring and damper, acting between the body and the wheel.
 
@@ -94,7 +136,7 @@ When you are ready, run the simulation with a 5 second duration, plot $b_d$ and 
 * set all the parameters (in all the subsystems) correctly
 * used a sensible refine factor, with no limit to number of points, and with a low relative tolerance in configuration parameters (as discussed earlier in this lab).
 
-When you’ve finished the model, save it as qvm.slx.
+When you’ve finished the model, save it as *qvm.slx*.
 
 <img src="figs/suspension_fig8.png" width="400"/>\\
 *Figure: Body deflection and velocity response to a 0.05m step*
@@ -102,6 +144,19 @@ When you’ve finished the model, save it as qvm.slx.
 Now put two more *To Workspace* blocks in the model, to output the wheel motion and hence produce a single plot which compares body deflection with wheel deflection (don’t plot the velocities) for the same step input. You can overlay these on the same axes, or use the subplot command to subdivide the plot window.
 
 Zoom-in on the plot so you can pick out accurate timings for the peaks in the wheel and body motion oscillations. You should be able to estimate the wheel hop and body bounce (damped) natural frequencies, by looking at the the time for one cycle. Is this in the expected range?
+
+If you are struggling to complete your model then have a look below at an *outline* model.  This is a bare minium working version, as usual please have a go at this yourself *before* revealing the answer.
+
+<details close markdown="block">
+  <summary style="color:green;">
+    VIEW SOLUTION
+  </summary>
+<hr>
+
+  <img src="figs/outline_model.png" width=600>
+
+<hr>
+</details>
 
 ## Step 5: Construct the equivalent State-space model
 
