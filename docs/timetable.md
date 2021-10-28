@@ -13,8 +13,8 @@ nav_order: 2
 |   | Ride Dynamics | Drivetrain Modelling I |
 | 3 | Ride Dynamics [...continued] | Suspension System Simulation |
 |   | Using Eigenvalues and Eigenvectors | |
-| 4 | Drivetrain Dynamics | Drivetrain Modelling II |
-| 5 | Drivetrain Dynamics | Assessed Computer Lab (40% module mark) |
+| 4 | Drivetrain Dynamics | Drivetrain Modelling I |
+| 5 | Drivetrain Dynamics | Assessed Computer Lab |
 | 6 | Assessment Feedback | Simulink Engine Modelling |
 |   | Engine Modelling | |
 | 7 | Drivetrain Modelling | Simulink Drivetrain Modelling |
