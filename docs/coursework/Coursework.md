@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Coursework
+title: Test and Coursework
 nav_order: 6
 has_children: true
 ---
 
-## Coursework Briefs
+## Class Test and Coursework Briefs
