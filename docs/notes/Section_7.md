@@ -499,7 +499,7 @@ It is easier to visualise this if you plot the eigenvector components as real vs
 
 ### Frequency Response
 
-For the Eigenstructure analysis we assigned outports to each of the states. Now look at the frequency response (Bode plot) between the engine torque input and the vehicle acceleration and transmission (gearbox) acceleration outputs. (Assign inports and outports at the top level of the model, appropriately). Then;
+For the Eigenstructure analysis we assigned outports to each of the states. Now look at the frequency response (Bode plot, see [here](https://uk.mathworks.com/help/ident/ref/lti.bode.html) for more information on this MATLAB function) between the engine torque input and the vehicle acceleration and transmission (gearbox) acceleration outputs. (Assign inports and outports at the top level of the model, appropriately). Then;
 
 ```matlab
 [A,B,C,D] = linmod(‘drive4’);
