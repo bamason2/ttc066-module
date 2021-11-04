@@ -88,22 +88,18 @@ Drivetrain dynamics are important since the drivetrain contributes significantly
 | **Tutorial and Computer Labs** |
 | [Drivetrain Modelling ]({{ site.url}}/ttc066-module/labs/Drivetrain%20Modelling%20II.html) |
 
-<!--
 ## Week 5
 
 ### Week 5 Resources
 
+This week we will be looking at the fundamental physics and derivation of equations required for the modelling of engines, most of which is related to a fundamental knowledge of thermodynamics and fluid mechanics.  Making some assumptions we can generate fairly accurate models of the engine as a torque producing device.
+
+In next week's laboratory we will be looking at how we can, using our knowledge of engine physics, build a representative engine model.  Data for more accurate parameterisation of this will be obtained in our straight line performance test at MIRA.
+
 | **Lecture Slides**  |
-|[Linearity and State Space]({{ site.url }}/ttc066-module/lectures/Linearity and State Space.pdf) |
+|[Engine Modelling]({{ site.url }}/ttc066-module/lectures/Engine Modelling.pdf) |
 
-| **Lecture Notes** |
-| [Section 4: Linearity and State Space]({{ site.url}}/ttc066-module/notes/Section_3.html) |
-
-| **Tutorial** |
-| [Numerical Integration]({{ site.url}}/ttc066-module/labs/Integration%20Lab.html) |
-
-| **Computer Lab** |
-| [Simulink Onramp](https://uk.mathworks.com/learn/tutorials/simulink-onramp.html) |
+<!--
 
 ## Week 6
 
