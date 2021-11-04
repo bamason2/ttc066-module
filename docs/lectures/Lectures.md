@@ -63,13 +63,17 @@ Download slides [here]({{ site.url }}/ttc066-module/lectures/Drivetrain Dynamics
 
 ---
 
-<!-- ---
-
 ## Engine Modelling
 
-Download slides [here]({{ site.url }}/ttc066-module/files/Powertrain_Modelling.pdf)
+The engine is an important system in the vehicle whether acting alone or alongside an electric machine in a hybrid vehicle. Representation of the engine as a torque producing device can be done in a number of ways, we will be looking in this lecture at Mean Value Engine Models (MVEM).  This form of model represents the gas flows and thermodynamics as discrete points.
+
+The elements and equations used to model an engine are commonly encountered in other applications but do require some assumptions to be made which leads to some loss of accuracy.  We will be looking at this and how measurement results can me used to improve accuracy.
+
+Download slides [here]({{ site.url }}/ttc066-module/lectures/Engine Modelling.pdf)
 
 ---
+
+<!-- ---
 
 ## Drivetrain Modelling
 
