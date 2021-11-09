@@ -15,7 +15,7 @@ This exercise will teach you how a typical airpath/torque model is created withi
 
 ## Approach to the development of the Engine Model
 
-Download the engine model template, [EngTemplate.mdl](files/engine_lab/EngTemplate_r2019b.slx) from LEARN and open it in Simulink.  Also download the model parameters file called [EngParameters.m](files/engine_lab/EngParameters.m) and open these in the editor.
+Download the engine model template, [EngTemplate.slx](files/engine_lab/EngTemplate_r2019b.slx) from LEARN and open it in Simulink.  Also download the model parameters file called [EngParameters.m](files/engine_lab/EngParameters.m) and open these in the editor.
 
 ![image](figs/engine_model.png)
 
@@ -33,21 +33,23 @@ Open the Throttle Body submodel and again note the inputs and outputs available.
 
 For un-choked flow $\frac{P_{man}}{P_{atm}} > 0.528$;
 
-$$
-\dot{m}=\frac{C_{d} A_{t h} P_{a t m}}{\sqrt{R T_{a t m}}}\left(\frac{P_{m a n}}{P_{a t m}}\right)^{\frac{1}{\gamma}}\left\{\frac{2 \gamma}{\gamma-1}\left[1-\left(\frac{P_{m a n}}{P_{a t m}}\right)^{\frac{\gamma-1}{\gamma}}\right]\right\}^{\frac{1}{2}}
-$$
+$$ \dot{m}=\frac{C_{d} A_{t h} P_{a t m}}{\sqrt{R T_{a t m}}}\left(\frac{P_{m a n}}{P_{a t m}}\right)^{\frac{1}{\gamma}}\left\{\frac{2 \gamma}{\gamma-1}\left[1-\left(\frac{P_{m a n}}{P_{a t m}}\right)^{\frac{\gamma-1}{\gamma}}\right]\right\}^{\frac{1}{2}}  \nonumber $$
 
 For choked flow $\frac{P_{man}}{P_{atm}} \leq 0.528$;
 
-$$
-\dot{m}=\frac{C_{d} A_{t h} P_{a t m}}{\sqrt{R T_{a t m}}} \sqrt{\gamma}\left(\frac{2}{\gamma+1}\right)^{\frac{\gamma+1}{2(\gamma-1)}}
-$$
+$$ \dot{m}=\frac{C_{d} A_{th} P_{atm}}{\sqrt{R T_{atm}}} \sqrt{\gamma}\left(\frac{2}{\gamma+1}\right)^{\frac{\gamma+1}{2(\gamma-1)}}  \nonumber $$
 
-A suggested switching mechanism has been included in the model, make sure you understand how this works.  Note carefully how the change of direction in flow is implemented (this is something the equations don't help you with).  Reverse flow can occur fairly often in the intake system.
+Note that in reverse flow the pressure ratio reverses so that for un-choked flow $\frac{P_{atm}}{P_{man}} > 0.528$;
 
-A MUX block is used to tidy up the many signals, these may be referenced from the output of the mux block using the notation `u[1]` to select the first signal, `u[2]` the second and so on.
+$$ \dot{m}=\frac{C_{d} A_{t h} P_{man}}{\sqrt{R T_{man}}}\left(\frac{P_{atm}}{P_{man}}\right)^{\frac{1}{\gamma}}\left\{\frac{2 \gamma}{\gamma-1}\left[1-\left(\frac{P_{atm}}{P_{man}}\right)^{\frac{\gamma-1}{\gamma}}\right]\right\}^{\frac{1}{2}}  \nonumber $$
 
-Using the equations shown in the lecture slides build the model, the MATLAB version of the throttle area and subsonic flow are included below for your convenience;
+For choked flow $\frac{P_{atm}}{P_{man}} \leq 0.528$;
+
+$$ \dot{m}=\frac{C_{d} A_{th} P_{man}}{\sqrt{R T_{man}}} \sqrt{\gamma}\left(\frac{2}{\gamma+1}\right)^{\frac{\gamma+1}{2(\gamma-1)}}  \nonumber $$
+
+A suggested switching mechanism has been included in the model, make sure you understand how this works.  Note carefully how the change of direction in flow is implemented (this is something the equations don't help you with). A MUX block is used to tidy up the many signals these may be referenced from the output of the MUX block using the notation `u[1]` to select the first signal, `u[2]` the second and so on.
+
+Using the equations shown in the lecture slides build the model, the MATLAB version of the throttle area and subsonic flow are included below for your convenience.  Remember however that you should check the inputs to this (u(1), u(2), etc) to make sure they are correct according to your implementation.
 
 ```matlab
 %throttle area equation
@@ -66,19 +68,25 @@ The above method can also be used to view and check the others tables, including
 
 ### Intake Manifold
 
-Open the Intake Manifold block, again note the inputs and outputs to the block. Using the equations in the lecture slides create the block structure to calculate Manifold Pressure and Air Mass Flow to the cylinder.  The way to do this is to implement the speed-density equation;
+Open the Intake Manifold block, again note the inputs and outputs to the block. Using the equations in the lecture slides create the block structure to calculate Manifold Pressure and Air Mass Flow to the cylinder.  The way to do this is to implement the speed-density equation to calculate the mass flow out of the manifold.
 
-$$ \dot{m}=\eta \frac{P_{\text {man }}}{R T_{\text {man }}} \frac{V_{\text {disp }}}{120} N_{\text {eng }} $$
+$$ \dot{m}_{out}=\eta \frac{P_{\text {man }}}{R T_{\text {man }}} \frac{V_{\text {disp }}}{120} N_{\text {eng }} \nonumber $$
 
-In this case we don't really need to model the temperature and pressure state of the manifold and therefore opt for this easier implementation.  Remember to multiply the speed-density equation by the volumetric efficiency, this will need to be included in the model using a 2D lookup table as follows;
+ Remember to multiply the speed-density equation by the volumetric efficiency, this will need to be included in the model using a 2D lookup table as follows;
 
 <img src="figs/vol_eff.png" width=500>
+
+To calculate the manifold pressure you will need to take the difference between the mass flow coming into the manifold this gives a $ \frac{dm}{dt} $ in the manifold from which a $ \frac{dP}{dt} $ can be calculated by using the ideal gas equation;
+
+$$ \frac{dP}{dt} = \frac{dm}{dt}\frac{RT}{V} \nonumber $$
+
+Integrating this you will get manifold pressure, $ P_{man}$.  This can then be fed back to calculate volumetric efficiency which you will need to calculate the volumetric efficiency which is used to calculate the mass flow out of the manifold.  Note that this is a circular calculation, the algebraic loop is broken by the integrator (which will need an initial condition setting).
 
 ### Torque Generation
 
 Open the Torque Generation submodel.  Using the equation given for friction torque (noting the units) and the data provided for the torque as a function of engine speed and air mass flow use a 2D lookup table to evaluate torque. Recorded torque measurements are available in the parameters file.
 
-As an extension to this try to fit a simple polynomial model to the data and use instead an equation to evaluate torque based on the inputs (this is easy using the curve fitting, `cftool` in Matlab).  Try and evaluate any differences in the polynomial model and the data as represented (and interpolated) by the 2-D lookup table.
+As an extension to this try to fit a simple polynomial model to the data and use instead an equation to evaluate torque based on the inputs (this is easy using the curve fitting, `cftool` in Matlab).  Try and evaluate any differences in the polynomial model and the data as represented (and interpolated) by the 2D lookup table.
 
 ## Obtaining Results
 
