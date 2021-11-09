@@ -301,7 +301,7 @@ Next, check with Equation \ref{eq17} (and Equation \ref{eq18a}) and you find tha
 Now yet more simplification can be done, because these numbers can’t be used to tell us about *absolute* magnitudes of motion; the oscillation magnitude depends on how large the input is. The easiest way to interpret each eigenvector is to divide all the (in this case two) elements by the element with the largest magnitude. For the first mode then, dividing the two values in the box on the left by $-0.0284 - 0.0017i$, we get;
 
 $$ \begin{align} &1 \\
-&-0.0512 - 0.0000i \nonumber \end{align} $$
+&-0.0512 - 0.0000i \end{align} \nonumber $$
 
 Now if the *normalised* eigenvector components are drawn on the real and imaginary axes,
 
