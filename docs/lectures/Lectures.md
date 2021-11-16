@@ -73,6 +73,16 @@ Download slides [here]({{ site.url }}/ttc066-module/lectures/Engine Modelling.pd
 
 ---
 
+## Drivetrain Modelling
+
+The drivetrain manages the flow of torque from its source i.e. the engine or electric machine (or some combination of the two) to the point at which it is used, the tyre-road interface, to accelerate the vehicle.  Depending on the torque production means the requirements upon the drivetrain vary, for example a clutch or gearing ratio change may not be necessary if the vehicle is driven purely by an electric motor.
+
+During this lecture, we will be looking at the physics and equations for each of the components that can be connected together to create a drivetrain model.  In creating these elements, which we will practice in the computer laboratory sessions this week, we will be using a modular structure that allows reorganisation of the components to represent a large number of different drivetrain architectures.
+
+Download slides [here]({{ site.url }}/ttc066-module/lectures/Drivetrain Modelling II.pdf)
+
+---
+
 <!-- ---
 
 ## Drivetrain Modelling

@@ -90,125 +90,32 @@ Drivetrain dynamics are important since the drivetrain contributes significantly
 
 ## Week 5
 
-### Week 5 Resources
-
 This week we will be looking at the fundamental physics and derivation of equations required for the modelling of engines, most of which is related to a fundamental knowledge of thermodynamics and fluid mechanics.  Making some assumptions we can generate fairly accurate models of the engine as a torque producing device.
 
 In next week's laboratory we will be looking at how we can, using our knowledge of engine physics, build a representative engine model.  Data for more accurate parameterisation of this will be obtained in our straight line performance test at MIRA.
 
+### Week 5 Resources
+
 | **Lecture Slides**  |
 |[Engine Modelling]({{ site.url }}/ttc066-module/lectures/Engine Modelling.pdf) |
 
-<!--
+| **Tutorial and Computer Labs** |
+| [Engine Modelling ]({{ site.url}}/ttc066-module/labs/Engine%20Modelling.html) |
 
 ## Week 6
 
-### Week 6 Resources
-
-| **Lecture Slides**  |
-|[Linearity and State Space]({{ site.url }}/ttc066-module/lectures/Linearity and State Space.pdf) |
-
-| **Lecture Notes** |
-| [Section 4: Linearity and State Space]({{ site.url}}/ttc066-module/notes/Section_3.html) |
-
-| **Tutorial** |
-| [Numerical Integration]({{ site.url}}/ttc066-module/labs/Integration%20Lab.html) |
-
-| **Computer Lab** |
-| [Simulink Onramp](https://uk.mathworks.com/learn/tutorials/simulink-onramp.html) |
+Assessed Simulation Exercise.
 
 ## Week 7
+
+This week we will be looking at the fundamental physics and derivation of equations required for the modelling of drivetrain components.  Implementing these as modular components within Simulink means that they can be used for modelling several different drivetrain architectures by connecting and parameterising them in different ways.
+
+During the laboratory session we will be creating an example model of a front wheel drive vehicle that will be used later within the coursework.
 
 ### Week 7 Resources
 
 | **Lecture Slides**  |
-|[Linearity and State Space]({{ site.url }}/ttc066-module/lectures/Linearity and State Space.pdf) |
+|[Drivetrain Modelling]({{ site.url }}/ttc066-module/lectures/Drivetrain%20Modelling%20II.pdf) |
 
-| **Lecture Notes** |
-| [Section 4: Linearity and State Space]({{ site.url}}/ttc066-module/notes/Section_3.html) |
-
-| **Tutorial** |
-| [Numerical Integration]({{ site.url}}/ttc066-module/labs/Integration%20Lab.html) |
-
-| **Computer Lab** |
-| [Simulink Onramp](https://uk.mathworks.com/learn/tutorials/simulink-onramp.html) |
-
-## Week 8
-
-### Week 8 Resources
-
-| **Lecture Slides**  |
-|[Linearity and State Space]({{ site.url }}/ttc066-module/lectures/Linearity and State Space.pdf) |
-
-| **Lecture Notes** |
-| [Section 4: Linearity and State Space]({{ site.url}}/ttc066-module/notes/Section_3.html) |
-
-| **Tutorial** |
-| [Numerical Integration]({{ site.url}}/ttc066-module/labs/Integration%20Lab.html) |
-
-| **Computer Lab** |
-| [Simulink Onramp](https://uk.mathworks.com/learn/tutorials/simulink-onramp.html) |
-
-## Week 9
-
-### Week 9 Resources
-
-| **Lecture Slides**  |
-|[Linearity and State Space]({{ site.url }}/ttc066-module/lectures/Linearity and State Space.pdf) |
-
-| **Lecture Notes** |
-| [Section 4: Linearity and State Space]({{ site.url}}/ttc066-module/notes/Section_3.html) |
-
-| **Tutorial** |
-| [Numerical Integration]({{ site.url}}/ttc066-module/labs/Integration%20Lab.html) |
-
-| **Computer Lab** |
-| [Simulink Onramp](https://uk.mathworks.com/learn/tutorials/simulink-onramp.html) |
-
-## Week 10
-
-### Week 10 Resources
-
-| **Lecture Slides**  |
-|[Linearity and State Space]({{ site.url }}/ttc066-module/lectures/Linearity and State Space.pdf) |
-
-| **Lecture Notes** |
-| [Section 4: Linearity and State Space]({{ site.url}}/ttc066-module/notes/Section_3.html) |
-
-| **Tutorial** |
-| [Numerical Integration]({{ site.url}}/ttc066-module/labs/Integration%20Lab.html) |
-
-| **Computer Lab** |
-| [Simulink Onramp](https://uk.mathworks.com/learn/tutorials/simulink-onramp.html) |
-
-## Week 11
-
-### Week 11 Resources
-
-| **Lecture Slides**  |
-|[Linearity and State Space]({{ site.url }}/ttc066-module/lectures/Linearity and State Space.pdf) |
-
-| **Lecture Notes** |
-| [Section 4: Linearity and State Space]({{ site.url}}/ttc066-module/notes/Section_3.html) |
-
-| **Tutorial** |
-| [Numerical Integration]({{ site.url}}/ttc066-module/labs/Integration%20Lab.html) |
-
-| **Computer Lab** |
-| [Simulink Onramp](https://uk.mathworks.com/learn/tutorials/simulink-onramp.html) |
-
-## Week 12
-
-### Week 12 Resources
-
-| **Lecture Slides**  |
-|[Linearity and State Space]({{ site.url }}/ttc066-module/lectures/Linearity and State Space.pdf) |
-
-| **Lecture Notes** |
-| [Section 4: Linearity and State Space]({{ site.url}}/ttc066-module/notes/Section_3.html) |
-
-| **Tutorial** |
-| [Numerical Integration]({{ site.url}}/ttc066-module/labs/Integration%20Lab.html) |
-
-| **Computer Lab** |
-| [Simulink Onramp](https://uk.mathworks.com/learn/tutorials/simulink-onramp.html) | -->
+| **Tutorial and Computer Labs** |
+| [Drivetrain Modelling II]({{ site.url}}/ttc066-module/labs/Drivetrain%20Modelling%20II.html) |
