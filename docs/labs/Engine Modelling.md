@@ -102,11 +102,25 @@ Run the model at a minimum of three speed points at WOT and record torque.  Fit 
 
 From the torque data (or by addition to your model) calculate the engine brake power. Plot this on a separate graph along with the engine recorded power data available in the table over the page.
 
+### Model Debugging
+
+Once you have got your model running check the output torque at the model top level to ensure for the inputs shown in the figure below outputs match. Note that in the version of the model shown below in all of the lookup tables the default *Algorithm* settings have been changed (see the tab in the block properties).  For a perfect match you will need to change the interpolation method to *cubic spline*, extrapolation to *clip* and the search method to *linear search*.
+
+<img src="figs/engine_outputs.png" width=800>\
+Figure: Engine model outputs for debugging
+
+If your model doesn't produce the outputs as shown above, try splitting the model into subsystems to locate the problem.  For example, as shown below, you can isolate the throttle subsystem.  Isolating the subsystem and providing fixed inputs should mean, for a correct subsystem, that the outputs are the same as that shown in the previous diagram.  If they aren't then there is something wrong in the isolated subsystem.
+
+<img src="figs/subsystem_isolation.png" width=800>\
+Figure: Isolating subsystems for debugging
+
+In addition to the above, the data in the next section can help you assess if you model is correct over a range of speeds.
+
 ## Additional Information
 
 ![image](figs/Figure1.png)
 
-#### Engine Power and Torque
+### Engine Power and Torque
 
 | Speed [rpm] |	Torque [Nm] | Power [kW]  |
 | --- | --- | --- |
