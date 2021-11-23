@@ -5,10 +5,12 @@ parent: Tutorials and Labs
 nav_order: 6
 ---
 
-
 # Drivetrain Modelling II
 
 In this laboratory you will be creating a drivetrain model that will be used for straight line performance evaluation during MIRA week. The drivetrain model is generic in that it can be parameterised for a number of different vehicles. The parameters that you are provided with in this case are for a Ford Focus 2.0l Ecoboost.
+
+<img src="figs/drivetraincolours.png" width=500>\
+*Schematic in overview of the vehicle drivetrain*
 
 This exercise will give you an opportunity to create your own drivetrain model based upon the suggested structure. By building the model from physics-based first principles you will gain greater understanding of:
 
@@ -23,7 +25,8 @@ and perhaps most importantly:
 
 Download the engine model template, [DrivetrainTemplate.mdl]({{ site.url }}/ttc066-module/labs/files/drivetrain_lab_2/DrivetrainTemplate_r2019b.slx.zip) and open it in Simulink.  Also download the model parameters file [DrivetrainParameters.m]({{ site.url }}/ttc066-module/labs/files/drivetrain_lab_2/DrivetrainParameters.m) and open these in the editor.
 
-<img src="figs/drivetrain_model.png" width=700>
+<img src="figs/drivetrain_model.png" width=700>\
+*Top level of the drivetrain model template, DrivetrainTemplate.mdl*
 
 Look at the inputs and outputs of each of the main top-level blocks within the Simulink model, this defines the information available in each of the subsystems;
 
@@ -125,3 +128,41 @@ For reference, the test data in the *CoastdownData.mat* and *SpeedData.mat* file
 
 <img src="figs/accel-data.png" width=500>\
 *Figure: Acceleration data plot showing deceleration of vehicle OSR wheel*
+
+<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+
+<script>
+  /* paste this in verbatim */
+  window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments);};
+
+  /* customize formbutton here*/     
+  formbutton("create", {
+    action: "https://formspree.io/f/mlezreap",
+    title: "Please help improve this laboratory worksheet",
+    fields: [
+      { 
+        type: "email", 
+        label: "Email:", 
+        name: "email",
+        required: true,
+        placeholder: "email@student.lboro.ac.uk"
+      },
+      {
+        type: "textarea",
+        label: "Message:",
+        name: "message",
+        placeholder: "Please add a suggestion for improving this labsheet",
+      },
+      { type: "submit" }      
+    ],
+    styles: {
+      title: {
+        backgroundColor: "gray"
+      },
+      button: {
+        backgroundColor: "gray"
+      }
+    },
+    initiallyVisible: false
+  });
+</script>
