@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 title: Test and Coursework
 nav_order: 6
 has_children: true
