@@ -1,6 +1,7 @@
 ---
 layout: home
 nav_order: 1
+last_modified_date: true
 ---
 
 # Overview
@@ -119,3 +120,17 @@ During the laboratory session we will be creating an example model of a front wh
 
 | **Tutorial and Computer Labs** |
 | [Drivetrain Modelling II]({{ site.url}}/ttc066-module/labs/Drivetrain%20Modelling%20II.html) |
+
+## Week 8
+
+The tuning of parameters in physical models is a key step that is often required later on in the model development process.  The tuning of parameter ensures that the model best represents the physics of the system, this is important since the model will be used for engineering purposes.
+
+This week we will make use of the a slightly modified version of the vehicle model that you have developed over the last few weeks to practice parameter tuning.  Using the MATLAB/Simulink Parameter Estimation GUI and some sample data we will be tuning key model parameters to better represent the system described by the data.
+
+### Week 8 Resources
+
+| **Lecture Slides**  |
+| [ Parameter Tuning ]({{ site.url }}/ttc066-module/lectures/Parameter%20Tuning.pdf) |
+
+| **Tutorial and Computer Labs** |
+| [Parameter Tuning]({{ site.url}}/ttc066-module/labs/Parameter Tuning.html) |

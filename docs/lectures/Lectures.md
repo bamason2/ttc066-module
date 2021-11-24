@@ -83,6 +83,14 @@ Download slides [here]({{ site.url }}/ttc066-module/lectures/Drivetrain Modellin
 
 ---
 
+## Parameter Tuning
+
+Having created a physical model that represents a dynamic (or static) system it is often necessary to tune the parameters of the model to *fine tune* the model's ability to better represent the behaviour of the system.  For large models this can be a significant undertaking.  
+
+In this weeks lecture we will look at some of the considerations around model parameter tuning including understanding how good the model is through plots and metrics, and optimisation as an approach to tuning the model parameters.
+
+Download slides [here]({{ site.url }}/ttc066-module/lectures/Parameter Tuning.pdf)
+
 <!-- ---
 
 ## Drivetrain Modelling
