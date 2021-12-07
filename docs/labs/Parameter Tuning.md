@@ -62,3 +62,8 @@ Use *From Workspace* blocks to feed the experimental data to the model, at the v
 Set up a parameter optimisation initially for vehicle speed, try optimising some of the parameters that are of consequence to the Time to Speed evaluation (discussed in the lab. Again attempt two to three iterations, checking the optimiser outputs for physical sense. Again think of any small changes that you could make to the model to improve the results based on your observations.
 
 For all of the above optimisations produce plots to show the improvements to the model output as a consequence of the parameter tuning. Show the parameter trajectories through the optimisation process and comment on the number of iterations attempted by the optimiser to achieve a solution.
+
+
+### Stateflow Clutch
+
+Once you have completed the above, swap your clutch model with this one, [Stateflow Clutch]({{ site.url }}/ttc066-module/labs/files/parameter_tuning/stateflow_clutch.slx.zip).  Repeat the time to speed tuning and note any differences.
