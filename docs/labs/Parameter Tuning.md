@@ -23,23 +23,23 @@ Run the model and observe the vehicle velocity, which should look similar to the
 
 <img src="figs/speed_trace.png" width=600>
 
-Select Apps>>Parameter Estimation from the menu bar and the Parameter Estimation window will open.
+Select Apps>>Parameter Estimator from the menu bar and the Parameter Estimator window will open.
 
 <img src="figs/tuning_gui.jpg" width=600>
 
-Press Select Parameters and then choose the parameters within the model that affect the vehicle coastdown performance. For a start select the front area, $A$, tyre rolling resistance coefficients, $A_d$ and $B_d$ and the coefficient of drag $C_d$.
+Press *Select Parameters* and then choose the parameters within the model that affect the vehicle coastdown performance. For a start select the frontal area, $A$, tyre rolling resistance coefficients, $A_d$ and $B_d$ and the coefficient of drag $C_d$. (Note: if your parameter file is executed every time the model is run for example through a callback you will either have to disable this or comment out the parameters you are tuning in your parameter file.  If you don't, during the optimisation loop run by the Parameter Estimator, it will be unable to try new parameter values as it searches for the best.)
 
-Select the arrow next to the parameters and enter sensible (physically rea  listic) minimums and maximums for each of the parameters. Since the parameters are physical in nature they will always be positive.
+Select the arrow next to the parameters and enter sensible (physically realistic) minimums and maximums for each of the parameters. Since the parameters are physical in nature they will always be positive.
 
 <img src="figs/tuning_parameters.jpg">
 
-Select OK. In the parameter file comment out each of the parameters you have selected.
+Select *OK*. In the parameter file comment out each of the parameters you have selected.
 
-Load the experimental data Coast-data.mat, available on LEARN. Next select New Experiment>>Select Measured Output Signals. In your model then select the vehicle velocity, note that this will need to be scaled to km/hr. Once you have done this enter the variable names of the measured data [Time, NSR] (hint: an average of NSR and OSR would be more accurate) which is a time vector and Near Side Rear wheel velocity (driven wheels). Then select OK.
+Load the experimental data *Coast-data.mat*, available on LEARN. Next select *New Experiment>>Select Measured Output Signals*. In your model select the vehicle velocity, note that this will need to be scaled to km/hr. Once you have done this enter the variable names of the measured data [Time, NSR] (hint: an average of NSR and OSR would be more accurate) which is a time vector and Near Side Rear wheel velocity (driven wheels). Then select *OK*.
 
 <img src="figs/tuning_experiment.jpg">
 
-Next click on Add Plot and add a plot of the experimental data and the parameter trajectories. To view these side by side select the View tab and then Left/Right.
+Next click on *Add Plot* and add a plot of the experimental data and the parameter trajectories. To view these side by side select the View tab and then Left/Right.
 
 <img src="figs/tuning_results.jpg">
 
@@ -47,7 +47,7 @@ Next click on estimate which starts the parameter estimation using the default o
 
 By default the optimiser searches for parameter values that minimise the sum of the squared estimation error i.e. the sum of the squared error between the simulation and experimental results. After a number of iterations (up to 100 by default) the optimisation ends as the error converges to some minimum value (note that this may be a local optimum which depends on the model initial conditions). The model response is plotted alongside the experimental data.
 
-Following the optimisation the parameter values can be seen by double clicking anywhere within the Parameters box. If your judge these as acceptable i.e. physically realistic then enter these into the Parameter file. If not then adjust the constraints and/or add in more parameters as required. Two to three iterations are suggested. Think about any modifications that you could make to your model to make it more representative.
+Following the optimisation the parameter values can be seen by double clicking anywhere within the Parameters box. If your judge these as acceptable i.e. physically realistic then enter these into the Parameter file. If not then adjust the constraints and/or add in more parameters as required. Two to three iterations are suggested. Think about any modifications that you could make to your model to improve your results.
 
 <img src="figs/tuning_results_2.jpg">
 
@@ -57,7 +57,7 @@ Now follow a similar process for the time to speed data. To do this you will hav
 
 Open the Accel-data file available on LEARN. Look at each of the parameters noting which you could use as inputs to your model and which you could use as outputs. Think about how they relate to your model (look at the units).
 
-Use From Workspace blocks to feed the experimental data to the model, at the very least you will have to do this for the inputs. For a first attempt at Time to Speed tuning add From Workspace blocks for the throttle pedal, clutch and gear number. For the throttle and clutch pedals note the sign convention and range of travel and how these may differ from the model compared to the experimental results.
+Use *From Workspace* blocks to feed the experimental data to the model, at the very least you will have to do this for the inputs. For a first attempt at Time to Speed tuning add *From Workspace* blocks for the throttle pedal, clutch and gear number. For the throttle and clutch pedals note the sign convention and range of travel and how these may differ from the model compared to the experimental results.
 
 Set up a parameter optimisation initially for vehicle speed, try optimising some of the parameters that are of consequence to the Time to Speed evaluation (discussed in the lab. Again attempt two to three iterations, checking the optimiser outputs for physical sense. Again think of any small changes that you could make to the model to improve the results based on your observations.
 
