@@ -63,7 +63,6 @@ Set up a parameter optimisation initially for vehicle speed, try optimising some
 
 For all of the above optimisations produce plots to show the improvements to the model output as a consequence of the parameter tuning. Show the parameter trajectories through the optimisation process and comment on the number of iterations attempted by the optimiser to achieve a solution.
 
-
 ### Stateflow Clutch
 
 Once you have completed the above, swap your clutch model with this one, [Stateflow Clutch]({{ site.url }}/ttc066-module/labs/files/parameter_tuning/stateflow_clutch.slx.zip).  Repeat the time to speed tuning and note any differences.
