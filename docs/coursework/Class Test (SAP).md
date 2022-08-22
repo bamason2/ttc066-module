@@ -13,9 +13,9 @@ In this exercise you should follow the instructions carefully and provide writte
 
 Please download the following files;
 
-1. Answer sheet; [answer_sheet_SAP.docx](files/answer_sheet_SAP.docx)
-2. Model initialisation script; [init4.m](files/Init4.m)
-3. Model file; [drive4.slx](files/drive4.slx)
+1. Answer sheet; [answer_sheet_SAP.docx]({{ site.url }}/ttc066-module/coursework/files/answer_sheet_SAP.docx)
+2. Model initialisation script; [init4.m]({{ site.url }}/ttc066-module/coursework/files/Init4.m)
+3. Model file; [drive4.slx]({{ site.url }}/ttc066-module/coursework/files/drive4.slx)
 
 If you downloaded these files before this session, make sure there are no changes to them in the versions you start with, download them again if you’re unsure.
 
@@ -60,7 +60,7 @@ With the model in its linear form, use `linmod()` to extract the $A$ matrix and 
 
 |---|---|
 |**Q1.** Modify the model so that it has one input (inport block) and three outputs (outport blocks) at the top level. The input should be engine torque and the outputs should be engine (flywheel) acceleration, transmission (gearbox) acceleration and vehicle acceleration with all accelerations *rotational*. You will have to modify the engine and transmission inertia subsystems to do this. Compare them with the vehicle inertia subsystem to see how.  Save this version of the model as **drive4inout.slx** and submit this to LEARN. | **[4 Marks]** |
-|**Q2.** Use `linmod()` on this new version of the model.  Then use the slightly modified MATLAB commands in the [Frequency Response](http://localhost:4000/ttc066-module/notes/Section_7.html#frequency-response) section in the Drivetrain Dynamics notes, to produce a frequency response (Bode) plot of Gain only, from the input to each of the three outputs (with the three lines on one plot) for the frequency range 0.1 to 100Hz. Use a legend on the plot to show which colour line corresponds to which output. Save this figure as **gains.fig** and submit the figure to LEARN | **[5 Marks]** |
+|**Q2.** Use `linmod()` on this new version of the model.  Then use the slightly modified MATLAB commands in the [Frequency Response]({{ site.url }}/ttc066-module/notes/Section_7.html#frequency-response) section in the Drivetrain Dynamics notes, to produce a frequency response (Bode) plot of Gain only, from the input to each of the three outputs (with the three lines on one plot) for the frequency range 0.1 to 100Hz. Use a legend on the plot to show which colour line corresponds to which output. Save this figure as **gains.fig** and submit the figure to LEARN | **[5 Marks]** |
 |**Q3.** Use your **gains.fig** figure to answer the following. The sum of the four inertias initialised by *init4.m* gives the total (rotational, effective) inertia of the drivetrain $(J_e+J_t+J_w+J_v)$. Find this value and confirm it agrees with your bode plot at very low frequency.  *(Hint: The bode plot gives the magnitude of output divided by input at each frequency, at very low frequency this is the steady-state constant that multiplies the input to get the output.* | **[3 marks]**|
 |**Q4.** Over what frequency range does the transmission oscillate with greater magnitude than the engine? | **[2 marks]** |
 |**Q5.** What mode does this illustrate? | **[2 marks]** |
