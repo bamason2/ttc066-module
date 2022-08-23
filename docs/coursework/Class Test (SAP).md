@@ -2,7 +2,7 @@
 layout: home
 mathjax: true
 parent: Test and Coursework
-published: false
+published: true
 ---
 
 # Assessed Simulation Exercise (Supplementary Assessment)
