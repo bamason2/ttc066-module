@@ -19,9 +19,7 @@ nav_order: 2
 |   | Engine Modelling | |
 | 7 | Drivetrain Modelling | Simulink Drivetrain Modelling |
 | 8 | Parameter Tuning | Simulink Parameter Tuning |
-| 9 | Vehicle and Engine Testing | Model Finalisation |
-|   | | Coursework Introduction |
+| 9 | Coursework Introduction | Model Finalisation |
 | 10 | MIRA Test Planning and Simulation | MIRA Test Planning and Simulation |
-|   | | Model Finalisation and Virtual Experimentation |
 | 11 | Vehicle Testing at MIRA | Vehicle Testing at MIRA |
 | 12 | Coursework | Coursework |
