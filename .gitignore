@@ -11,3 +11,18 @@ docs/labs/drive4.slx
 
 *.slxc
 
+.DS_Store
+
+
+# docs
+/docs/_site
+/docs/.sass-cache
+/docs/.jekyll-cache
+/docs/.jekyll-metadata
+/docs/vendor
+/docs/Gemfile.lock
+
+
+# coursework
+docs/coursework/Class Test (SAP).md
+docs/coursework/Class Test.md
