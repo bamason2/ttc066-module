@@ -9,7 +9,7 @@ nav_order: 6
 
 In this laboratory you will be creating a drivetrain model that will be used for straight line performance evaluation during MIRA week. The drivetrain model is generic in that it can be parameterised for a number of different vehicles. The parameters that you are provided with in this case are for a Ford Focus 2.0l Ecoboost.
 
-<img src="figs/drivetraincolours.png" width=500>\
+<img src="figs/drivetraincolours.png" width=600>\
 *Schematic in overview of the vehicle drivetrain*
 
 This exercise will give you an opportunity to create your own drivetrain model based upon the suggested structure. By building the model from physics-based first principles you will gain greater understanding of:
@@ -21,9 +21,9 @@ and perhaps most importantly:
 
 - The parameters that influence its operation.
 
-## Approach to the Development of the Engine Model
+## Approach to Model Development
 
-Download the engine model template, [DrivetrainTemplate.mdl]({{ site.url }}/ttc066-module/labs/files/drivetrain_lab_2/DrivetrainTemplate_r2019b.slx.zip) and open it in Simulink.  Also download the model parameters file [DrivetrainParameters.m]({{ site.url }}/ttc066-module/labs/files/drivetrain_lab_2/DrivetrainParameters.m) and open these in the editor.
+Download the drivetrain model template, [DrivetrainTemplate.mdl]({{ site.url }}/ttc066-module/labs/files/drivetrain_lab_2/DrivetrainTemplate_r2019b.slx.zip) and open it in Simulink.  Also download the model parameters file [DrivetrainParameters.m]({{ site.url }}/ttc066-module/labs/files/drivetrain_lab_2/DrivetrainParameters.m) and open these in the editor.
 
 <img src="figs/drivetrain_model.png" width=700>\
 *Top level of the drivetrain model template, DrivetrainTemplate.mdl*
@@ -44,13 +44,17 @@ Now look at the model parameters in *DrivetrainParameters.m*, which represent th
 
 ### Engine
 
-This subsystem is prebuilt. Note the inputs and outputs.
+This subsystem is prebuilt, note the inputs and outputs.
 
-The submodel is a 2D lookup table with inputs speed [rpm] and throttle position [θ].The output is brake torque. This kind of look-up table represents the simplist of engine models and was populated using data obtained on a dynamometer.  
+<img src="figs/engine_subsystem.png" width=600>
+
+The submodel is a 2D lookup table with inputs speed [rpm] and throttle position [θ].The output is brake torque. This kind of lookup table represents the simplist of engine models and was populated using data obtained on a dynamometer.  
 
 ### Clutch
 
 This subsystem is prebuilt. Note the inputs and outputs, and most importantly note the logic employed.
+
+<img src="figs/clutch_subsystem.png" width=800>
 
 Initially the clutch is in the slipping condition with normal force equal to $0$.  Upon application of some normal force $F_n$, the transmitted torque $T$ becomes:
 
@@ -62,23 +66,23 @@ In the slipping condition the angular velocity of the input shaft (and hence eng
 
 ### Transmission
 
-Open the transmission model, noting the inputs and outputs and the units required for each.  
+Open the transmission model, noting the inputs and outputs and the units required for each.
 
 The output torque is calculated by multiplying the input torque by the gear ratio, this is then fed downstream to the Final Drive and Driveshaft. Using five 2D lookup tables the friction torque (a function of speed and torque) should be subtracted from the output torque.  The data for the friction torque is available in the parameter file.
 
-The output angular velocity is fed back to the clutch and therefore represents the clutch speed.  Since the input to the transmission and the output from the clutch are the same, input velocity of the transmission should be set equal to the output velocity of the clutch.
+The output angular velocity is fed back to the clutch and therefore represents the clutch speed.  Since the input to the transmission and the output from the clutch are the same, the input velocity to the transmission should be set equal to the output velocity of the clutch.
 
 ### Final Drive and Driveshaft
 
-Open the Final Drive and Driveshaft submodel, again note the inputs and outputs which are the same in name as the previous two subsystems. This is one of the two subsystems in this model that includes compliance and damping (the Wheel and Tyres is the other one).
+Open the Final Drive and Driveshaft submodel, again note the inputs and outputs which are the same in name as the previous two subsystems. This is one of the two subsystems in this model that includes compliance and damping (the Wheel and Tyres Subsystem is the other one).
 
 The input torque is multiplied by the final drive ratio from which the output torque is subtracted (see the [Drivetrain Modelling]({{ site.url }}/ttc066-module/lectures/Drivetrain%20Modelling%20II.pdf) lecture slides).  The output torque is transmitted downstream through compliance and damping as shown in the equation below;
 
 $$ T_{out} = k(\theta_1 - \theta_2) + b(\dot{\theta_1} - \dot{\theta_2}) \nonumber $$
 
-Where $k$ is the shaft stiffness, $b$ the shaft damping term, $\theta_1$ and $\theta_2$ are the upstream and downstream inertias respectively and $\dot{\theta_1}$ and $\dot{\theta_2}$ are the angular velocity of the upstream and downstream inertias.
-
-The flywheel and final drive inertias are referred from upstream (as a consequence of the gear and final drive ratios and need to be taken into account.  The flywheel referred inertia can be calculated as shown in the equation below.
+Where $k$ is the shaft stiffness, $b$ the shaft damping term, $\theta_1$ and $\theta_2$ are the angular positions of the downstream inertias respectively and $\dot{\theta_1}$ and $\dot{\theta_2}$ are the angular velocity of the upstream and downstream inertias.
+<!-- include equation for the upstream inertia angular accel calc reference to torque and fd inertia-->
+The flywheel and final drive inertias are referred from upstream (as a consequence of the gear and final drive ratios) and need to be taken into account.  The flywheel referred inertia can be calculated as shown in the equation below.
 
 $$ J_{f_{ref}} = J_{f} \left(\frac{r_2}{r_1}\right)^2 r_{fd}^2 \nonumber $$
 
@@ -91,6 +95,8 @@ Where $J_{fd}$ is the inertia of the final drive. Make sure that you set the par
 ### Tyre Model
 
 Open the tyre model which has already been created. The subsystem is based on the LuGre model and also includes the effect of tyre rolling resistance.
+
+<img src="figs/tyre_subsystem.png" width=1000>
 
 Note the three terms that are used to calculate the total force generated in the contact patch.  It is the sum of;
 
@@ -117,7 +123,7 @@ Also complete a time to speed simulation by setting some suitable initial condit
 
 ### Analysis and Plotting
 
-Plot the results obtained about on two different graphs, from $t=0$ to $t=116$ seconds.
+Plot the results obtained on two different graphs, from $t=0$ to $t=116$ seconds.
 
 Using the measurement [Coast-data.mat]({{ site.url }}/ttc066-module/labs/files/drivetrain_lab_2/Coast-data.mat) and [Accel-data.mat]({{ site.url }}/ttc066-module/labs/files/drivetrain_lab_2/Accel-data.mat) plot the speed measurements (choose one of the front wheel speeds) alongside the simulation results to show how they differ.  Think about which parameters you would change to get closer correspondence between the two curves.
 
