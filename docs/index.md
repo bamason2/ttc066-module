@@ -8,9 +8,9 @@ last_modified_date: true
 
 ## Week 1
 
-The first part of the lecture for this week introduces the module and the assessment structure for the module, the second part will be looking at and explaining the requirement for simulation in modern development processes.  By way of revision in the third part we will be reviewing differential equations; what they are, what do they do and how to do numerical integration.
+The first part of the lecture for this week introduces the module and its assessment structure, the second part will be looking at and explaining the requirement for simulation in modern development processes.  By way of revision in the third part we will be reviewing differential equations; what they are, what do they do and how to do numerical integration.
 
-Why numerical integration?  It can help us find a solution where it is too difficult or not possible to find an analytical one. What is a solution? Well we normally describe a dynamic system in terms of a differential equation but are often, as we do the engineering, interested for example in actual position, velocity and acceleration, not just how these are related (through some difficult-to-think-about equation).  Working out what they are for some initial conditions and parameter values e.g. spring stiffness, mass, etc help us to evaluate the consequences of the engineering decisions we make i.e. to achieve my engineering specification should I use spring with stiffness x or y?
+Why numerical integration?  It can help us find a solution where it is too difficult or not possible to find an analytical one. What is a solution? Well, we normally describe a dynamic system in terms of a differential equation that shows how various terms are related as time progresses.  As we engineer systems we are often interested in actual quantities for some given parameter values, inputs and initial conditions not just how the terms are related through some difficult-to-think-about equation.  Working out what is actually happening in the system given some initial conditions and parameter values e.g. spring stiffness, mass, etc helps us to evaluate the consequences of the engineering decisions we make i.e. to meet requirements should I use spring with stiffness x or y?
 
 ### Week 1 Resources
 
@@ -29,9 +29,9 @@ Why numerical integration?  It can help us find a solution where it is too diffi
 | [Simulink Onramp](https://uk.mathworks.com/learn/tutorials/simulink-onramp.html) |
 
 | **Reading** |
-| [Chapter 1 of System Identification Theory for the User by Lennart Ljung](https://lboro-test-vufind.koha-ptfs.co.uk/Record/454427)
+| [Chapter 1 of System Identification Theory for the User by Lennart Ljung](https://vufind.lboro.ac.uk/Record/454427)
 
-## Week 2
+<!-- ## Week 2
 
 In the second week we will be continuing our review of some of the more theoretical fundamentals of the module, that ultimately allow us to represent the behaviour of complex systems using numerical dynamic models.  In the first part of the lecture we will be looking at linearity.  
 
@@ -133,4 +133,4 @@ This week we will make use of the a slightly modified version of the vehicle mod
 | [ Parameter Tuning ]({{ site.url }}/ttc066-module/lectures/Parameter%20Tuning.pdf) |
 
 | **Tutorial and Computer Labs** |
-| [Parameter Tuning]({{ site.url}}/ttc066-module/labs/Parameter Tuning.html) |
+| [Parameter Tuning]({{ site.url}}/ttc066-module/labs/Parameter Tuning.html) | -->
