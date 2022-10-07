@@ -45,9 +45,9 @@ $$\begin{aligned}
 \mathbf{x}(t+h)&=\mathbf{x}(t)+\mathbf{k}_2+ \mathcal{O}(h^3)
 \end{aligned}$$
 
-The $\mathcal{O}(h^3)$ means errors of order $h^3$. Essentially the Euler method uses one function $f(\mathbf{x}(t),\mathbf{u}(t)))$ evaluation and is accurate to order $h^2$, the midpoint method uses two (hence second order), and is accurate to $\mathcal{O}(h^3)$, etc.
+The $\mathcal{O}(h^3)$ means errors of order $h^3$. Essentially the Euler method uses one function $f(\mathbf{x}(t),\mathbf{u}(t))$ evaluation and is accurate to order $h^2$, the midpoint method uses two (hence second order), and is accurate to $\mathcal{O}(h^3)$, etc.
 
-By far the most often used is the fourth order Runge-Kutta formula (RK4), which is illustrated in Figure 1c and is calculated as;
+By far the most often used is the fourth order Runge-Kutta formula (RK4), which is illustrated in Figure 1 (c) and is calculated as;
 
 $$\begin{aligned}
 \mathbf{k}_1&=hf(\mathbf{x}(t), \mathbf{u}(t))\\
@@ -69,9 +69,9 @@ The *true states* were calculated using RK4 with a step length of $0.001$. RK4, 
 
 *Figure 2: A fair comparison between integration methods*
 
-How do we know what step length we need to achieve a particular level of accuracy though? In general, it isn’t appropriate to fix $h$, and the plot below shows why. The bouncing ball model has a ‘sharp’ nonlinearity – the model changes suddenly when the ball contacts the floor. In the figure, Simulink has been used to give an ‘accurate’ simulation of the motion of the ball after it is released from rest at a height of one metre. The top plot shows vertical height ($m$) against time, the bottom shows speed ($m/s$). One dot is given per timestep taken – note that the step length is significantly shortened during the time when the model is switching between contact and non-contact conditions. The other traces are given by fixed step-length RK4 simulations.
+How do we know what step length we need to achieve a particular level of accuracy though? In general, it isn’t appropriate to fix $h$, and the plot below shows why. The bouncing ball model has a sharp nonlinearity – the model changes suddenly when the ball contacts the floor. In the figure, Simulink has been used to give an accurate simulation of the motion of the ball after it is released from rest at a height of one metre. The top plot shows vertical height ($m$) against time, the bottom shows speed ($m/s$). One dot is given per timestep taken – note that the step length is significantly shortened during the time when the model is switching between contact and non-contact conditions. The other traces are given by fixed step-length RK4 simulations.
 
-For RK4, $h=0.1$, the time step between function evaluations is too long – the integrator models the ball as in freefall just before it hits the ground, then at the next function evaluation the ball has ‘fallen through the floor’, so immediately has a very high spring force applied – this explains the subsequent motion, where the ball flies off into the air at great speed (this is slightly unrealistic behaviour). In the second case, $h=0.03$ because for most of the simulation this is the step length the Simulink integrator uses. Similar problems occur again; although it’s not as severe, clearly this model is incorrect, as again the simulation shows the ball gaining energy.
+For RK4, $h=0.1$, the time step between function evaluations is too long – the integrator models the ball as in free fall just before it hits the ground, then at the next function evaluation the ball has fallen through the floor, so immediately has a very high spring force applied – this explains the subsequent motion, where the ball flies off into the air at great speed (this is slightly unrealistic behaviour). In the second case, $h=0.03$ because for most of the simulation this is the step length the Simulink integrator uses. Similar problems occur again; although it’s not as severe, clearly this model is incorrect, as again the simulation shows the ball gaining energy.
 
 <img src="figures/ball_bounce_model.png" width=500>
 
@@ -81,7 +81,7 @@ It is clear from this example that, however the model is structured, it is essen
 
 ## Adaptive step size control
 
-A good ODE integrator should exert some adaptive control over its own progress, making frequent changes in its step-size. The simplest way of getting information on accuracy is to perform two small steps $(h)$ and also one double step ($2h$), and compare between the final solutions at $x(t+2h)$. This requires a total of 11 function evaluations (not 12 because the first small step shares its first function evaluation with that of the large step). Compared with not making the large step the three extra function evaluations cost 37.5\% more computing, but pay dividends in guaranteeing precision, and allowing longer time-steps where possible.
+A good ODE integrator should exert some adaptive control over its own progress, making frequent changes in its step-size. The simplest way of getting information on accuracy is to perform two small steps $(h)$ and also one double step ($2h$), and compare between the final solutions at $x(t+2h)$. This requires a total of 11 function evaluations (not 12 because the first small step shares its first function evaluation with that of the large step). Compared with not making the large step the three extra function evaluations cost 37.5% more computing, but pay dividends in guaranteeing precision and allowing longer time-steps where possible.
 
 Denoting $x_a$ and $x_b$ as the one and two step solutions respectively, the true value of $x(t+2h)$ is given by;
 
@@ -96,7 +96,7 @@ but note that we can also solve Equation \ref{eq9} to give an improved fifth ord
 
 $$\mathbf{x}(t+2h)=\mathbf{x}_b+\frac{\varepsilon}{15}+O(h^6) \label{eq10}$$
 
-The error gives a measure of fourth order accuracy, but the state evaluation actually has fifth order accuracy; this is why adaptive stepsize algorithms, like those in Simulink (see Simulation Parameters in the block diagram menu) refer to their algorithms as RK4/5 (or ODE45 in Simulink).
+The error gives a measure of fourth order accuracy, but the state evaluation actually has fifth order accuracy. This is why adaptive stepsize algorithms, like those in Simulink refer to their algorithms as RK4/5 (or ODE45 in Simulink).
 
 To adapt the stepsize, consider the order of errors in RK4; $\varepsilon$ is of order $h^5$ (Equation \ref{eq9}), so;
 
@@ -146,4 +146,4 @@ The implicit Euler method uses backward differencing, such that;
 
 $$x(t+h)=\frac{x(t)}{1+ch}$$
 
-There is an overhead in the equation rearrangement (which is automated by the solver, not performed by the model designer), so implicit methods are not used for all systems, but they do provide guaranteed stability, and hence allow numerical solutions for ‘stiff’ systems. The stiff solvers in Simulink are denoted with suffix ‘s’ in their name (eg ODE15s) and of course, these use more elaborate algorithms that Euler!
+There is an overhead in the equation rearrangement (which is automated by the solver, not performed by the model designer), so implicit methods are not used for all systems, but they do provide guaranteed stability, and hence allow numerical solutions for stiff systems. The stiff solvers in Simulink are denoted with suffix ‘s’ in their name (eg ODE15s) and of course, these use more elaborate algorithms tha Euler!
