@@ -73,6 +73,7 @@ Why so jerky? That’s because the integrator didn’t need to take many steps t
 
 ## Self Study
 
-Implement the model with alternative state definition as derived within the lecture.  What are the differences.  Which of the two models in your opinion are the best ones, why?
+Implement the model with alternative state definition as derived within the lecture.  What are the differences?  Which of the two models in your opinion are the best ones, why?
 
-Challenge; try and configure the solver with settings that make the simulation terminate with an error (crash.  Why do you think that the values entered did this? Post a screenshot of your error message in the Teams chat [Oops!](https://teams.microsoft.com/l/channel/19%3a06a36a82d74843d7b2294b60bcf9e9c4%40thread.tacv2/Oops!?groupId=4c8d36f9-c71c-4239-9d11-b9d4a4db72ff&tenantId=cf264fc0-aeb8-449f-9054-82ce4454084b) -> the most interesting error (related to the task) gets a (small) prize!
+Challenge; try and configure the solver with settings that make the simulation terminate with an error (crash.  Why do you think that the values entered did this?
+
