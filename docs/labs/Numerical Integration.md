@@ -39,3 +39,18 @@ Assuming $u(t)=1$ at all time (i.e. $u$ is constant), produce plots of $x(t)$ ag
 Your plots should look something like this;
 
 <img src="figs/numerical_integration_sol.png" width=400>
+
+<details close markdown="block">
+
+<summary style="color:green;">SOLUTION</summary>
+
+### Solution - Euler Integration
+Please do not play this video until you have tried to do this for yourself!
+
+<video width="495" height="410" controls>
+    <source src="files/numerical_integration/euler_integration.mp4" type="video/mp4">
+    <source src="movie.ogg" type="video/ogg">
+Your browser does not support the video tag.
+</video>
+
+</details>
