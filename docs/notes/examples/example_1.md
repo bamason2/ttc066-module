@@ -54,7 +54,7 @@ which leads to;
 
 $$ M \ddot{z}_{b} = K\left(z_{r}-z_{b}\right)+B_{s}\left(\dot{z}_{r}-\dot{z}_{b}\right) \nonumber$$
 
-which of course is the same as the previous one (Equation \ref{example_1:eq1)!  Note that you won't always end up with identical equations for different choices (of what is defined as positive or negative directions) but provided you have applied your choices consistently you will end up with the correct system equations.
+which of course is the same as the previous one (Equation \ref{example_1:eq1})!  Note that you won't always end up with identical equations for different choices (of what is defined as positive or negative directions) but provided you have applied your choices consistently you will end up with the correct system equations.
 
 For further information on this topic have a look at this video;
 
@@ -63,7 +63,7 @@ For further information on this topic have a look at this video;
 <hr>
 </details>
 
-Now we reduce this single second order differential equation to a set of first order equations by defining system *states*, $x_1, x_2, x_3$, etc and inputs $u_1, u_2,..., u_n$ etc. We seek a form;
+Now we reduce this single second order differential equation to a set of first order equations by defining system *states*, $x_1, x_2, x_3$, etc and inputs $u_1, u_2,..., u_n$ etc. We are trying to work out how to put the equations that describe the system dynamic behaviour in a form that looks something like this (remembering there are several other different forms we could use e.g. state space which we will look at later);
 
 $$\begin{split} \dot{x}_1=f_1(\mathbf{x},\mathbf{u}) \\
 \dot{x}_2=f_2(\mathbf{x},\mathbf{u})  \end{split} \label{example_1:eq2} $$
