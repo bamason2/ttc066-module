@@ -4,20 +4,25 @@
 .DS_Store
 
 
-# docs
+# various
 docs/_site/
 docs/.sass-cache/
 docs/.jekyll-cache/
 docs/.jekyll-metadata/
 docs/vendor/
 docs/.bundle/
+docs/Gemfile.lock
+
+
+# notes
 docs/notes/Fundamentals of vehicle dynamics \[Thomas D. Gillespie\].pdf
 
 
 # coursework
-/docs/coursework/Class Test (SAP).md
-/docs/coursework/Class Test.md
-/docs/coursework/files/answer_sheet.docx
-/docs/coursework/files/answer_sheet_SAP.docx
+docs/coursework/Class Test (SAP).md
+docs/coursework/Class Test.md
+docs/coursework/files/answer_sheet.docx
+docs/coursework/files/answer_sheet_SAP.docx
 
-docs/Gemfile.lock
+
+*.m
