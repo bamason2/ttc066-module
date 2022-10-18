@@ -1,0 +1,1 @@
+A note on this: the "to workspace" block will export a "*SimulationOutput*" object to the workspace called "out". This is an example of a data structure; if you click on it the variable window will show a list of data objects that are contained inside it, including "tout" and "simout". To access these variables you will need to do "dot referencing"
