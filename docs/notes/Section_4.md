@@ -30,7 +30,7 @@ The additivity rule is is a bit more involved but essentially says that if you a
 
 $$ f(x_1+x_2)=f(x_1)+f(x_2) \nonumber$$
 
-Why does the above matter?  It makes things more simple.  Four our ODEs it means that the state differential equations for a linear system can always be written as linear combinations of the states and inputs, i.e.;
+Why does the above matter?  It makes things more simple.  For our ODEs it means that the state differential equations for a linear system can always be written as linear combinations of the states and inputs, i.e.;
 
 $$ \begin{split} &\dot{x}_1=a_{11}x_1+a_{12}x_2+a_{13}x_3+...+b_{11}u_1+b_{12}u_2+...\\
 &\dot{x}_2=a_{21}x_1+a_{22}x_2+a_{23}x_3+...+b_{21}u_1+b_{22}u_2+... \end{split} \nonumber $$
