@@ -26,7 +26,7 @@ The Excitation Sources are the inputs to the system as shown in Figure 1 below.
 
 *Figure 1: The ride system*
 
-These might be illustrated in the time domain, but are more often shown in the frequency domain (eg as a Power Spectral Density plot. The system reacts to these inputs, *mapping* them into Perceived Ride which might itself be shown in terms of a measurable output, such as vehicle body vertical acceleration.
+These might be illustrated in the time domain, but are more often shown in the frequency domain (for example as a Power Spectral Density plot. The system reacts to these inputs, *mapping* them into Perceived Ride which might itself be shown in terms of a measurable output, such as vehicle body vertical acceleration.
 
 ## Excitation: Road Roughness
 
@@ -41,11 +41,12 @@ The frequency model is;
 $$G_{Z}(v)=\frac{G_{O}\left[1+\left(v_{O} / v\right)^{2}\right]}{2\pi v^{2}} \label{eq1}$$
 
 |---|---|
+|$G_z(v)$| PSD amplitude $(feet^2/cycle/foot)$|
 |$\nu$| Wavenumber $(cycles/foot)$|
-|$G_0$| Roughness magnitude parameter $(1.25\times10^5$ for rough roads, $1.25\times10^6$ for smooth)|
-|$\nu_0$| Cutoff wavenumber ($0.02 \space cycle/foot$ for rough roads, $0.05 \space cycles/foot$| 
+|$G_0$| Roughness magnitude parameter $(1.25\times10^5$ for rough roads, $1.25\times10^6$ for smooth roads)|
+|$\nu_0$| Cutoff wavenumber ($0.02 \space cycle/foot$ for rough roads, $0.05 \space cycles/foot$ for smooth roads|
 
-The simple model of Equation \ref{eq1} can be used along with a random number sequence to generate test roads which are random in themselves, but yet have approximately representative frequency content. Multiplication of the original *wavenumber* (cycles per foot) by a known constant vehicle speed (feet per second) gives a more recognisable PSD;
+The simple model of Equation \ref{eq1} can be used in combination with a random number sequence to generate test roads which are random in themselves, but yet have approximately representative frequency content. Multiplication of the original *wavenumber* (cycles per foot) by a known constant vehicle speed (feet per second) gives a more recognisable PSD;
 
 ![image](figures/ele_vel_acc_1.png)
 
