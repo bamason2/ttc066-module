@@ -129,6 +129,15 @@ $$ \zeta=\frac{C_{s}}{\sqrt{4 K_{b b} M}} = \frac{1500}{\sqrt{4\times17777.78\ti
 
 *Figure 8: The quarter car model, wheel-hop only*
 
+<details close markdown="block">
+  <summary style="color:green;">
+    WHAT IS WHEELHOP?
+  </summary>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kK94SIUB1Tc?start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</details>
+
 Looking at the wheel-hop only variant, here we assume that the sprung mass, $M$ hardly
 moves at all, so the unsprung mass, $m$ is governed by suspension and tyre springs in parallel;
 
