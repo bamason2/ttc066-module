@@ -10,16 +10,13 @@ nav_order: 2
 | 1 | Introduction | Numerical Integration using MATLAB |
 |   | Differential Equations and Numerical Integration | MATLAB and Simulink Onramp |
 | 2 | Linearity and State Space | State Space Simulation |
-|   | Ride Dynamics | Drivetrain Modelling I |
-| 3 | Ride Dynamics [...continued] | Suspension System Simulation |
-|   | Using Eigenvalues and Eigenvectors | |
-| 4 | Drivetrain Dynamics | Drivetrain Modelling I |
-| 5 | Drivetrain Dynamics | Assessed Computer Lab |
-| 6 | Assessment Feedback | Simulink Engine Modelling |
-|   | Engine Modelling | |
-| 7 | Drivetrain Modelling | Simulink Drivetrain Modelling |
-| 8 | Parameter Tuning | Simulink Parameter Tuning |
-| 9 | Coursework Introduction | Model Finalisation |
+| 3 | Ride Dynamics | Suspension System Simulation |
+| 4 | Using Eigenvalues and Eigenvectors | Drivetrain Modelling I |
+| 5 | Drivetrain Dynamics | Revision and Tutorial Catchup |
+| 6 | Simulink Engine Modelling | Assessed Computer Lab |
+| 7 | Drivetrain Modelling | Simulink Engine Modelling |
+| 8 | Parameter Tuning | Simulink Drivetrain Modelling |
+| 9 | Coursework Introduction | Simulink Parameter Tuning |
 | 10 | MIRA Test Planning and Simulation | MIRA Test Planning and Simulation |
 | 11 | Vehicle Testing at MIRA | Vehicle Testing at MIRA |
 | 12 | Coursework | Coursework |
