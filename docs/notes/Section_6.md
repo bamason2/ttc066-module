@@ -18,7 +18,7 @@ parent: Notes
 
 ## Useful Properties of State Space: Eigenstructure
 
-Right now it might seem rather a lot of work to produce models in state space form but the advantages go further than just being able to simulate them with just one Simulink block. This has huge benefits in designing control systems; for example you can find the model for a system with many controllable inputs and many measurable outputs. A single controller can then be designed to take all the measurements and control all the motors simultaneously.
+Right now it might seem rather a lot of work to produce models in state space form but the advantages go further than just being able to simulate them with just one Simulink block. This has huge benefits in designing control systems; for example you can find the model for a system with many controllable inputs and many measurable outputs. A single controller can then be designed to take all the measurements and control all the outputs simultaneously.
 
 Previously you have dealt with single input single output (SISO) systems with transfer functions based on laplace transforms;
 
@@ -30,11 +30,17 @@ where;
 
 $$ H(s)=\frac{b_{m} s^{m}+b_{m-1} s^{m-1}+\cdots+b_{1} s+b_{0}}{a_{n} s^{n}+a_{n-1} s^{n-1}+\cdots+a_{1} s+a_{0}} \nonumber  $$
 
-Recall that the *dynamics* of such a system are determined by the solution of the *characteristic equation*;
+by factoring the polynomials in the above equation, the equation can be written in a different form;
 
-$$ a_{n} s^{n}+a_{n-1} s^{n-1}+\cdots+a_{1} s+a_{0}=0 \nonumber $$
+$$ H(s)=\frac{N(s)}{D(s)}=K\frac{(s-z_1) (s-z_2) ... (s-z_{m-1}) (s-z_{m})}{(s-p_1) (s-p_2) ... (s-p_{n-1}) (s-p_n)} \nonumber  $$
 
-The solutions are the poles of the system, which can be plotted on real and imaginary axes and from these, the frequency and damping of each *mode* of the system can be determined.  In the state space form, the same information is available (as the eigenvalues of the $A$ matrix), but further information about *mode shapes* is also available.
+The $z_i$ in the above equation are the roots of the equation $N(s)=0$ and are defined as the system zeros.  The $p_i$'s are the roots of the equation $D(s)=0$ and are defined as the system poles.  All of the coefficients of the polynomials $N(s)$ and $D(s)$ are real and therefore the poles and zeros must be either real or complex conjugate pairs.
+
+Using knowledge of the poles, zeros and gain constant $K$ it is possible to completely reconstruct the equations above.  Since these equations describe the dynamics of the system it can also be said that the dynamics are fully described by the poles, zeros and gain constant. The poles can be plotted on real and imaginary axes and from these, the frequency and damping of each *mode* of the system can be determined.  
+
+<img src="figures/pole_response_plot.png" width=600>
+
+In the state space form, the same information is available as the eigenvalues of the $A$ matrix, but further information about *mode shapes* is also available.
 
 Consider the suspension example, the transfer function can be written as;
 
@@ -64,11 +70,12 @@ Now, when you set up a state space system with a single input and single output 
 
 $$ \mathcal{L}(\dot{\textbf{x}}(t))=s \mathcal{L}(\textbf{x}(t))-x(0) $$
 
-where $\mathcal{L}(x(t))$ is the laplace transform of $x(t)$. This also works in vector / matrix equations, provided you follow the appropriate rules for vector / matrix algebra. Thus if we assume zero initial conditions ($x(0)=0$) and write the laplace transforms as capitals;
+where $\mathcal{L}(x(t))$ is the laplace transform of $x(t)$. This also works with vector and matrix equations, provided you follow the appropriate rules for matrix algebra.
+
+Thus if we assume zero initial conditions, i.e. $x(0)=0$, and write the laplace transforms as capitals;
 
 $$
 \begin{aligned}
-X&=\mathcal{L}(\textbf{x}(t))\\
 sX&=AX+BU\\
 (sI-A)X&=BU\\
 X&=(sI-A)^{-1}BU \end{aligned} \label{eq14a} $$
@@ -90,7 +97,7 @@ $$Av =\lambda v \nonumber $$
 
 which are found by $det(A – \lambda I) = 0$. By inspection, you can see that the eigenvalues are the same as the roots of the *characteristic equation*. Check this by using the MATLAB command `eig()` on matrix $A$ and comparing with the solution given above.
 
-What is interesting here is the fact that only matrix $A$ governs the fundamental modes of vibration of the system. It doesn't matter what the inputs or are, the eigenvalues give the system’s full vibrational response. They tell you how the system will vibrate as it freely settles with no input, after an initial condition.
+What is interesting here is the fact that only matrix $A$ governs the fundamental modes of vibration of the system. It doesn't matter what the inputs are, the eigenvalues give the system’s full vibrational response. They tell you how the system will vibrate as it freely settles with no input, after an initial condition.
 
 It is probably easiest to show how to interpret eigenvalues (and eigenvectors, which are also useful) using an example. We need something slightly more complicated than the suspension, so we’ll try two unequal masses and springs.
 
