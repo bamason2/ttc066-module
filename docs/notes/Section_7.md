@@ -107,7 +107,7 @@ Most of the inertia components in the drivetrain are rotational, so are describe
 |              | gear changes (in automatics) |
 | Driveshafts  | angled universal joints |
 | Tyres and wheels | runout |
-|                  | mass unbalance |
+|                  | mass imbalance |
 |                  |tyre stiffness variations |
 
 ### Excitation from the Engine Combustion cycle
@@ -186,7 +186,7 @@ $$ \theta_{a}=G \theta_{b}  \nonumber $$
 
 #### A Simple Drivetrain Model
 
-If we were to model the drivetrain as a simple three inertia system that includes the engine, $J_e$ transmission, $J_t$ and vehicle, $J_v$ $ we can represent it as shown in the diagram below;
+If we were to model the drivetrain as a simple three inertia system that includes the engine, $J_e$ transmission, $J_t$ and vehicle, $J_v$ we can represent it as shown in the diagram below;
 
 <img src="figures/simple_drivetrain_model.png" width=500>
 
