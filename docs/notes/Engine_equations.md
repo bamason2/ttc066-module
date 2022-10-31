@@ -2,7 +2,7 @@
 layout: page
 mathjax: true
 parent: Notes
-publish: false
+published: false
 ---
 
 # Volumes: Intake Manifold
