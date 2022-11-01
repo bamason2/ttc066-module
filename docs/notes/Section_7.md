@@ -330,7 +330,7 @@ The above advantages and disadvantages can be compared with nonlinear system ana
 
 ### Eigenvector / Eigenvalue (mode) analysis of Linear Systems
 
-The following is largely a repeat of some material we saw earlier, in [Section 6]({{ site.url }}/ttc066-module/notes/Section_6.html).
+The following is largely a repeat of some material we saw earlier, in [Section 6]({{ site.url }}/ttc066-module/notes/Section_6.html). It is included here as a reminder.
 
 #### Derivation of a state-space form
 
@@ -339,9 +339,9 @@ The following is largely a repeat of some material we saw earlier, in [Section 6
 
 Start with second-order differential equations;
 
-$$F-l(\theta_2-\theta_1)=l\ddot{\theta}_2 \nonumber $$
+$$F-k(\theta_2-\theta_1)=m\ddot{\theta}_2 \nonumber $$
 
-$$l(\theta_2-\theta_1)-l\theta_1-l\dot{\theta}_1=l\ddot{\theta}_1 \nonumber $$
+$$k(\theta_2-\theta_1)-k\theta_1-b\dot{\theta}_1=m\ddot{\theta}_1 \nonumber $$
 
 Define a set of state variables, to reduce this second order system to a vector / matrix form using only first order equations;
 
@@ -399,9 +399,9 @@ The free vibration of the masses $(F=0)$ can be described by a summation of moda
 
 $$ \mathbf{\theta}(t)=\operatorname{Re}\left\{\mathbf{u}_{1} e^{\lambda_{1} t}+\mathbf{u}_{2} e^{\lambda_{2} t}+\ldots+\mathbf{u}_{n} e^{\lambda_{n} t}\right\}  \label{eq1b} $$
 
-Where $\mathbf{\theta}(t)$ is the $2\times1$ displacement vector, $\mathbf{u}_i$ and $\lambda_i$ is a complex constant.  
+Where $\mathbf{\theta}(t)$ is the $2\times1$ displacement vector, $\mathbf{u}_i$ is a complex constant comprising a $2\times1$ vector, and $\lambda_i$ is a complex scalar.  
 
-Within a single *modal component*;
+Within each *modal component*;
 
 $$ \mathbf{\theta}(t)=\mathbf{u}_{1} e^{\lambda_{1}t}  \nonumber $$
 
@@ -420,6 +420,8 @@ $$ \mathbf{v}_{1}=\left[\begin{array}{c}
 \lambda_{1} \mathbf{u}_{1}
 \end{array}\right] \nonumber $$
 
+This is the same as we saw in the section on [Using Eigenvalues and Eigenvectors](https://bamason2.github.io/ttc066-module/notes/Section_6.html#section-6-using-eigenvalues-and-eigenvectors)
+
 Now, if $F=0$ from Equation \ref{eq1};
 
 $$ \lambda_{1} \mathbf{v}_{1} e^{\lambda_{1} t}=A \mathbf{v}_{1} e^{\lambda_{1} t} \nonumber $$
@@ -428,7 +430,7 @@ therefore;
 
 $$ \lambda_{1} \mathbf{v}_{1}=A \mathbf{v}_{1} \nonumber $$
 
-so $\lambda_1$ is an eigenvalue of $A$ and $\nu_1$ is the corresponding *eigenvector*. For the spring / mass example above the four eigenvalues are;
+so $\lambda_1$ is an eigenvalue of $A$ and $\nu_1$ is the corresponding *eigenvector*. For the spring-mass example above the four eigenvalues are;
 
 $$ \begin{aligned}
 &\lambda_{1}=-0.35+1.5 \mathrm{j} \\
