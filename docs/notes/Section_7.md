@@ -330,7 +330,7 @@ The above advantages and disadvantages can be compared with nonlinear system ana
 
 ### Eigenvector / Eigenvalue (mode) analysis of Linear Systems
 
-The following is largely a repeat of some material we saw earlier, in [Section 6]({{ site.url }}/ttc066-module/notes/Section_6.html). It is included here as a reminder.
+The following is largely a repeat of some material we saw earlier, in [Section 6]({{ site.url }}/ttc066-module/notes/Section_6.html), it is included here as a reminder. Note that whilst this is drawn as longitudenal translation, for a driveline translation will be rotational.  Note $\theta$ is used not $\x$.
 
 #### Derivation of a state-space form
 
@@ -343,7 +343,7 @@ $$F-k(\theta_2-\theta_1)=m\ddot{\theta}_2 \nonumber $$
 
 $$k(\theta_2-\theta_1)-k\theta_1-b\dot{\theta}_1=m\ddot{\theta}_1 \nonumber $$
 
-Define a set of state variables, to reduce this second order system to a vector / matrix form using only first order equations;
+Define a set of state variables, to reduce this second order system to matrix form using only first order equations;
 
 $$\dot{\mathbf{x}}=A\mathbf{x}+B\mathbf{u} \nonumber $$
 
@@ -397,9 +397,9 @@ As we saw previously matrix $A$ has some very useful properties.
 
 The free vibration of the masses $(F=0)$ can be described by a summation of modal components having a predictable form;
 
-$$ \mathbf{\theta}(t)=\operatorname{Re}\left\{\mathbf{u}_{1} e^{\lambda_{1} t}+\mathbf{u}_{2} e^{\lambda_{2} t}+\ldots+\mathbf{u}_{n} e^{\lambda_{n} t}\right\}  \label{eq1b} $$
+$$ \mathbf{{\theta}}(t)=\operatorname{Re}\left\{\mathbf{u}_{1} e^{\lambda_{1} t}+\mathbf{u}_{2} e^{\lambda_{2} t}+\ldots+\mathbf{u}_{n} e^{\lambda_{n} t}\right\}  \label{eq1b} $$
 
-Where $\mathbf{\theta}(t)$ is the $2\times1$ displacement vector, $\mathbf{u}_i$ is a complex constant comprising a $2\times1$ vector, and $\lambda_i$ is a complex scalar.  
+Where $\mathbf{{\theta}}(t)$ is the $2\times1$ displacement vector, $\mathbf{u}_i$ is a complex constant comprising a $2\times1$ vector, and $\lambda_i$ is a complex scalar.  
 
 Within each *modal component*;
 
