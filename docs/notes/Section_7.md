@@ -397,9 +397,9 @@ As we saw previously matrix $A$ has some very useful properties.
 
 The free vibration of the masses $(F=0)$ can be described by a summation of modal components having a predictable form;
 
-$$ \mathbf{{\theta}}(t)=\operatorname{Re}\left\{\mathbf{u}_{1} e^{\lambda_{1} t}+\mathbf{u}_{2} e^{\lambda_{2} t}+\ldots+\mathbf{u}_{n} e^{\lambda_{n} t}\right\}  \label{eq1b} $$
+$$ \mathbf{\theta}(t)=\operatorname{Re}\left\{\mathbf{u}_{1} e^{\lambda_{1} t}+\mathbf{u}_{2} e^{\lambda_{2} t}+\ldots+\mathbf{u}_{n} e^{\lambda_{n} t}\right\}  \label{eq1b} $$
 
-Where $\mathbf{{\theta}}(t)$ is the $2\times1$ displacement vector, $\mathbf{u}_i$ is a complex constant comprising a $2\times1$ vector, and $\lambda_i$ is a complex scalar.  
+Where $\mathbf{\theta}(t)$ is the $2\times1$ displacement vector, $\mathbf{u}_i$ is a complex constant comprising a $2\times1$ vector, and $\lambda_i$ is a complex scalar.  
 
 Within each *modal component*;
 
