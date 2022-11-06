@@ -31,7 +31,7 @@ Why numerical integration?  It can help us find a solution where it is too diffi
 | **Reading** |
 | [Chapter 1 of System Identification Theory for the User by Lennart Ljung](https://vufind.lboro.ac.uk/Record/454427)
 
-<!-- ## Week 2
+## Week 2
 
 In the second week we will be continuing our review of some of the more theoretical fundamentals of the module, that ultimately allow us to represent the behaviour of complex systems using numerical dynamic models.  In the first part of the lecture we will be looking at linearity.  
 
@@ -133,4 +133,4 @@ This week we will make use of the a slightly modified version of the vehicle mod
 | [ Parameter Tuning ]({{ site.url }}/ttc066-module/lectures/Parameter%20Tuning.pdf) |
 
 | **Tutorial and Computer Labs** |
-| [Parameter Tuning]({{ site.url}}/ttc066-module/labs/Parameter Tuning.html) | -->
+| [Parameter Tuning]({{ site.url}}/ttc066-module/labs/Parameter Tuning.html) |
