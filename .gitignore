@@ -1,4 +1,3 @@
-
 #general
 *.slxc
 .DS_Store
@@ -20,8 +19,8 @@ docs/notes/Fundamentals of vehicle dynamics \[Thomas D. Gillespie\].pdf
 
 # coursework
 docs/coursework/Class Test (SAP).md
-# docs/coursework/Class Test.md
-# docs/coursework/files/answer_sheet.docx
+docs/coursework/Class Test.md
+docs/coursework/files/answer_sheet.docx
 docs/coursework/files/answer_sheet_SAP.docx
 
 

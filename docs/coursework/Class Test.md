@@ -2,7 +2,7 @@
 layout: home
 # mathjax: true
 parent: Test and Coursework
-published: true
+published: false
 ---
 
 # Assessed Simulation Exercise
@@ -70,7 +70,7 @@ With the model in its linear form, use `linmod()` to extract the $A$ matrix and 
 
 ## Part Four: Effect of Parameter Variation
 
-Show how the system response changes as the initial vehicle speed changes (in *init4.m*, note how `init_speed` is used to determine the velocity tyre effect, the tyre damper constant, $B_t$).  Do this by repeatedly changing the `init_speed` variable in *init4.m* and running simulations from the Simulink window (or you could set up a loop using the `for` command and run the simulation from within MATLAB using the `sim()` command).
+Using the linear form of the model show how the system response changes as the initial vehicle speed changes (in *init4.m*, note how `init_speed` is used to determine the velocity tyre effect, the tyre damper constant, $B_t$).  Do this by repeatedly changing the `init_speed` variable in *init4.m* and running simulations from the Simulink window (or you could set up a loop using the `for` command and run the simulation from within MATLAB using the `sim()` command).
 
 |---|---|
 |**Q1.** Plot the vehicle acceleration against time for the tip-in manoeuvre for your range of initial speeds.  Include all the results on the same axes so comparisons can easily be made.  Label the plot appropriately and include a legend (`help legend`). Save your plot as *speedvar.fig* and submit this to LEARN. | **[8 marks]** |
