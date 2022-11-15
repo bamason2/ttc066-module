@@ -1,3 +1,10 @@
+---
+layout: home
+mathjax: false
+parent: Tutorials and Labs
+nav_order: 8
+---
+
 ## engine equations
 
 ### sonic flow
