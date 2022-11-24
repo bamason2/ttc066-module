@@ -90,23 +90,15 @@ Where $k$ is the shaft stiffness, $b$ the shaft damping term, $\theta_fd$ and $\
 
 $\dot{\theta_fd}, however, is a quantity that needs to be calculated within your model. To do this you will need to recall Newton's Second Law for rotation and apply it to the final drive:
 
-$$ T_{in}r_{fd} - T_{out} = J_{ref}\dotdot{\theta_{fd}} \nonumber $$
+$$ T_{in}r_{fd} - T_{out} = J_{tot}\dotdot{\theta_{fd}} \nonumber $$
 
-To use this equation, you will need to compute the referred inertia term $J_{ref}, which is the simple sum of the referred inertia terms for the three subsystems upstream from the final drive:
+To use this equation, you will need to compute the inertia term $J_{tot}, given by the following equation:
 
-$$ J_{ref} = J_{f_{ref}} + J_{fd_{ref}} + J_g \nonumber $$
+$$ J_{tot} = [J_{f} \left(\frac{r_2}{r_1}\right)^2 + J_g]r_{fd}^2 + J_{fd} \nonumber $$
 
-where $J_{f_{ref}}$ is the referred flywheel inertia, $J_{fd_{ref}}$ is the referred final drive inertia and $J_g$ is the gear inertia. You will need the below equations to compute each term:
+Where $J_f$ is the referred inertia of the engine and flywheel, $\frac{r_2}{r_1}$ is the currently selected gear ratio, $J_g$ is the inertia of the currently selected gear, $r_{fd}$ the final drive ratio and J_{fd} is final drive inertia.
 
-$$ J_{f_{ref}} = J_{f} \left(\frac{r_2}{r_1}\right)^2 r_{fd}^2 \nonumber $$
-
-Where $J_f$ is the inertia of the flywheel, $\frac{r_2}{r_1}$ is the currently selected gear ratio and $r_{fd}$ the final drive ratio.  Similarly the referred final drive inertia can be calculated;
-
-$$ J_{fd_{ref}} = J_{fd} r_{fd}^2 \nonumber $$
-
-Where $J_{fd}$ is the inertia of the final drive.
-
-Finally to compute the gear inertia $J_g$ you will need to use a 1-D lookup table that takes the gear number as breakpoints and the array of $J_g$ values given in the parameter file as outputs.
+To compute the above equation you will need to use a 1-D lookup table to obtain $J_g$, with an array of gear numbers as breakpoints and the array of $J_g$ values given in the parameter file as outputs.
 
 After all of this you will be able to compute $\dotdot{theta_{fd}}$ from the Newton's Second Law equation. It should then be clear what you need to do to compute T_out from the compliance equation and complete your model.
 
