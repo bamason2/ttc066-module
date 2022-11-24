@@ -76,13 +76,27 @@ The output angular velocity is fed back to the clutch and therefore represents t
 
 Open the Final Drive and Driveshaft submodel, again note the inputs and outputs which are the same in name as the previous two subsystems. This is one of the two subsystems in this model that includes compliance and damping (the Wheel and Tyres Subsystem is the other one).
 
-The input torque is multiplied by the final drive ratio from which the output torque is subtracted (see the [Drivetrain Modelling]({{ site.url }}/ttc066-module/lectures/Drivetrain%20Modelling%20II.pdf) lecture slides).  The output torque is transmitted downstream through compliance and damping as shown in the equation below;
+The relationship between the wheel speed (an input to the subsystem) and the speed at the input of the final drive (an output of the subsystem) is simply given by the final drive ratio $r_{fd}$.
 
-$$ T_{out} = k(\theta_1 - \theta_2) + b(\dot{\theta_1} - \dot{\theta_2}) \nonumber $$
+The trickiest output of this sub-system to compute is $T_out$, which is the torque at the input of the wheels and tyres sub-system. The input T_{in} is the torque at the input of the final drive. Intuitively, the output torque at the wheels is:
 
-Where $k$ is the shaft stiffness, $b$ the shaft damping term, $\theta_1$ and $\theta_2$ are the angular positions of the downstream inertias respectively and $\dot{\theta_1}$ and $\dot{\theta_2}$ are the angular velocity of the upstream and downstream inertias.
-<!-- include equation for the upstream inertia angular accel calc reference to torque and fd inertia-->
-The flywheel and final drive inertias are referred from upstream (as a consequence of the gear and final drive ratios) and need to be taken into account.  The flywheel referred inertia can be calculated as shown in the equation below.
+$$T_out = T_{in}r_{fd} \nonumber $$
+
+However, this ignores the fact that the driveshaft connection between the final drive output and the wheel is a compliant connection and not a rigid one (see drivetrain illustration in [Drivetrain Modelling]({{ site.url }}/ttc066-module/lectures/Drivetrain%20Modelling%20II.pdf) slide pack). To obtain the actual torque output to the wheel you will need to reproduce the dampening and compliance equation:
+
+$$ T_{out} = k(\theta_fd - \theta_wh) + b(\dot{\theta_fd} - \dot{\theta_wh}) \nonumber $$
+
+Where $k$ is the shaft stiffness, $b$ the shaft damping term, $\theta_fd$ and $\dot{\theta_fd}$ are the angular position and velocity out of the final drive. $\theta_wh$ and $\dot{\theta_wh}$ are the angular position and velocity of the wheel. $\dot{\theta_wh}$ is a known quantity, as it is an input to the subsystem.
+
+$\dot{\theta_fd}, however, is a quantity that needs to be calculated within your model. To do this you will need to recall Newton's Second Law for rotation and apply it to the final drive:
+
+$$ T_{in}r_{fd} - T_{out} = J_{ref}\dotdot{\theta_{fd}} \nonumber $$
+
+To use this equation, you will need to compute the referred inertia term $J_{ref}, which is the simple sum of the referred inertia terms for the three subsystems upstream from the final drive:
+
+$$ J_{ref} = J_{f_{ref}} + J_{fd_{ref}} + J_g \nonumber $$
+
+where $J_{f_{ref}}$ is the referred flywheel inertia, $J_{fd_{ref}}$ is the referred final drive inertia and $J_g$ is the gear inertia. You will need the below equations to compute each term:
 
 $$ J_{f_{ref}} = J_{f} \left(\frac{r_2}{r_1}\right)^2 r_{fd}^2 \nonumber $$
 
@@ -90,7 +104,13 @@ Where $J_f$ is the inertia of the flywheel, $\frac{r_2}{r_1}$ is the currently s
 
 $$ J_{fd_{ref}} = J_{fd} r_{fd}^2 \nonumber $$
 
-Where $J_{fd}$ is the inertia of the final drive. Make sure that you set the parameter name for the initial conditions of the angular position and velocity of the final drive and wheel.
+Where $J_{fd}$ is the inertia of the final drive.
+
+Finally to compute the gear inertia $J_g$ you will need to use a 1-D lookup table that takes the gear number as breakpoints and the array of $J_g$ values given in the parameter file as outputs.
+
+After all of this you will be able to compute $\dotdot{theta_{fd}}$ from the Newton's Second Law equation. It should then be clear what you need to do to compute T_out from the compliance equation and complete your model.
+
+Finally, make sure that you set the initial conditions of any integrators you use, including the angular position and velocity of the final drive and the position of the wheel.
 
 ### Tyre Model
 
