@@ -80,19 +80,19 @@ The relationship between the wheel speed (an input to the subsystem) and the spe
 
 The trickiest output of this sub-system to compute is $T_{out}$, which is the torque at the input of the wheels and tyres sub-system. The input $T_{in}$ is the torque at the input of the final drive. Intuitively, the output torque at the wheels is:
 
-$$T_{out} = T_{in}r_{fd} \nonumber $$
+$$ T_{out} = T_{in}r_{fd} \nonumber $$
 
 However, this ignores the fact that the driveshaft connection between the final drive output and the wheel is a compliant connection and not a rigid one (see drivetrain illustration in [Drivetrain Modelling]({{ site.url }}/ttc066-module/lectures/Drivetrain%20Modelling%20II.pdf) slide pack). To obtain the actual torque output to the wheel you will need to reproduce the dampening and compliance equation:
 
-$$ T_{out} = k(\theta_{fd} - \theta_{wh}) + b(\dot{\theta_{fd}} - \dot{\theta_{wh}) \nonumber $$
+$$ T_{out} = k(\theta_{fd} - \theta_{wh}) + b(\dot{\theta_{fd}} - \dot{\theta_{wh}}) \nonumber $$
 
 Where $k$ is the shaft stiffness, $b$ the shaft damping term, $\theta_{fd}$ and $\dot{\theta_{fd}}$ are the angular position and velocity out of the final drive. $\theta_{wh}$ and $\dot{\theta_{wh}}$ are the angular position and velocity of the wheel. $\dot{\theta_{wh}}$ is a known quantity, as it is an input to the subsystem.
 
-$\dot{\theta_{fd}}, however, is a quantity that needs to be calculated within your model. To do this you will need to recall Newton's Second Law for rotation and apply it to the final drive:
+$\dot{\theta_{fd}}$, however, is a quantity that needs to be calculated within your model. To do this you will need to recall Newton's Second Law for rotation and apply it to the final drive:
 
 $$ T_{in}r_{fd} - T_{out} = J_{tot}\ddot{\theta_{fd}} \nonumber $$
 
-To use this equation, you will need to compute the inertia term $J_{tot}, given by the following equation:
+To use this equation, you will need to compute the inertia term $J_{tot}$, given by the following equation:
 
 $$ J_{tot} = [J_{f} \left(\frac{r_2}{r_1}\right)^2 + J_g]r_{fd}^2 + J_{fd} \nonumber $$
 
@@ -100,7 +100,7 @@ Where $J_f$ is the referred inertia of the engine and flywheel, $\frac{r_2}{r_1}
 
 To compute the above equation you will need to use a 1-D lookup table to obtain $J_g$, with an array of gear numbers as breakpoints and the array of $J_g$ values given in the parameter file as outputs.
 
-After all of this you will be able to compute $\ddot{theta_{fd}}$ from the Newton's Second Law equation. It should then be clear what you need to do to compute $T_{out}$ from the compliance equation and complete your model.
+After all of this you will be able to compute $\ddot{\theta_{fd}}$ from the Newton's Second Law equation. It should then be clear what you need to do to compute $T_{out}$ from the compliance equation and complete your model.
 
 Finally, make sure that you set the initial conditions of any integrators you use, including the angular position and velocity of the final drive and the position of the wheel.
 
