@@ -78,29 +78,29 @@ Open the Final Drive and Driveshaft submodel, again note the inputs and outputs 
 
 The relationship between the wheel speed (an input to the subsystem) and the speed at the input of the final drive (an output of the subsystem) is simply given by the final drive ratio $r_{fd}$.
 
-The trickiest output of this sub-system to compute is $T_out$, which is the torque at the input of the wheels and tyres sub-system. The input T_{in} is the torque at the input of the final drive. Intuitively, the output torque at the wheels is:
+The trickiest output of this sub-system to compute is $T_{out}$, which is the torque at the input of the wheels and tyres sub-system. The input $T_{in}$ is the torque at the input of the final drive. Intuitively, the output torque at the wheels is:
 
-$$T_out = T_{in}r_{fd} \nonumber $$
+$$ T_{out} = T_{in}r_{fd} \nonumber $$
 
 However, this ignores the fact that the driveshaft connection between the final drive output and the wheel is a compliant connection and not a rigid one (see drivetrain illustration in [Drivetrain Modelling]({{ site.url }}/ttc066-module/lectures/Drivetrain%20Modelling%20II.pdf) slide pack). To obtain the actual torque output to the wheel you will need to reproduce the dampening and compliance equation:
 
-$$ T_{out} = k(\theta_fd - \theta_wh) + b(\dot{\theta_fd} - \dot{\theta_wh}) \nonumber $$
+$$ T_{out} = k(\theta_{fd} - \theta_{wh}) + b(\dot{\theta_{fd}} - \dot{\theta_{wh}}) \nonumber $$
 
-Where $k$ is the shaft stiffness, $b$ the shaft damping term, $\theta_fd$ and $\dot{\theta_fd}$ are the angular position and velocity out of the final drive. $\theta_wh$ and $\dot{\theta_wh}$ are the angular position and velocity of the wheel. $\dot{\theta_wh}$ is a known quantity, as it is an input to the subsystem.
+Where $k$ is the shaft stiffness, $b$ the shaft damping term, $\theta_{fd}$ and $\dot{\theta_{fd}}$ are the angular position and velocity out of the final drive. $\theta_{wh}$ and $\dot{\theta_{wh}}$ are the angular position and velocity of the wheel. $\dot{\theta_{wh}}$ is a known quantity, as it is an input to the subsystem.
 
-$\dot{\theta_fd}, however, is a quantity that needs to be calculated within your model. To do this you will need to recall Newton's Second Law for rotation and apply it to the final drive:
+$\dot{\theta_{fd}}$, however, is a quantity that needs to be calculated within your model. To do this you will need to recall Newton's Second Law for rotation and apply it to the final drive:
 
-$$ T_{in}r_{fd} - T_{out} = J_{tot}\dotdot{\theta_{fd}} \nonumber $$
+$$ T_{in}r_{fd} - T_{out} = J_{tot}\ddot{\theta_{fd}} \nonumber $$
 
-To use this equation, you will need to compute the inertia term $J_{tot}, given by the following equation:
+To use this equation, you will need to compute the inertia term $J_{tot}$, given by the following equation:
 
 $$ J_{tot} = [J_{f} \left(\frac{r_2}{r_1}\right)^2 + J_g]r_{fd}^2 + J_{fd} \nonumber $$
 
-Where $J_f$ is the referred inertia of the engine and flywheel, $\frac{r_2}{r_1}$ is the currently selected gear ratio, $J_g$ is the inertia of the currently selected gear, $r_{fd}$ the final drive ratio and J_{fd} is final drive inertia.
+Where $J_f$ is the referred inertia of the engine and flywheel, $\frac{r_2}{r_1}$ is the currently selected gear ratio, $J_g$ is the inertia of the currently selected gear, $r_{fd}$ the final drive ratio and $J_{fd}$ is final drive inertia.
 
 To compute the above equation you will need to use a 1-D lookup table to obtain $J_g$, with an array of gear numbers as breakpoints and the array of $J_g$ values given in the parameter file as outputs.
 
-After all of this you will be able to compute $\dotdot{theta_{fd}}$ from the Newton's Second Law equation. It should then be clear what you need to do to compute T_out from the compliance equation and complete your model.
+After all of this you will be able to compute $\ddot{\theta_{fd}}$ from the Newton's Second Law equation. It should then be clear what you need to do to compute $T_{out}$ from the compliance equation and complete your model.
 
 Finally, make sure that you set the initial conditions of any integrators you use, including the angular position and velocity of the final drive and the position of the wheel.
 
