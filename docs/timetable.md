@@ -15,7 +15,7 @@ nav_order: 2
 | 5 | Drivetrain Dynamics | Revision and Tutorial Catchup |
 | 6 | Simulink Engine Modelling | Assessed Computer Lab |
 | 7 | Drivetrain Modelling | Simulink Engine Modelling |
-| 8 | Parameter Tuning | Simulink Drivetrain Modelling |
+| 8 | Drivetrain Modelling | Simulink Drivetrain Modelling |
 | 9 | Coursework Introduction | Simulink Parameter Tuning |
 | 10 | MIRA Test Planning and Simulation | MIRA Test Planning and Simulation |
 | 11 | Vehicle Testing at MIRA | Vehicle Testing at MIRA |
