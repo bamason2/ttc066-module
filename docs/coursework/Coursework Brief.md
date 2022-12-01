@@ -2,7 +2,7 @@
 layout: page
 # mathjax: true
 parent: Test and Coursework
-published: false
+published: true
 ---
 
 # MIRA Coursework Brief
