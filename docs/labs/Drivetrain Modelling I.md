@@ -2,7 +2,7 @@
 layout: home
 mathjax: true
 parent: Tutorials and Labs
-nav_order: 3
+nav_order: 4
 ---
 
 # Drivetrain Modelling I
