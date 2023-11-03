@@ -9,7 +9,7 @@
 %
 % running this macro puts all necessary parameters on the stack
 
-% default is nonlinear simulation (lin = 0) :
+% default is nonlinear simulation:
 lin = 0;
 
 dt = 0.005;                      % Data acquisition rate (1/0.005 = 200Hz)
