@@ -330,7 +330,7 @@ The above advantages and disadvantages can be compared with nonlinear system ana
 
 ### Eigenvector / Eigenvalue (mode) analysis of Linear Systems
 
-The following is largely a repeat of some material we saw earlier, in [Section 6]({{ site.url }}/ttc066-module/notes/Section_6.html), it is included here as a reminder. Note that whilst this is drawn as longitudenal translation, for a driveline translation will be rotational.  Note $\theta$ is used not $\x$.
+The following is largely a repeat of some material we saw earlier, in [Section 6]({{ site.url }}/ttc066-module/notes/Section_6.html), it is included here as a reminder. Note that whilst this is drawn as longitudenal translation, for a driveline translation will be rotational.  Note $\theta$ is used not $x$.
 
 #### Derivation of a state-space form
 
