@@ -13,8 +13,8 @@ nav_order: 2
 | 3 | Ride Dynamics | Suspension System Simulation |
 | 4 | Using Eigenvalues and Eigenvectors | Drivetrain Modelling I |
 | 5 | Drivetrain Dynamics | Revision and Tutorial Catchup |
-| 6 | Simulink Engine Modelling | Assessed Computer Lab |
-| 7 | Drivetrain Modelling | Simulink Engine Modelling |
+| 6 | Assessed Computer Lab | Assessed Computer Lab |
+| 7 | Engine Modelling | Simulink Engine Modelling |
 | 8 | Drivetrain Modelling | Simulink Drivetrain Modelling |
 | 9 | Coursework Introduction | Simulink Parameter Tuning |
 | 10 | MIRA Test Planning and Simulation | MIRA Test Planning and Simulation |
