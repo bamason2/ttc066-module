@@ -29,7 +29,7 @@ Before the end of the assessment you should make sure you have uploaded the foll
 4. gains.fig
 5. speedvar.fig
 
-The files above should be submitted to the LEARN module page in the Assessment Information, Submission and Feedback Section through the [Week 6 Assessed Simulation Exercise](https://learn.lboro.ac.uk/mod/coursework/view.php?id=1281915) activity.
+The files above should be submitted to the LEARN module page in the Assessment Information, Submission and Feedback Section through the [Coursework - Computer Lab - CW1 - 40](https://learn.lboro.ac.uk/mod/assign/view.php?id=1582285) activity.
 
 ## Part One:  Linear and Nonlinear Simulations
 
