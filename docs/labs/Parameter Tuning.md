@@ -17,7 +17,7 @@ Open your drivetrain model, making sure that the parameter files are available o
 
 ### Coastdown Tuning
 
-In the model parameter file set the vehicle initial velocity to 111 m/s. Ensure that the initial conditions of all the other subsystems are suitably set. Next set the clutch to be fully disengaged throughout the duration of the simulation, this can be done by setting the clu_engage parameter to some high value.
+In the model parameter file set the vehicle initial velocity to 111 km/h. Ensure that the initial conditions of all the other subsystems are suitably set. Next set the clutch to be fully disengaged throughout the duration of the simulation, this can be done by setting the clu_engage parameter to some high value.
 
 Run the model and observe the vehicle velocity, which should look similar to the plot below;
 
